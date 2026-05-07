@@ -10,7 +10,7 @@
   <style>
     /* ============================================================
        DESIGN TOKENS
-    ============================================================ */
+    =========================================================== */
     :root {
       --bg:          #07090F;
       --surface:     #0D1117;
@@ -34,7 +34,7 @@
 
     /* ============================================================
        RESET & BASE
-    ============================================================ */
+    =========================================================== */
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior: smooth; }
 
@@ -50,10 +50,15 @@
 
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
+    
+    a:focus-visible, .btn:focus-visible {
+      outline: 2px dashed var(--accent);
+      outline-offset: 4px;
+    }
 
     /* ============================================================
        CUSTOM CURSOR
-    ============================================================ */
+    =========================================================== */
     #cursor-dot {
       position: fixed; top: 0; left: 0; z-index: 9999;
       width: 8px; height: 8px;
@@ -80,7 +85,7 @@
 
     /* ============================================================
        NOISE OVERLAY
-    ============================================================ */
+    =========================================================== */
     body::before {
       content: '';
       position: fixed; inset: 0; z-index: 0;
@@ -92,7 +97,7 @@
 
     /* ============================================================
        NAV
-    ============================================================ */
+    =========================================================== */
     header {
       position: fixed; top: 1.5rem; left: 50%; z-index: 100;
       transform: translateX(-50%);
@@ -121,7 +126,7 @@
 
     /* ============================================================
        HERO
-    ============================================================ */
+    =========================================================== */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -219,7 +224,7 @@
     }
     @keyframes float {
       0%, 100% { transform: translateY(0px); }
-      50%       { transform: translateY(-10px); }
+      50%        { transform: translateY(-10px); }
     }
     .avail-dot {
       width: 8px; height: 8px;
@@ -231,7 +236,7 @@
     }
     @keyframes pulse-dot {
       0%, 100% { transform: scale(1); opacity: 1; }
-      50%       { transform: scale(1.4); opacity: 0.7; }
+      50%        { transform: scale(1.4); opacity: 0.7; }
     }
     .hero::after {
       content: '';
@@ -334,7 +339,7 @@
 
     /* ============================================================
        BUTTONS
-    ============================================================ */
+    =========================================================== */
     .btn {
       display: inline-flex; align-items: center; gap: 0.5rem;
       font-family: var(--font-ui);
@@ -371,7 +376,7 @@
 
     /* ============================================================
        SECTION WRAPPER
-    ============================================================ */
+    =========================================================== */
     .section {
       position: relative; z-index: 1;
       max-width: 1100px;
@@ -408,7 +413,7 @@
 
     /* ============================================================
        ABOUT
-    ============================================================ */
+    =========================================================== */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1.5fr;
@@ -480,7 +485,7 @@
 
     /* ============================================================
        SKILLS
-    ============================================================ */
+    =========================================================== */
     .skills-categories {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -523,7 +528,12 @@
 
     /* ============================================================
        PROJECTS
-    ============================================================ */
+    =========================================================== */
+    .projects-grid {
+      display: grid;
+      gap: 4rem;
+    }
+    
     .project-card {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -554,6 +564,20 @@
       filter: brightness(0.7) saturate(0.8);
     }
     .project-card:hover .project-img-wrap img { transform: scale(1.05); }
+
+    .project-placeholder {
+      width: 100%; 
+      height: 100%; 
+      background: linear-gradient(45deg, #0D1117, #131A24); 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      color: var(--muted); 
+      font-family: var(--font-ui); 
+      text-transform: uppercase; 
+      letter-spacing: 0.1em;
+      font-size: 0.8rem;
+    }
 
     .project-content { padding: 3rem 3rem 3rem 2rem; }
     .project-num {
@@ -599,7 +623,7 @@
 
     /* ============================================================
        CONTACT
-    ============================================================ */
+    =========================================================== */
     .contact-wrap {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -659,7 +683,7 @@
 
     /* ============================================================
        DIVIDER
-    ============================================================ */
+    =========================================================== */
     .divider {
       width: 100%; height: 1px;
       background: var(--border);
@@ -670,7 +694,7 @@
 
     /* ============================================================
        FOOTER
-    ============================================================ */
+    =========================================================== */
     footer {
       position: relative; z-index: 1;
       display: flex;
@@ -697,7 +721,7 @@
 
     /* ============================================================
        SCROLL REVEAL
-    ============================================================ */
+    =========================================================== */
     .reveal {
       opacity: 0;
       transform: translateY(40px);
@@ -713,7 +737,7 @@
 
     /* ============================================================
        KEYFRAMES
-    ============================================================ */
+    =========================================================== */
     @keyframes fade-up {
       from { opacity: 0; transform: translateY(28px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -721,7 +745,7 @@
 
     /* ============================================================
        RESPONSIVE
-    ============================================================ */
+    =========================================================== */
     @media (max-width: 768px) {
       body { cursor: auto; }
       #cursor-dot, #cursor-ring { display: none; }
@@ -759,7 +783,7 @@
 
   <!-- ============================================================
        NAV
-  ============================================================ -->
+  =========================================================== -->
   <header>
     <nav>
       <a href="#about">About</a>
@@ -771,7 +795,7 @@
 
   <!-- ============================================================
        HERO
-  ============================================================ -->
+  =========================================================== -->
   <section class="hero">
     <div class="hero-blob-2"></div>
 
@@ -812,23 +836,23 @@
         </div>
 
         <div class="hero-badge badge-avail">
-          <div class="avail-dot"></div>
+          <div class="avail-dot" style="background: var(--accent); box-shadow: 0 0 8px var(--accent-glow);"></div>
           <div class="hero-badge-text">
-            <div class="hero-badge-title">Open to Work</div>
-            <div class="hero-badge-sub">Seeking opportunities</div>
+            <div class="hero-badge-title">SE Intern</div>
+            <div class="hero-badge-sub">@ Shield Technologies</div>
           </div>
         </div>
       </div>
     </div>
 
-    
+ <div class="scroll-hint">Scroll to explore</div>   
   </section>
 
-  <div class="scroll-hint">Scroll to explore</div>
+ 
 
   <!-- ============================================================
        ABOUT
-  ============================================================ -->
+  =========================================================== -->
   <div class="divider"></div>
 
   <section id="about" class="section">
@@ -876,7 +900,7 @@
 
   <!-- ============================================================
        SKILLS
-  ============================================================ -->
+  =========================================================== -->
   <div class="divider"></div>
 
   <section id="skills" class="section">
@@ -921,39 +945,63 @@
 
   <!-- ============================================================
        PROJECTS
-  ============================================================ -->
+  =========================================================== -->
   <div class="divider"></div>
 
   <section id="projects" class="section">
     <div class="section-label reveal">What I've Built</div>
-    <h2 class="section-title reveal reveal-delay-1">Featured <em>project</em></h2>
+    <h2 class="section-title reveal reveal-delay-1">Featured <em>projects</em></h2>
 
-    <div class="project-card reveal">
-      <div class="project-img-wrap">
-        <img
-          src="https://chamod-tharusha-alwis.github.io/new.png"
-          alt="Ayu Arana Care — screenshot"
-        />
-      </div>
-      <div class="project-content">
-        <div class="project-num">01</div>
-        <h3>Ayu Arana Care — Elders' Care Home Management System</h3>
-        <p>A comprehensive full-stack web application that digitises and streamlines daily operations of an elders' care facility — from database design and API architecture to a fully responsive React UI.</p>
-        <div class="project-tech">
-          <span>React</span>
-          <span>Node.js</span>
-          <span>Express</span>
-          <span>MongoDB</span>
-          <span>Tailwind CSS</span>
+    <div class="projects-grid">
+      <!-- Project 01 -->
+      <div class="project-card reveal">
+        <div class="project-img-wrap">
+          <img
+            src="https://chamod-tharusha-alwis.github.io/new.png"
+            alt="Ayu Arana Care — screenshot"
+          />
         </div>
-        <a href="https://github.com/Chamod-Tharusha-Alwis/Ayu-Arana-Care" target="_blank" class="btn btn-primary">View on GitHub →</a>
+        <div class="project-content">
+          <div class="project-num">01</div>
+          <h3>Ayu Arana Care — Elders' Care Home Management System</h3>
+          <p>A comprehensive full-stack web application that digitises and streamlines daily operations of an elders' care facility — from database design and API architecture to a fully responsive React UI.</p>
+          <div class="project-tech">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>MongoDB</span>
+            <span>Tailwind CSS</span>
+          </div>
+          <a href="https://github.com/Chamod-Tharusha-Alwis/Ayu-Arana-Care" target="_blank" class="btn btn-primary">View on GitHub →</a>
+        </div>
+      </div>
+
+      <!-- Project 02 (Pending Upload Placeholder) -->
+      <div class="project-card reveal reveal-delay-1">
+        <div class="project-img-wrap">
+          <div class="project-placeholder">
+            Image Pending
+          </div>
+        </div>
+        <div class="project-content">
+          <div class="project-num">02</div>
+          <h3>Ceylon Traveler — Comprehensive Tourism Platform</h3>
+          <p>An end-to-end booking and tourism application featuring a robust frontend and backend architecture tailored to easily showcase, book, and manage local travel experiences.</p>
+          <div class="project-tech">
+            <span>React</span>
+            <span>Node.js</span>
+            <span>Express</span>
+            <span>MongoDB</span>
+          </div>
+          <a href="#projects" style="opacity: 0.5; cursor: not-allowed;" class="btn btn-outline">Upload Pending ⏳</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================================
        CONTACT
-  ============================================================ -->
+  =========================================================== -->
   <div class="divider"></div>
 
   <section id="contact" class="section">
@@ -1000,39 +1048,45 @@
 
   <!-- ============================================================
        FOOTER
-  ============================================================ -->
+  =========================================================== -->
   <div class="divider"></div>
   <footer>
     <span class="footer-name">Chamod Tharusha Alwis</span>
-    <span class="footer-copy">© 2025 · All rights reserved</span>
+    <span class="footer-copy">© 2026 · All rights reserved</span>
   </footer>
 
   <!-- ============================================================
        SCRIPTS
-  ============================================================ -->
+  =========================================================== -->
   <script>
     /* --- Custom cursor --- */
     const dot  = document.getElementById('cursor-dot');
     const ring = document.getElementById('cursor-ring');
-    let rx = 0, ry = 0;
+    
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let ringX  = mouseX;
+    let ringY  = mouseY;
 
     document.addEventListener('mousemove', e => {
-      dot.style.left  = e.clientX + 'px';
-      dot.style.top   = e.clientY + 'px';
-      rx += (e.clientX - rx) * 0.12;
-      ry += (e.clientY - ry) * 0.12;
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+      
+      // Instant follow for the dot
+      dot.style.left  = mouseX + 'px';
+      dot.style.top   = mouseY + 'px';
     });
 
-    (function animRing() {
-      ring.style.left = rx + 'px';
-      ring.style.top  = ry + 'px';
-      requestAnimationFrame(animRing);
+    // Smooth follow for the outer ring
+    (function loop() {
+      ringX += (mouseX - ringX) * 0.12; 
+      ringY += (mouseY - ringY) * 0.12;
+      
+      ring.style.left = ringX + 'px';
+      ring.style.top  = ringY + 'px';
+      
+      requestAnimationFrame(loop);
     })();
-
-    document.addEventListener('mousemove', e => {
-      rx = e.clientX;
-      ry = e.clientY;
-    });
 
     /* --- Scroll reveal --- */
     const revealEls = document.querySelectorAll('.reveal');
@@ -1045,22 +1099,6 @@
       });
     }, { threshold: 0.12 });
     revealEls.forEach(el => io.observe(el));
-
-    /* --- Smooth cursor ring lag --- */
-    let mouseX = window.innerWidth / 2, mouseY = window.innerHeight / 2;
-    let ringX  = mouseX, ringY = mouseY;
-
-    document.addEventListener('mousemove', e => {
-      mouseX = e.clientX; mouseY = e.clientY;
-    });
-
-    (function loop() {
-      ringX += (mouseX - ringX) * 0.1;
-      ringY += (mouseY - ringY) * 0.1;
-      ring.style.left = ringX + 'px';
-      ring.style.top  = ringY + 'px';
-      requestAnimationFrame(loop);
-    })();
   </script>
 </body>
 </html>
