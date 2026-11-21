@@ -10,7 +10,7 @@ const SITE = b.links.site.replace(/\/$/, '');
 const FILL = /^\[\[FILL/;
 
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const out = (path, html) => { mkdirSync(dirname(path) || '.', { recursive: true }); writeFileSync(path, html); console.log('wrote', path, html.length, 'bytes'); };
+const out = (path, html) => { html = html.replace(/[ \t]+$/gm, ''); mkdirSync(dirname(path) || '.', { recursive: true }); writeFileSync(path, html); console.log('wrote', path, html.length, 'bytes'); };
 const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const ym = s => { if (!s) return 'Present'; const [y, m] = s.split('-'); return m ? `${MONTHS[+m - 1]} ${y}` : y; };
 const range = (a, z) => `${ym(a)} – ${ym(z)}`;
@@ -22,7 +22,6 @@ const placeholder = (img, extraCls = '') => `<!-- ${img.src} --><div class="shot
 const projects = d.projects;
 const featured = projects.find(p => p.featured);
 const grid = projects.filter(p => !p.featured && !p.otherWork);
-const other = projects.filter(p => p.otherWork);
 const lastUpdated = longDate(d.meta.lastUpdated);
 const year = d.meta.lastUpdated.slice(0, 4);
 
@@ -200,21 +199,9 @@ ${nav(base, true)}
         </div>
       </article>
       <div class="spacer"></div>
-      <div class="filters" role="group" aria-label="Filter projects">
-        <button class="filter" type="button" aria-pressed="true" data-f="all">All</button>
-        <button class="filter" type="button" aria-pressed="false" data-f="full-stack">Full-Stack</button>
-        <button class="filter" type="button" aria-pressed="false" data-f="data-ml">Data &amp; ML</button>
-      </div>
       <div class="grid-2">
         ${grid.map(card).join('\n        ')}
       </div>
-      ${other.map(p => `<div class="other reveal" data-cat="${p.category.join(' ')}">
-        <p class="label">Other work</p>
-        <div>
-          <h3>${esc(p.name)} <span class="meta">· ${esc(p.cardMeta.toLowerCase())}</span></h3>
-          <p class="meta">${esc(p.summary)}</p>
-        </div>
-      </div>`).join('\n')}
     </div>
   </section>
 
@@ -274,47 +261,46 @@ ${footer()}`;
 }
 
 // ---------- Case study ----------
-function archSvg(a) {
-  // Simple left-to-right diagram: client -> API -> ML engine, with the API's data stores below.
-  const stores = a.stores;
-  const sw = 150, gap = 14, total = stores.length * sw + (stores.length - 1) * gap, sx = (760 - total) / 2;
+function archSvg(a, name) {
+  // Services left to right; the key service's data stores below it.
+  const n = a.services.length, bw = 200, gapX = n > 1 ? (760 - 20 - n * bw) / (n - 1) : 0;
+  const xs = a.services.map((_, i) => 10 + i * (bw + gapX));
+  const keyI = Math.max(0, a.services.findIndex(s => s.key));
+  const kx = xs[keyI] + bw / 2;
+  const sw = 150, gap = 14, total = a.stores.length * sw + (a.stores.length - 1) * gap;
+  const sx = Math.min(Math.max(kx - total / 2, 10), 750 - total);
+  const lines = xs.slice(0, -1).map((x, i) => `<path class="ln" d="M${x + bw} 71 H${xs[i + 1] - 6}" marker-end="url(#ar)" marker-start="url(#ar)"/>`).join('');
+  const drops = a.stores.map((_, i) => `<path class="ln" d="M${sx + i * (sw + gap) + sw / 2} 176 V200" marker-end="url(#ar)"/>`).join('');
+  const bus = a.stores.length > 1 ? `<path class="ln" d="M${sx + sw / 2} 176 H${sx + total - sw / 2}"/>` : '';
+  const desc = `${a.services.map(s => `${s.title} (${s.sub})`).join(' talks to ')}. Data: ${a.stores.join(', ')}.`;
   return `<figure class="arch">
-  <svg viewBox="0 0 760 300" role="img" aria-labelledby="arch-t arch-d">
-    <title id="arch-t">MediSync architecture</title>
-    <desc id="arch-d">The ${esc(a.client)} client talks to the ${esc(a.api)} API, which calls the ${esc(a.ml)} ML engine. The API uses ${esc(stores.join(', '))}.</desc>
+  <svg viewBox="0 0 760 280" role="img" aria-labelledby="arch-t arch-d">
+    <title id="arch-t">${esc(name)} architecture</title>
+    <desc id="arch-d">${esc(desc)}</desc>
     <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="currentColor"/></marker></defs>
-    <g style="color: var(--ink-2)">
-      <path class="ln" d="M210 70 H275" marker-end="url(#ar)" marker-start="url(#ar)"/>
-      <path class="ln" d="M485 70 H550" marker-end="url(#ar)" marker-start="url(#ar)"/>
-      <path class="ln" d="M380 112 V176"/>
-      <path class="ln" d="M${sx + sw / 2} 176 H${sx + total - sw / 2}"/>
-      ${stores.map((_, i) => `<path class="ln" d="M${sx + i * (sw + gap) + sw / 2} 176 V200" marker-end="url(#ar)"/>`).join('')}
-    </g>
-    <rect class="box" x="10" y="30" width="200" height="82" rx="10"/>
-    <text class="t" x="110" y="66" text-anchor="middle">Web client</text><text class="s" x="110" y="88" text-anchor="middle">${esc(a.client)}</text>
-    <rect class="box-key" x="280" y="30" width="200" height="82" rx="10"/>
-    <text class="t" x="380" y="66" text-anchor="middle">API</text><text class="s" x="380" y="88" text-anchor="middle">${esc(a.api)}</text>
-    <rect class="box" x="550" y="30" width="200" height="82" rx="10"/>
-    <text class="t" x="650" y="66" text-anchor="middle">ML engine</text><text class="s" x="650" y="88" text-anchor="middle">${esc(a.ml)}</text>
-    ${stores.map((s, i) => `<rect class="box" x="${sx + i * (sw + gap)}" y="204" width="${sw}" height="56" rx="10"/><text class="s" x="${sx + i * (sw + gap) + sw / 2}" y="237" text-anchor="middle">${esc(s)}</text>`).join('')}
+    <g style="color: var(--ink-2)">${lines}<path class="ln" d="M${kx} 112 V176"/>${bus}${drops}</g>
+    ${a.services.map((s, i) => `<rect class="${s.key ? 'box-key' : 'box'}" x="${xs[i]}" y="30" width="${bw}" height="82" rx="10"/><text class="t" x="${xs[i] + bw / 2}" y="66" text-anchor="middle">${esc(s.title)}</text><text class="s" x="${xs[i] + bw / 2}" y="88" text-anchor="middle">${esc(s.sub)}</text>`).join('')}
+    ${a.stores.map((st, i) => `<rect class="box" x="${sx + i * (sw + gap)}" y="204" width="${sw}" height="56" rx="10"/><text class="s" x="${sx + i * (sw + gap) + sw / 2}" y="237" text-anchor="middle">${esc(st)}</text>`).join('')}
   </svg>
-  <figcaption>Three services. The Flask ML engine can scale and deploy independently of the web API.</figcaption>
+  <figcaption>${esc(a.caption)}</figcaption>
 </figure>`;
 }
 
 function caseStudy(p) {
   const base = '../';
   const cs = p.caseStudy;
-  const sections = [['overview', 'Overview'], ['problem', 'Problem'], ['role', 'My role'], ['architecture', 'Architecture'], ['features', 'Key features'], ['decisions', 'Tech decisions'], ['challenges', 'Challenges & what I learned'], ['screenshots', 'Screenshots'], ['links', 'Links']];
-  const imgCS = i => FILL.test(i.src) ? placeholder(i) : `<img src="${base}${i.src}" width="${i.width}" height="${i.height}" loading="lazy" decoding="async" alt="${esc(i.alt)}">`;
+  const extraShots = p.images.slice(1);
+  const sections = [['overview', 'Overview'], ['problem', 'Problem'], ['role', 'My role'], ['architecture', 'Architecture'], ['features', 'Key features'], ['decisions', 'Tech decisions'], ['challenges', 'Challenges & what I learned'], ...(extraShots.length ? [['screenshots', 'Screenshots']] : []), ['links', 'Links']];
+  const imgCS = i => FILL.test(i.src) ? placeholder(i) : `<img src="${base}${i.src}" width="${i.width}" height="${i.height}" decoding="async" alt="${esc(i.alt)}">`;
   const linkItems = [
     isLink(p.links.live) ? `<li>${ext(p.links.live, 'Live site', 'btn btn-primary')}</li>` : '',
     isLink(p.links.repo) ? `<li>${ext(p.links.repo, 'Source code on GitHub', 'btn btn-ghost')}</li>` : '',
     `<li><a class="btn btn-ghost" href="${base}index.html#work">All projects</a></li>`,
   ].join('');
+  const others = projects.filter(o => o !== p && o.links.caseStudy).map(o => `<li><a href="${base}${o.links.caseStudy}">${esc(o.name)}</a></li>`).join('');
   return head({
     title: `${p.name} case study — ${b.name}`,
-    description: `How I built ${p.name}: React 19, Express 5 and a Flask ML engine with outbreak forecasting and AES-256 encrypted patient records.`,
+    description: cs.metaDescription,
     path: `/${p.links.caseStudy}`, base,
   }) + `
 <body>
@@ -326,7 +312,7 @@ ${nav(base, false)}
     <h1>${esc(p.name)}</h1>
     <p class="lead">${esc(p.tagline)}.</p>
     <div class="actions">${isLink(p.links.live) ? ext(p.links.live, 'Live site', 'btn btn-primary') : ''}${isLink(p.links.repo) ? ext(p.links.repo, 'Code', 'btn btn-ghost') : ''}</div>
-    ${stats(p.stats)}
+    ${p.stats.length ? stats(p.stats) : ''}
     <div class="cs-shot">${imgCS(p.images[0])}</div>
   </div>
   <div class="wrap cs-body">
@@ -334,13 +320,13 @@ ${nav(base, false)}
     <div class="prose">
       <section id="overview" aria-labelledby="overview-h"><h2 id="overview-h">Overview</h2><p>${esc(cs.overview)}</p></section>
       <section id="problem" aria-labelledby="problem-h"><h2 id="problem-h">Problem</h2><p>${esc(p.problem)}</p><p><strong>What I built.</strong> ${esc(p.solution)}</p></section>
-      <section id="role" aria-labelledby="role-h"><h2 id="role-h">My role</h2><p>${esc(p.role)} That covered the React front end, the Node.js/Express API, the Flask ML engine, the security layer and the CI/CD pipeline.</p></section>
-      <section id="architecture" aria-labelledby="architecture-h"><h2 id="architecture-h">Architecture</h2>${archSvg(cs.architecture)}</section>
+      <section id="role" aria-labelledby="role-h"><h2 id="role-h">My role</h2><p>${esc(p.role)} ${esc(cs.roleDetail || '')}</p></section>
+      <section id="architecture" aria-labelledby="architecture-h"><h2 id="architecture-h">Architecture</h2>${archSvg(cs.architecture, p.name)}</section>
       <section id="features" aria-labelledby="features-h"><h2 id="features-h">Key features</h2><ul>${p.highlights.map(x => `<li>${esc(x)}</li>`).join('')}</ul></section>
       <section id="decisions" aria-labelledby="decisions-h"><h2 id="decisions-h">Tech decisions</h2><ul>${cs.techDecisions.map(x => `<li>${esc(x)}</li>`).join('')}</ul></section>
       <section id="challenges" aria-labelledby="challenges-h"><h2 id="challenges-h">Challenges &amp; what I learned</h2><ul>${cs.challenges.map(x => `<li>${esc(x)}</li>`).join('')}</ul></section>
-      <section id="screenshots" aria-labelledby="screenshots-h"><h2 id="screenshots-h">Screenshots</h2><div class="shots">${p.images.slice(1).map(i => `<figure>${imgCS(i)}<figcaption>${esc(i.alt)}</figcaption></figure>`).join('')}</div></section>
-      <section id="links" aria-labelledby="links-h"><h2 id="links-h">Links</h2><p>Stack: ${p.stack.map(esc).join(' · ')}</p><ul class="link-list">${linkItems}</ul></section>
+      ${extraShots.length ? `<section id="screenshots" aria-labelledby="screenshots-h"><h2 id="screenshots-h">Screenshots</h2><div class="shots">${extraShots.map(i => `<figure>${imgCS(i)}<figcaption>${esc(i.alt)}</figcaption></figure>`).join('')}</div></section>` : ''}
+      <section id="links" aria-labelledby="links-h"><h2 id="links-h">Links</h2><p>Stack: ${p.stack.map(esc).join(' · ')}</p><ul class="link-list">${linkItems}</ul>${others ? `<p class="more">More case studies:</p><ul>${others}</ul>` : ''}</section>
     </div>
   </div>
 </main>

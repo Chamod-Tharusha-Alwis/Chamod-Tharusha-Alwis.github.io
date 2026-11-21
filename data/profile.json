@@ -31,11 +31,11 @@
     },
     "availability": "Open to Junior SE, Full-Stack and Data roles",
     "photo": {
-      "src": "assets/img/profile-480.webp",
-      "src2x": "assets/img/profile-720.webp",
+      "src": "assets/img/profile-full-480.webp",
+      "src2x": "assets/img/profile-full-720.webp",
       "width": 480,
-      "height": 600,
-      "alt": "Chamod Tharusha Alwis in a dark blazer, outdoors"
+      "height": 640,
+      "alt": "Chamod Tharusha Alwis standing outdoors in a dark blazer"
     },
     "headlineEmphasis": "secure, data-driven",
     "contactBlurb": "Open to junior software engineer, full-stack and data roles. The quickest way to reach me is email.",
@@ -260,16 +260,31 @@
           "Finding secrets in the git history taught me to rotate credentials immediately and to add secret scanning and CI security tests (GitHub Actions) to the pipeline."
         ],
         "architecture": {
-          "client": "React 19 + Vite",
-          "api": "Node.js / Express 5",
-          "ml": "Python / Flask",
+          "services": [
+            {
+              "title": "Web client",
+              "sub": "React 19 + Vite"
+            },
+            {
+              "title": "API",
+              "sub": "Node.js / Express 5",
+              "key": true
+            },
+            {
+              "title": "ML engine",
+              "sub": "Python / Flask"
+            }
+          ],
           "stores": [
             "MongoDB Atlas",
             "Redis",
             "HashiCorp Vault",
             "Cloudinary"
-          ]
-        }
+          ],
+          "caption": "Three services. The Flask ML engine can scale and deploy independently of the web API."
+        },
+        "roleDetail": "That covered the React front end, the Node.js/Express API, the Flask ML engine, the security layer and the CI/CD pipeline.",
+        "metaDescription": "How I built MediSync: React 19, Express 5 and a Flask ML engine with outbreak forecasting and AES-256 encrypted patient records."
       },
       "cardMeta": "Featured · Solo BSc capstone · Live",
       "summary": "AI-driven national healthcare platform for Sri Lanka. Role-based portals, encrypted patient records and a public district map of outbreak risk, across React, Node.js and a Python ML service.",
@@ -319,7 +334,7 @@
       "links": {
         "live": "https://ayu-arana-care.chamodtharusha.com.lk/",
         "repo": "https://github.com/Chamod-Tharusha-Alwis/Ayu-Arana-Care",
-        "caseStudy": null
+        "caseStudy": "projects/ayu-arana-care.html"
       },
       "images": [
         {
@@ -337,7 +352,39 @@
         "Tailwind CSS",
         "bcrypt"
       ],
-      "cvRole": "Team project, backend developer"
+      "cvRole": "Team project, backend developer",
+      "caseStudy": {
+        "draft": true,
+        "metaDescription": "Ayu Arana Care: a MERN care-home management system. I was the backend developer: REST API, role-based access with bcrypt, records, memberships and payments.",
+        "overview": "Ayu Arana Care is a management system for an elders' care home, built as a team project with MongoDB, Express, React and Node.js. I was the backend developer and also supported overall development, so this page focuses on the API.",
+        "roleDetail": "On the backend I built the REST API in Node.js and Express: role-based access control with bcrypt-hashed passwords, and the endpoints for resident medical records, membership tiers, payments and checkup requests.",
+        "architecture": {
+          "services": [
+            {
+              "title": "Web client",
+              "sub": "React + Tailwind CSS"
+            },
+            {
+              "title": "REST API",
+              "sub": "Node.js / Express",
+              "key": true
+            }
+          ],
+          "stores": [
+            "MongoDB"
+          ],
+          "caption": "A React and Tailwind front end calls the Node.js / Express REST API, which stores data in MongoDB."
+        },
+        "techDecisions": [
+          "Role-based access control on the API, so each role reaches only the records and actions it is allowed to.",
+          "Passwords are hashed with bcrypt, never stored as plain text.",
+          "One REST API in Node.js and Express serves the React and Tailwind front end, with MongoDB holding residents, medical records, memberships, payments and checkup requests."
+        ],
+        "challenges": [
+          "Medical records and payments are sensitive, which taught me to treat access control and password hashing as part of the core design rather than something added at the end.",
+          "As the backend developer in a team, I learned to keep the API consistent so the front end could be built on it in parallel."
+        ]
+      }
     },
     {
       "slug": "ceylon-traveler",
@@ -372,11 +419,11 @@
       "links": {
         "live": "https://ceylon-traveler.chamodtharusha.com.lk/",
         "repo": "https://github.com/Chamod-Tharusha-Alwis/Ceylon-Traveler",
-        "caseStudy": null
+        "caseStudy": "projects/ceylon-traveler.html"
       },
       "images": [
         {
-          "src": "[[FILL: new Ceylon Traveler screenshot without the Gemini AI section]]",
+          "src": "[[FILL: Ceylon Traveler screenshot with the rating badge cropped out]]",
           "alt": "Ceylon Traveler booking page"
         }
       ],
@@ -386,45 +433,39 @@
         "MERN",
         "JWT"
       ],
-      "cvRole": "Solo project"
-    },
-    {
-      "slug": "heart-disease-ml",
-      "name": "Heart-disease prediction",
-      "tagline": "Comparing classic ML models and a neural network on the Cleveland UCI dataset",
-      "context": "Academic coursework",
-      "status": "coursework",
-      "featured": false,
-      "otherWork": true,
-      "category": [
-        "data-ml"
-      ],
-      "role": "Group coursework. The Random Forest, SVM and Logistic Regression comparison was the group part; the ANN was my individual component.",
-      "stack": [
-        "Python",
-        "scikit-learn",
-        "pandas",
-        "ANN (individual component)"
-      ],
-      "problem": "Predict the presence of heart disease from clinical measurements.",
-      "solution": "As a group we trained and compared Random Forest, SVM and Logistic Regression models on the Cleveland UCI heart-disease dataset. My individual component was an artificial neural network (ANN) for the same task.",
-      "highlights": [],
-      "stats": [],
-      "impact": [],
-      "cvBullets": [],
-      "links": {
-        "live": null,
-        "repo": null,
-        "caseStudy": null
-      },
-      "images": [],
-      "cardMeta": "Coursework",
-      "summary": "Group comparison of Random Forest, SVM and Logistic Regression on the Cleveland UCI dataset; the ANN was my individual component.",
-      "cardStack": [
-        "Python",
-        "scikit-learn",
-        "pandas"
-      ]
+      "cvRole": "Solo project",
+      "caseStudy": {
+        "draft": true,
+        "metaDescription": "Ceylon Traveler: a solo MERN platform for booking hotels, taxis and guides in Sri Lanka, with availability checks and JWT authentication.",
+        "overview": "Ceylon Traveler is a travel and accommodation booking platform for Sri Lanka that I built on my own with MongoDB, Express, React and Node.js. Travellers can book hotels, taxis and guides in one place.",
+        "roleDetail": "I designed the MongoDB schema, built the REST API in Node.js and Express, and built the React front end.",
+        "architecture": {
+          "services": [
+            {
+              "title": "Web client",
+              "sub": "React"
+            },
+            {
+              "title": "REST API",
+              "sub": "Node.js / Express",
+              "key": true
+            }
+          ],
+          "stores": [
+            "MongoDB"
+          ],
+          "caption": "A React front end calls the Node.js / Express REST API, which stores data in MongoDB."
+        },
+        "techDecisions": [
+          "Hotels, taxis and guides share one booking flow and one login, instead of three separate systems.",
+          "Availability is checked before a booking is confirmed.",
+          "JWT-based authentication protects booking actions on the API."
+        ],
+        "challenges": [
+          "Fitting three different kinds of booking into one MongoDB schema without making the data hard to query.",
+          "Building it solo meant owning every layer, from the database schema to the React front end."
+        ]
+      }
     }
   ],
   "cvSkills": [

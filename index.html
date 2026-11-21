@@ -31,8 +31,8 @@
 <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add('js')</script>
 <link rel="stylesheet" href="assets/css/site.css">
 <script src="assets/js/main.js" type="module"></script>
-<link rel="preload" as="image" href="assets/img/profile-480.webp" type="image/webp">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Chamod Tharusha Alwis","url":"https://www.chamodtharusha.com.lk/","image":"https://www.chamodtharusha.com.lk/assets/img/profile-480.webp","jobTitle":"Software Engineering Intern & Full-Stack Developer","email":"mailto:chamodtharusha13@gmail.com","worksFor":{"@type":"Organization","name":"Shield Technologies (Private) Limited"},"address":{"@type":"PostalAddress","addressLocality":"Kandy","addressCountry":"LK"},"alumniOf":[{"@type":"EducationalOrganization","name":"ESOFT Metro Campus, Kandy"},{"@type":"EducationalOrganization","name":"Nextgen Campus"},{"@type":"EducationalOrganization","name":"ICBT Kandy Campus"}],"sameAs":["https://github.com/Chamod-Tharusha-Alwis","https://www.linkedin.com/in/chamod-alwis"],"knowsAbout":["Full-stack development","MERN stack","Data science","Machine learning"]}</script>
+<link rel="preload" as="image" href="assets/img/profile-full-480.webp" type="image/webp">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Chamod Tharusha Alwis","url":"https://www.chamodtharusha.com.lk/","image":"https://www.chamodtharusha.com.lk/assets/img/profile-full-480.webp","jobTitle":"Software Engineering Intern & Full-Stack Developer","email":"mailto:chamodtharusha13@gmail.com","worksFor":{"@type":"Organization","name":"Shield Technologies (Private) Limited"},"address":{"@type":"PostalAddress","addressLocality":"Kandy","addressCountry":"LK"},"alumniOf":[{"@type":"EducationalOrganization","name":"ESOFT Metro Campus, Kandy"},{"@type":"EducationalOrganization","name":"Nextgen Campus"},{"@type":"EducationalOrganization","name":"ICBT Kandy Campus"}],"sameAs":["https://github.com/Chamod-Tharusha-Alwis","https://www.linkedin.com/in/chamod-alwis"],"knowsAbout":["Full-stack development","MERN stack","Data science","Machine learning"]}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -76,7 +76,7 @@
         </div>
       </div>
       <figure class="portrait">
-        <img src="assets/img/profile-480.webp" srcset="assets/img/profile-480.webp 480w, assets/img/profile-720.webp 720w" sizes="(min-width: 880px) 340px, 220px" width="480" height="600" fetchpriority="high" alt="Chamod Tharusha Alwis in a dark blazer, outdoors">
+        <img src="assets/img/profile-full-480.webp" srcset="assets/img/profile-full-480.webp 480w, assets/img/profile-full-720.webp 720w" sizes="(min-width: 880px) 340px, 220px" width="480" height="640" fetchpriority="high" alt="Chamod Tharusha Alwis standing outdoors in a dark blazer">
         <figcaption><b>Now</b>SE intern · BSc Data Science</figcaption>
       </figure>
     </div>
@@ -100,11 +100,6 @@
         </div>
       </article>
       <div class="spacer"></div>
-      <div class="filters" role="group" aria-label="Filter projects">
-        <button class="filter" type="button" aria-pressed="true" data-f="all">All</button>
-        <button class="filter" type="button" aria-pressed="false" data-f="full-stack">Full-Stack</button>
-        <button class="filter" type="button" aria-pressed="false" data-f="data-ml">Data &amp; ML</button>
-      </div>
       <div class="grid-2">
         <article class="card reveal" data-cat="full-stack">
           <img src="assets/img/ayu-arana-care-960.webp" srcset="assets/img/ayu-arana-care-480.webp 480w, assets/img/ayu-arana-care-960.webp 960w" sizes="(min-width: 768px) 540px, 100vw" width="960" height="438" loading="lazy" decoding="async" alt="Ayu Arana Care home page">
@@ -113,28 +108,23 @@
             <h3>Ayu Arana Care</h3>
             <p>Management system for an elders' care home: role-based access with bcrypt, resident medical records, membership tiers, payments and checkup requests.</p>
             <ul class="chips"><li class="chip">MERN</li><li class="chip">Tailwind CSS</li><li class="chip">bcrypt</li></ul>
-            <div class="actions"><a class="btn btn-ghost btn-sm" href="https://ayu-arana-care.chamodtharusha.com.lk/" target="_blank" rel="noopener">Live site<span class="sr-only"> (opens in new tab)</span></a>
+            <div class="actions"><a class="btn btn-primary btn-sm" href="projects/ayu-arana-care.html">Read case study <span aria-hidden="true">→</span></a>
+<a class="btn btn-ghost btn-sm" href="https://ayu-arana-care.chamodtharusha.com.lk/" target="_blank" rel="noopener">Live site<span class="sr-only"> (opens in new tab)</span></a>
 <a class="btn btn-ghost btn-sm" href="https://github.com/Chamod-Tharusha-Alwis/Ayu-Arana-Care" target="_blank" rel="noopener">Code<span class="sr-only"> (opens in new tab)</span></a></div>
           </div>
         </article>
         <article class="card reveal" data-cat="full-stack">
-          <!-- [[FILL: new Ceylon Traveler screenshot without the Gemini AI section]] --><div class="shot-ph " role="img" aria-label="Ceylon Traveler booking page (screenshot coming soon)"><div><b>Ceylon Traveler booking page</b>Screenshot coming soon</div></div>
+          <!-- [[FILL: Ceylon Traveler screenshot with the rating badge cropped out]] --><div class="shot-ph " role="img" aria-label="Ceylon Traveler booking page (screenshot coming soon)"><div><b>Ceylon Traveler booking page</b>Screenshot coming soon</div></div>
           <div class="card-body">
             <p class="meta">Solo project</p>
             <h3>Ceylon Traveler</h3>
             <p>Travel and accommodation booking platform for Sri Lanka: hotel, taxi and guide booking with availability checks and JWT authentication.</p>
             <ul class="chips"><li class="chip">MERN</li><li class="chip">JWT</li></ul>
-            <div class="actions"><a class="btn btn-ghost btn-sm" href="https://ceylon-traveler.chamodtharusha.com.lk/" target="_blank" rel="noopener">Live site<span class="sr-only"> (opens in new tab)</span></a>
+            <div class="actions"><a class="btn btn-primary btn-sm" href="projects/ceylon-traveler.html">Read case study <span aria-hidden="true">→</span></a>
+<a class="btn btn-ghost btn-sm" href="https://ceylon-traveler.chamodtharusha.com.lk/" target="_blank" rel="noopener">Live site<span class="sr-only"> (opens in new tab)</span></a>
 <a class="btn btn-ghost btn-sm" href="https://github.com/Chamod-Tharusha-Alwis/Ceylon-Traveler" target="_blank" rel="noopener">Code<span class="sr-only"> (opens in new tab)</span></a></div>
           </div>
         </article>
-      </div>
-      <div class="other reveal" data-cat="data-ml">
-        <p class="label">Other work</p>
-        <div>
-          <h3>Heart-disease prediction <span class="meta">· coursework</span></h3>
-          <p class="meta">Group comparison of Random Forest, SVM and Logistic Regression on the Cleveland UCI dataset; the ANN was my individual component.</p>
-        </div>
       </div>
     </div>
   </section>

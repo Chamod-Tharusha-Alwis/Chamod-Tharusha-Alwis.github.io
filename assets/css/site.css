@@ -101,7 +101,7 @@ h3 { font-size: 1.375rem; }
 .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: var(--s4); align-items: center; }
 .socials { display: flex; gap: 4px; margin-left: 4px; }
 .portrait { position: relative; max-width: 340px; justify-self: center; width: 100%; }
-.portrait img { border-radius: var(--r-lg); border: 1px solid var(--line); box-shadow: var(--shadow); aspect-ratio: 4/5; object-fit: cover; }
+.portrait img { width: 100%; height: auto; border-radius: var(--r-lg); border: 1px solid var(--line); box-shadow: var(--shadow); aspect-ratio: 3/4; object-fit: contain; background: var(--surface-2); }
 .portrait figcaption { position: absolute; left: -12px; bottom: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--r); padding: 10px 14px; box-shadow: var(--shadow); font-size: .8125rem; line-height: 1.35; }
 .portrait figcaption b { display: block; font-weight: 600; }
 @media (max-width: 879px) { .portrait { max-width: 220px; justify-self: start; } .portrait figcaption { display: none; } }
@@ -200,6 +200,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 .cs-hero .lead { margin-bottom: var(--s3); }
 .cs-hero .stats { max-width: 720px; }
 .cs-shot { margin-block: var(--s3) 0; border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; background: var(--surface); }
+.cs-shot img { width: 100%; height: auto; }
 .cs-shot .shot-ph { border-bottom: 0; aspect-ratio: 16/9; max-height: 440px; width: 100%; }
 .cs-body { display: grid; gap: var(--s5); padding-block: var(--s5) var(--s6); }
 @media (min-width: 960px) { .cs-body { grid-template-columns: 220px 1fr; gap: var(--s6); } }
@@ -237,3 +238,4 @@ html:not(.js) .menu-btn, html:not(.js) #theme { display: none; }
 html:not(.js) .nav .wrap { height: auto; min-height: 68px; flex-wrap: wrap; gap: 8px; padding-block: 10px; }
 html:not(.js) .nav-links { display: flex; flex-wrap: wrap; gap: 4px 16px; }
 @media (max-width: 400px) { .stat b { font-size: 1rem; } .stat span { font-size: .75rem; } .stats { gap: 12px; } }
+.prose .more { margin-top: var(--s3); }
