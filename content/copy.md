@@ -183,38 +183,38 @@ Still open: MediSync screenshots (dashboard, district map, doctor portal) and a 
 
 ---
 
-## Case studies for Ayu Arana Care and Ceylon Traveler — DRAFT
+## Case studies for Ayu Arana Care and Ceylon Traveler — approved by Chamod (2026-11-21)
 
-Written only from facts already in `data/profile.json` and earlier answers. No numbers. The "Tech decisions" and "Challenges" bullets are my wording of those facts; they are what I am least sure of. Edit or replace anything that doesn't match what really happened.
+Written only from facts already in `data/profile.json` and earlier answers. No numbers. The "Tech decisions" and "Challenges" bullets were drafted from those facts and approved as written.
 
 Sources used: Ayu Arana Care — team project, you were backend developer + supported overall development; RBAC with bcrypt; resident medical records, membership tiers, payments, checkup requests; MERN + Tailwind. Ceylon Traveler — solo; hotel, taxi and guide booking; availability checks; JWT auth; you designed the MongoDB schema and built the React front end (from the earlier approved CV bullet). Nothing about Gemini/AI.
 
-### Ayu Arana Care — DRAFT (needs your approval before merge)
+### Ayu Arana Care
 
 **Overview.** Ayu Arana Care is a management system for an elders' care home, built as a team project with MongoDB, Express, React and Node.js. I was the backend developer and also supported overall development, so this page focuses on the API.
 
 **My role.** Team project: I was the backend developer and also supported overall development. On the backend I built the REST API in Node.js and Express: role-based access control with bcrypt-hashed passwords, and the endpoints for resident medical records, membership tiers, payments and checkup requests.
 
-**Tech decisions (DRAFT)**
+**Tech decisions**
 - Role-based access control on the API, so each role reaches only the records and actions it is allowed to.
 - Passwords are hashed with bcrypt, never stored as plain text.
 - One REST API in Node.js and Express serves the React and Tailwind front end, with MongoDB holding residents, medical records, memberships, payments and checkup requests.
 
-**Challenges & what I learned (DRAFT)**
+**Challenges & what I learned**
 - Medical records and payments are sensitive, which taught me to treat access control and password hashing as part of the core design rather than something added at the end.
 - As the backend developer in a team, I learned to keep the API consistent so the front end could be built on it in parallel.
 
-### Ceylon Traveler — DRAFT (needs your approval before merge)
+### Ceylon Traveler
 
 **Overview.** Ceylon Traveler is a travel and accommodation booking platform for Sri Lanka that I built on my own with MongoDB, Express, React and Node.js. Travellers can book hotels, taxis and guides in one place.
 
 **My role.** Solo project. I designed the MongoDB schema, built the REST API in Node.js and Express, and built the React front end.
 
-**Tech decisions (DRAFT)**
+**Tech decisions**
 - Hotels, taxis and guides share one booking flow and one login, instead of three separate systems.
 - Availability is checked before a booking is confirmed.
 - JWT-based authentication protects booking actions on the API.
 
-**Challenges & what I learned (DRAFT)**
+**Challenges & what I learned**
 - Fitting three different kinds of booking into one MongoDB schema without making the data hard to query.
 - Building it solo meant owning every layer, from the database schema to the React front end.

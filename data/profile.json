@@ -354,7 +354,6 @@
       ],
       "cvRole": "Team project, backend developer",
       "caseStudy": {
-        "draft": true,
         "metaDescription": "Ayu Arana Care: a MERN care-home management system. I was the backend developer: REST API, role-based access with bcrypt, records, memberships and payments.",
         "overview": "Ayu Arana Care is a management system for an elders' care home, built as a team project with MongoDB, Express, React and Node.js. I was the backend developer and also supported overall development, so this page focuses on the API.",
         "roleDetail": "On the backend I built the REST API in Node.js and Express: role-based access control with bcrypt-hashed passwords, and the endpoints for resident medical records, membership tiers, payments and checkup requests.",
@@ -438,7 +437,6 @@
       ],
       "cvRole": "Solo project",
       "caseStudy": {
-        "draft": true,
         "metaDescription": "Ceylon Traveler: a solo MERN platform for booking hotels, taxis and guides in Sri Lanka, with availability checks and JWT authentication.",
         "overview": "Ceylon Traveler is a travel and accommodation booking platform for Sri Lanka that I built on my own with MongoDB, Express, React and Node.js. Travellers can book hotels, taxis and guides in one place.",
         "roleDetail": "I designed the MongoDB schema, built the REST API in Node.js and Express, and built the React front end.",
