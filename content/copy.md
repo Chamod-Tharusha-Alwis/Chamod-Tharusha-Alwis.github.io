@@ -4,10 +4,10 @@ Everything here comes from `data/profile.json`. That file is what the site and t
 Edit freely — mark changes inline or reply with numbered notes.
 
 **Defaults I used because the answer was still a placeholder:**
-- MediSync live URL / repo → left as `[[FILL]]`.
+- MediSync live URL / repo → since provided (see below).
 - Ceylon Traveler "Gemini AI itinerary engine" → **left out** until you confirm it's real.
 - Heart-disease ML → listed **without a link**.
-- Domain → stays **chamod-tharusha-alwis.github.io**.
+- Domain → stays **www.chamodtharusha.com.lk**.
 - Phone → CV only (`phonePublic: false`).
 
 ---
@@ -35,7 +35,7 @@ I like work that has to be correct and secure, not just look good: access contro
 
 ## Featured project — MediSync
 
-**AI-driven national healthcare platform for Sri Lanka** · BSc (Hons) Data Science capstone
+**AI-driven national healthcare platform for Sri Lanka** · BSc (Hons) Data Science capstone (ongoing) · Live
 
 | Stat | |
 |---|---|
@@ -55,14 +55,13 @@ I like work that has to be correct and secure, not just look good: access contro
 - Drug-interaction and allergy checks against 3,000 drugs, 191k+ interaction pairs and 71k+ ICD codes.
 - CI/CD with GitHub Actions, deployed on Vercel.
 
-**Tech.** React 19 · Node.js · Express 5 · Python · Flask · Prophet · ARIMA · Redis · HashiCorp Vault · Leaflet · GitHub Actions · Vercel
+**Tech.** React 19 · Node.js · Express 5 · Python · Flask · Prophet · ARIMA · scikit-learn · MongoDB Atlas · Redis · HashiCorp Vault · Cloudinary · Socket.IO · Leaflet · GitHub Actions · Vercel
 
 **Impact.** Cut the initial JavaScript bundle from 465 KB to 145 KB with code-splitting.
 
-**My role.** `[[FILL: built solo, or team size and your part]]`
-**Links.** Live: `[[FILL]]` · Repo: `[[FILL]]` · Case study: /projects/medisync.html
+**My role.** Solo project: I designed and built all three services.
+**Links.** [Live](https://medisync.chamodtharusha.com.lk/) (NOT VERIFIED — unreachable from build sandbox) · [Code](https://github.com/Chamod-Tharusha-Alwis/MediSync) (verified public) · Case study: /projects/medisync.html
 
-> ⚠ Which database does MediSync use? Your brief doesn't say, so no database is listed yet. Tell me and I'll add it.
 
 ---
 
@@ -100,9 +99,7 @@ I like work that has to be correct and secure, not just look good: access contro
 
 ## Other work — Heart-disease prediction (coursework)
 
-Trained and compared Random Forest, SVM and Logistic Regression models, plus an artificial neural network, on the Cleveland UCI heart-disease dataset. *Python · scikit-learn · pandas*
-
-> ⚠ Please confirm: (a) was it group coursework with the ANN as your individual part? (b) which library did you use for the ANN (scikit-learn MLP, Keras/TensorFlow, PyTorch)?
+As a group we trained and compared Random Forest, SVM and Logistic Regression models on the Cleveland UCI heart-disease dataset. My individual part was an artificial neural network for the same task. *Python · scikit-learn · pandas · ANN (individual component)* · No repo link.
 
 ---
 
@@ -138,7 +135,7 @@ Trained and compared Random Forest, SVM and Logistic Regression models, plus an 
 
 **Chamod Tharusha Alwis**
 Software Engineer · Full-Stack Developer · Data Science
-chamodtharusha13@gmail.com · 0772600303 · Kandy, Sri Lanka · linkedin.com/in/chamod-alwis · github.com/Chamod-Tharusha-Alwis · chamod-tharusha-alwis.github.io
+chamodtharusha13@gmail.com · 0772600303 · Kandy, Sri Lanka · linkedin.com/in/chamod-alwis · github.com/Chamod-Tharusha-Alwis · www.chamodtharusha.com.lk
 
 **Summary**
 Software engineering intern at Shield Technologies, building MERN features in an Agile R&D team, and BSc (Hons) Data Science student. I built MediSync, a three-service healthcare platform with Prophet and ARIMA outbreak forecasting and AES-256 field-level encryption. Looking for a junior software engineer, full-stack or data science role.
@@ -147,8 +144,8 @@ Software engineering intern at Shield Technologies, building MERN features in an
 
 **Projects**
 
-*MediSync — AI-driven national healthcare platform (BSc capstone)*
-- Built a three-service healthcare platform (React 19, Node.js/Express 5, Python Flask) with role-based portals for patients, doctors, pharmacies, hospitals/labs and admins.
+*MediSync — AI-driven national healthcare platform (solo BSc capstone)*
+- Designed and built, solo, a three-service healthcare platform (React 19, Node.js/Express 5, Python Flask, MongoDB Atlas) with role-based portals for patients, doctors, pharmacies, hospitals/labs and admins.
 - Built an outbreak-forecasting engine in Flask using Prophet, ARIMA and z-score anomaly detection, feeding a public district-level risk map of Sri Lanka (Leaflet, GeoJSON).
 - Secured patient data with AES-256 field-level encryption and blind indexes, HashiCorp Vault, OTP-gated record access and audit logs; added drug-interaction checks covering 191k+ pairs.
 - Cut the initial JS bundle from 465 KB to 145 KB with code-splitting; set up CI/CD with GitHub Actions and Vercel.
@@ -173,12 +170,51 @@ Every fact above comes from the brief's Section 1 or from your Phase 1 answers. 
 - "Scalable" (old CV) — no evidence given, so dropped.
 - Gemini AI engine (old site) — pending your confirmation.
 
-## Open `[[FILL]]` items
+## Open items (updated after Phase 3)
 
-1. MediSync live URL or "demo on request".
-2. MediSync repo URL or "private".
-3. MediSync status: live or in development.
-4. Your role on each project (solo / team + your part) — MediSync, Ayu Arana Care, Ceylon Traveler, heart-disease ML.
-5. MediSync screenshots: dashboard, district map, doctor portal.
-6. Ceylon Traveler Gemini feature: keep or remove.
-7. MediSync's database (not listed yet); ANN library for the coursework.
+Resolved: project roles, Gemini (left out), ANN wording, MediSync links/status/stack, case-study text.
+Still open: MediSync screenshots (dashboard, district map, doctor portal) and a new Ceylon Traveler screenshot without the Gemini AI section. Tracked as FILL markers in data/profile.json.
+
+## Verification log
+
+- github.com/Chamod-Tharusha-Alwis/MediSync — **VERIFIED** 2026-11-21: public, HTTP 200 without login.
+- medisync.chamodtharusha.com.lk — **NOT VERIFIED**: the build sandbox cannot resolve the host (network policy). Please open it yourself once.
+- Note: the MediSync README also mentions "symptom diagnosis" and a Vercel URL (medi-sync-sepia-eight.vercel.app). Neither is in your brief, so neither is used here.
+
+---
+
+## Case studies for Ayu Arana Care and Ceylon Traveler — approved by Chamod (2026-11-21)
+
+Written only from facts already in `data/profile.json` and earlier answers. No numbers. The "Tech decisions" and "Challenges" bullets were drafted from those facts and approved as written.
+
+Sources used: Ayu Arana Care — team project, you were backend developer + supported overall development; RBAC with bcrypt; resident medical records, membership tiers, payments, checkup requests; MERN + Tailwind. Ceylon Traveler — solo; hotel, taxi and guide booking; availability checks; JWT auth; you designed the MongoDB schema and built the React front end (from the earlier approved CV bullet). Nothing about Gemini/AI.
+
+### Ayu Arana Care
+
+**Overview.** Ayu Arana Care is a management system for an elders' care home, built as a team project with MongoDB, Express, React and Node.js. I was the backend developer and also supported overall development, so this page focuses on the API.
+
+**My role.** Team project: I was the backend developer and also supported overall development. On the backend I built the REST API in Node.js and Express: role-based access control with bcrypt-hashed passwords, and the endpoints for resident medical records, membership tiers, payments and checkup requests.
+
+**Tech decisions**
+- Role-based access control on the API, so each role reaches only the records and actions it is allowed to.
+- Passwords are hashed with bcrypt, never stored as plain text.
+- One REST API in Node.js and Express serves the React and Tailwind front end, with MongoDB holding residents, medical records, memberships, payments and checkup requests.
+
+**Challenges & what I learned**
+- Medical records and payments are sensitive, which taught me to treat access control and password hashing as part of the core design rather than something added at the end.
+- As the backend developer in a team, I learned to keep the API consistent so the front end could be built on it in parallel.
+
+### Ceylon Traveler
+
+**Overview.** Ceylon Traveler is a travel and accommodation booking platform for Sri Lanka that I built on my own with MongoDB, Express, React and Node.js. Travellers can book hotels, taxis and guides in one place.
+
+**My role.** Solo project. I designed the MongoDB schema, built the REST API in Node.js and Express, and built the React front end.
+
+**Tech decisions**
+- Hotels, taxis and guides share one booking flow and one login, instead of three separate systems.
+- Availability is checked before a booking is confirmed.
+- JWT-based authentication protects booking actions on the API.
+
+**Challenges & what I learned**
+- Fitting three different kinds of booking into one MongoDB schema without making the data hard to query.
+- Building it solo meant owning every layer, from the database schema to the React front end.

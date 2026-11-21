@@ -2,7 +2,12 @@
   "meta": {
     "lastUpdated": "2026-11-21",
     "version": 1,
-    "notes": "Single source of truth for the website and the CV. Strings containing [[FILL: ...]] are waiting on Chamod and must not ship."
+    "notes": "Single source of truth for the website and the CV. Strings containing FILL markers are waiting on Chamod and must not ship. phoneOnWebsite=false: the phone number appears on the CV only, never on the website (owner decision).",
+    "decisions": {
+      "design": "A · Engineer's Notebook, light by default with dark toggle",
+      "geminiFeature": "left out (disabled for now)",
+      "domain": "https://www.chamodtharusha.com.lk/ (Vercel; production deploys from main, previews from branches)"
+    }
   },
   "basics": {
     "name": "Chamod Tharusha Alwis",
@@ -19,14 +24,23 @@
     "location": "Kandy, Sri Lanka",
     "email": "chamodtharusha13@gmail.com",
     "phone": "0772600303",
-    "phonePublic": false,
     "links": {
       "github": "https://github.com/Chamod-Tharusha-Alwis",
       "linkedin": "https://www.linkedin.com/in/chamod-alwis",
-      "site": "https://chamod-tharusha-alwis.github.io/"
+      "site": "https://www.chamodtharusha.com.lk/"
     },
     "availability": "Open to Junior SE, Full-Stack and Data roles",
-    "photo": "profile2.jpg"
+    "photo": {
+      "src": "assets/img/profile-full-480.webp",
+      "src2x": "assets/img/profile-full-720.webp",
+      "width": 480,
+      "height": 640,
+      "alt": "Chamod Tharusha Alwis standing outdoors in a dark blazer"
+    },
+    "headlineEmphasis": "secure, data-driven",
+    "contactBlurb": "Open to junior software engineer, full-stack and data roles. The quickest way to reach me is email.",
+    "phoneOnWebsite": false,
+    "cvSummary": "Software engineering intern (MERN, Agile R&D) and BSc (Hons) Data Science student. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting."
   },
   "experience": [
     {
@@ -150,14 +164,14 @@
       "slug": "medisync",
       "name": "MediSync",
       "tagline": "AI-driven national healthcare platform for Sri Lanka",
-      "context": "BSc (Hons) Data Science capstone",
-      "status": "[[FILL: live / in development]]",
+      "context": "BSc (Hons) Data Science capstone (ongoing)",
+      "status": "live",
       "featured": true,
       "category": [
         "full-stack",
         "data-ml"
       ],
-      "role": "[[FILL: built solo, or team size and your part]]",
+      "role": "Solo project: I designed and built all three services.",
       "stack": [
         "React 19",
         "Node.js",
@@ -166,8 +180,12 @@
         "Flask",
         "Prophet",
         "ARIMA",
+        "scikit-learn",
+        "MongoDB Atlas",
         "Redis",
         "HashiCorp Vault",
+        "Cloudinary",
+        "Socket.IO",
         "Leaflet",
         "GitHub Actions",
         "Vercel"
@@ -200,14 +218,14 @@
         "Cut the initial JavaScript bundle from 465 KB to 145 KB with code-splitting."
       ],
       "cvBullets": [
-        "Built a three-service healthcare platform (React 19, Node.js/Express 5, Python Flask) with role-based portals for patients, doctors, pharmacies, hospitals/labs and admins.",
+        "Designed and built, solo, a three-service healthcare platform (React 19, Node.js/Express 5, Python Flask, MongoDB Atlas) with role-based portals for patients, doctors, pharmacies, hospitals/labs and admins.",
         "Built an outbreak-forecasting engine in Flask using Prophet, ARIMA and z-score anomaly detection, feeding a public district-level risk map of Sri Lanka (Leaflet, GeoJSON).",
-        "Secured patient data with AES-256 field-level encryption and blind indexes, HashiCorp Vault, OTP-gated record access and audit logs; added drug-interaction checks covering 191k+ pairs.",
+        "Secured patient data with AES-256 field-level encryption and blind indexes, HashiCorp Vault, OTP checks on record access and audit logs; added drug-interaction checks covering 191k+ pairs.",
         "Cut the initial JS bundle from 465 KB to 145 KB with code-splitting; set up CI/CD with GitHub Actions and Vercel."
       ],
       "links": {
-        "live": "[[FILL: MediSync live URL or \"demo on request\"]]",
-        "repo": "[[FILL: public repo URL or \"private\"]]",
+        "live": "https://medisync.chamodtharusha.com.lk/",
+        "repo": "https://github.com/Chamod-Tharusha-Alwis/MediSync",
         "caseStudy": "projects/medisync.html"
       },
       "images": [
@@ -224,21 +242,75 @@
           "alt": "MediSync doctor portal"
         }
       ],
-      "pendingClaims": [
-        "[[FILL: which database does MediSync use? (MongoDB?) — left out of the stack until confirmed]]"
-      ]
+      "verification": {
+        "repo": "VERIFIED 2026-11-21: public, loads without login (HTTP 200)",
+        "live": "NOT VERIFIED 2026-11-21: host unreachable from the build sandbox (DNS blocked by network policy)"
+      },
+      "caseStudy": {
+        "overview": "MediSync is my BSc (Hons) Data Science capstone: a national healthcare platform for Sri Lanka that I designed and built on my own. It connects patients, doctors, pharmacies, hospitals/labs and administrators, keeps medical records encrypted, and forecasts disease outbreaks by district.",
+        "techDecisions": [
+          "Split into three services (React 19 front end, Node.js/Express 5 API, Flask ML engine) so the Python forecasting work can scale and deploy independently of the web API.",
+          "Patient data is protected with AES-256 field-level encryption using an envelope-encryption flow. Keys are managed in HashiCorp Vault, and blind indexes let encrypted fields such as NIC numbers still be searched without decrypting them.",
+          "Outbreak detection combines Prophet forecasting with z-score anomaly detection, and the results appear on a public Sri Lanka district map built with Leaflet and GeoJSON.",
+          "Session tokens are kept in memory instead of localStorage to reduce XSS exposure, and patient records open only after an OTP check."
+        ],
+        "challenges": [
+          "Upgrading to Express 5 broke express-mongo-sanitize and caused a site-wide outage. I traced it to the now read-only req.query, replaced the package with custom sanitising middleware, and learned to test dependencies against major-version upgrades.",
+          "The public health page was slow because one endpoint aggregated 20k+ rows on every request. Code-splitting cut the initial JS from 465 KB to 145 KB; caching that aggregation is the next step.",
+          "Finding secrets in the git history taught me to rotate credentials immediately and to add secret scanning and CI security tests (GitHub Actions) to the pipeline."
+        ],
+        "architecture": {
+          "services": [
+            {
+              "title": "Web client",
+              "sub": "React 19 + Vite"
+            },
+            {
+              "title": "API",
+              "sub": "Node.js / Express 5",
+              "key": true
+            },
+            {
+              "title": "ML engine",
+              "sub": "Python / Flask"
+            }
+          ],
+          "stores": [
+            "MongoDB Atlas",
+            "Redis",
+            "HashiCorp Vault",
+            "Cloudinary"
+          ],
+          "caption": "Three services. The Flask ML engine can scale and deploy independently of the web API."
+        },
+        "roleDetail": "That covered the React front end, the Node.js/Express API, the Flask ML engine, the security layer and the CI/CD pipeline.",
+        "metaDescription": "How I built MediSync: React 19, Express 5 and a Flask ML engine with outbreak forecasting and AES-256 encrypted patient records."
+      },
+      "cardMeta": "Featured · Solo BSc capstone · Live",
+      "summary": "AI-driven national healthcare platform for Sri Lanka. Role-based portals, encrypted patient records and a public district map of outbreak risk, across React, Node.js and a Python ML service.",
+      "cardStack": [
+        "React 19",
+        "Express 5",
+        "Flask",
+        "Prophet",
+        "MongoDB Atlas",
+        "Redis",
+        "Vault",
+        "Leaflet"
+      ],
+      "cvRole": "Solo BSc capstone"
     },
     {
       "slug": "ayu-arana-care",
       "name": "Ayu Arana Care",
       "tagline": "Management system for an elders' care home",
-      "context": "Personal project",
+      "context": "Team project",
       "status": "live",
       "featured": false,
       "category": [
         "full-stack"
       ],
-      "role": "[[FILL: built solo, or team size and your part]]",
+      "role": "Team project: I was the backend developer and also supported overall development.",
       "stack": [
         "MongoDB",
         "Express",
@@ -257,32 +329,73 @@
       "stats": [],
       "impact": [],
       "cvBullets": [
-        "Built a secure REST API in Node.js and Express with role-based access control and bcrypt, managing resident medical records, membership tiers and payments.",
-        "Built a responsive React and Tailwind CSS front end for medical tracking and resident checkup requests."
+        "Built a secure REST API in Node.js and Express with role-based access control and bcrypt, managing resident medical records, membership tiers and payments."
       ],
       "links": {
         "live": "https://ayu-arana-care.chamodtharusha.com.lk/",
         "repo": "https://github.com/Chamod-Tharusha-Alwis/Ayu-Arana-Care",
-        "caseStudy": null
+        "caseStudy": "projects/ayu-arana-care.html"
       },
       "images": [
         {
-          "src": "new.png",
+          "src": "assets/img/ayu-arana-care-960.webp",
+          "small": "assets/img/ayu-arana-care-480.webp",
+          "width": 960,
+          "height": 438,
           "alt": "Ayu Arana Care home page"
         }
-      ]
+      ],
+      "cardMeta": "Team project · Backend developer",
+      "summary": "Management system for an elders' care home: role-based access with bcrypt, resident medical records, membership tiers, payments and checkup requests.",
+      "cardStack": [
+        "MERN",
+        "Tailwind CSS",
+        "bcrypt"
+      ],
+      "cvRole": "Team project, backend developer",
+      "caseStudy": {
+        "metaDescription": "Ayu Arana Care: a MERN care-home management system. I was the backend developer: REST API, role-based access with bcrypt, records, memberships and payments.",
+        "overview": "Ayu Arana Care is a management system for an elders' care home, built as a team project with MongoDB, Express, React and Node.js. I was the backend developer and also supported overall development, so this page focuses on the API.",
+        "roleDetail": "On the backend I built the REST API in Node.js and Express: role-based access control with bcrypt-hashed passwords, and the endpoints for resident medical records, membership tiers, payments and checkup requests.",
+        "architecture": {
+          "services": [
+            {
+              "title": "Web client",
+              "sub": "React + Tailwind CSS"
+            },
+            {
+              "title": "REST API",
+              "sub": "Node.js / Express",
+              "key": true
+            }
+          ],
+          "stores": [
+            "MongoDB"
+          ],
+          "caption": "A React and Tailwind front end calls the Node.js / Express REST API, which stores data in MongoDB."
+        },
+        "techDecisions": [
+          "Role-based access control on the API, so each role reaches only the records and actions it is allowed to.",
+          "Passwords are hashed with bcrypt, never stored as plain text.",
+          "One REST API in Node.js and Express serves the React and Tailwind front end, with MongoDB holding residents, medical records, memberships, payments and checkup requests."
+        ],
+        "challenges": [
+          "Medical records and payments are sensitive, which taught me to treat access control and password hashing as part of the core design rather than something added at the end.",
+          "As the backend developer in a team, I learned to keep the API consistent so the front end could be built on it in parallel."
+        ]
+      }
     },
     {
       "slug": "ceylon-traveler",
       "name": "Ceylon Traveler",
       "tagline": "Travel and accommodation booking platform for Sri Lanka",
-      "context": "Personal project",
+      "context": "Solo project",
       "status": "live",
       "featured": false,
       "category": [
         "full-stack"
       ],
-      "role": "[[FILL: built solo, or team size and your part]]",
+      "role": "Solo project.",
       "stack": [
         "MongoDB",
         "Express",
@@ -297,56 +410,133 @@
         "Availability checks before a booking is confirmed.",
         "JWT-based authentication."
       ],
-      "pendingClaims": [
-        "[[FILL: confirm or remove — current site says a custom Google Gemini engine generates personalised trip itineraries. Left out until confirmed.]]"
-      ],
       "stats": [],
       "impact": [],
       "cvBullets": [
-        "Built a REST API in Node.js and Express for booking logic, availability checks and JWT authentication.",
-        "Designed the MongoDB schema and a responsive React front end for hotel, taxi and guide booking."
+        "Built a REST API in Node.js and Express for booking logic, availability checks and JWT authentication."
       ],
       "links": {
         "live": "https://ceylon-traveler.chamodtharusha.com.lk/",
         "repo": "https://github.com/Chamod-Tharusha-Alwis/Ceylon-Traveler",
-        "caseStudy": null
+        "caseStudy": "projects/ceylon-traveler.html"
       },
       "images": [
         {
-          "src": "ceylon-traveler1.png",
-          "alt": "Ceylon Traveler home page"
+          "src": "assets/img/ceylon-traveler-960.webp",
+          "small": "assets/img/ceylon-traveler-480.webp",
+          "width": 960,
+          "height": 367,
+          "alt": "Ceylon Traveler home page: Discover the Pearl of the Orient, with a photo of Sigiriya"
         }
+      ],
+      "cardMeta": "Solo project",
+      "summary": "Travel and accommodation booking platform for Sri Lanka: hotel, taxi and guide booking with availability checks and JWT authentication.",
+      "cardStack": [
+        "MERN",
+        "JWT"
+      ],
+      "cvRole": "Solo project",
+      "caseStudy": {
+        "metaDescription": "Ceylon Traveler: a solo MERN platform for booking hotels, taxis and guides in Sri Lanka, with availability checks and JWT authentication.",
+        "overview": "Ceylon Traveler is a travel and accommodation booking platform for Sri Lanka that I built on my own with MongoDB, Express, React and Node.js. Travellers can book hotels, taxis and guides in one place.",
+        "roleDetail": "I designed the MongoDB schema, built the REST API in Node.js and Express, and built the React front end.",
+        "architecture": {
+          "services": [
+            {
+              "title": "Web client",
+              "sub": "React"
+            },
+            {
+              "title": "REST API",
+              "sub": "Node.js / Express",
+              "key": true
+            }
+          ],
+          "stores": [
+            "MongoDB"
+          ],
+          "caption": "A React front end calls the Node.js / Express REST API, which stores data in MongoDB."
+        },
+        "techDecisions": [
+          "Hotels, taxis and guides share one booking flow and one login, instead of three separate systems.",
+          "Availability is checked before a booking is confirmed.",
+          "JWT-based authentication protects booking actions on the API."
+        ],
+        "challenges": [
+          "Fitting three different kinds of booking into one MongoDB schema without making the data hard to query.",
+          "Building it solo meant owning every layer, from the database schema to the React front end."
+        ]
+      }
+    }
+  ],
+  "cvSkills": [
+    {
+      "group": "Languages",
+      "items": [
+        "JavaScript (ES6+)",
+        "TypeScript",
+        "Python",
+        "Java",
+        "C#",
+        "C++",
+        "PHP",
+        "Dart"
       ]
     },
     {
-      "slug": "heart-disease-ml",
-      "name": "Heart-disease prediction",
-      "tagline": "Comparing classic ML models and a neural network on the Cleveland UCI dataset",
-      "context": "Academic coursework",
-      "status": "coursework",
-      "featured": false,
-      "otherWork": true,
-      "category": [
-        "data-ml"
-      ],
-      "role": "[[FILL: confirm — group coursework with the ANN as your individual part?]]",
-      "stack": [
-        "Python",
+      "group": "Web",
+      "items": [
+        "React 19",
+        "Vite",
+        "Tailwind CSS",
+        "HTML5",
+        "CSS3",
+        "Socket.IO client",
+        "Leaflet",
+        "Node.js",
+        "Express 5",
+        "Flask",
+        "FastAPI",
+        "REST APIs",
+        "JWT & RBAC",
+        "Nodemailer"
+      ]
+    },
+    {
+      "group": "Data & ML",
+      "items": [
+        "pandas",
         "scikit-learn",
-        "pandas"
-      ],
-      "problem": "Predict the presence of heart disease from clinical measurements.",
-      "solution": "Trained and compared Random Forest, SVM and Logistic Regression models, plus an artificial neural network, on the Cleveland UCI heart-disease dataset.",
-      "highlights": [],
-      "stats": [],
-      "impact": [],
-      "cvBullets": [],
-      "links": {
-        "live": null,
-        "repo": null,
-        "caseStudy": null
-      },
-      "images": []
+        "Prophet",
+        "ARIMA",
+        "Z-score anomaly detection",
+        "Random Forest",
+        "SVM",
+        "Logistic Regression",
+        "ANN"
+      ]
+    },
+    {
+      "group": "Databases, Cloud & Practices",
+      "items": [
+        "MongoDB / Atlas",
+        "MySQL",
+        "Oracle",
+        "SQL Server",
+        "Firebase",
+        "Redis",
+        "HashiCorp Vault",
+        "Cloudinary",
+        "GitHub Actions CI/CD",
+        "Vercel",
+        "OOP",
+        "SDLC",
+        "Agile",
+        "Git",
+        "QA test-case design",
+        "AES-256 field-level encryption",
+        "Secret rotation"
+      ]
     }
   ]
 }
