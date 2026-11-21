@@ -122,8 +122,10 @@ function projectLinks(p, base, small = false) {
 
 const stats = s => `<dl class="stats">${s.map(x => `<div class="stat"><dt class="sr-only">${esc(x.label)}</dt><dd><b>${esc(x.value.replace(/ → /, '→'))}</b><span>${esc(x.label)}</span></dd></div>`).join('')}</dl>`;
 
-const img = (i, cls = '') => FILL.test(i.src) ? placeholder(i, cls)
-  : `<img src="${i.src}"${i.small ? ` srcset="${i.small} 480w, ${i.src} ${i.width}w" sizes="(min-width: 768px) 540px, 100vw"` : ''} width="${i.width}" height="${i.height}" loading="lazy" decoding="async" alt="${esc(i.alt)}">`;
+const srcset = (i, base = '') => i.srcset ? ` srcset="${i.srcset.map(([u, w]) => `${base}${u} ${w}w`).join(', ')}"`
+  : i.small ? ` srcset="${base}${i.small} 480w, ${base}${i.src} ${i.width}w"` : '';
+const img = (i, cls = '', sizes = '(min-width: 768px) 540px, 100vw') => FILL.test(i.src) ? placeholder(i, cls)
+  : `<img src="${i.src}"${srcset(i)}${srcset(i) ? ` sizes="${sizes}"` : ''} width="${i.width}" height="${i.height}" loading="lazy" decoding="async" alt="${esc(i.alt)}">`;
 
 // ---------- Home ----------
 function home() {
@@ -188,14 +190,18 @@ ${nav(base, true)}
       <p class="eyebrow">Selected work</p>
       <h2 id="work-h">Projects</h2>
       <article class="featured reveal" aria-labelledby="f-h">
-        ${img(f.images[0])}
+        <div class="featured-media">${img(f.images[0], '', '(min-width: 1180px) 1120px, 100vw')}</div>
         <div class="featured-body">
-          <p class="meta">${esc(f.cardMeta)}</p>
-          <h3 id="f-h">${esc(f.name)}</h3>
-          <p>${esc(f.summary)}</p>
-          ${stats(f.stats)}
-          ${chips(f.cardStack)}
-          ${projectLinks(f, base)}
+          <div class="fb-text">
+            <p class="meta">${esc(f.cardMeta)}</p>
+            <h3 id="f-h">${esc(f.name)}</h3>
+            <p>${esc(f.summary)}</p>
+            ${chips(f.cardStack)}
+          </div>
+          <div class="fb-facts">
+            ${stats(f.stats)}
+            ${projectLinks(f, base)}
+          </div>
         </div>
       </article>
       <div class="spacer"></div>
@@ -291,7 +297,7 @@ function caseStudy(p) {
   const cs = p.caseStudy;
   const extraShots = p.images.slice(1);
   const sections = [['overview', 'Overview'], ['problem', 'Problem'], ['role', 'My role'], ['architecture', 'Architecture'], ['features', 'Key features'], ['decisions', 'Tech decisions'], ['challenges', 'Challenges & what I learned'], ...(extraShots.length ? [['screenshots', 'Screenshots']] : []), ['links', 'Links']];
-  const imgCS = i => FILL.test(i.src) ? placeholder(i) : `<img src="${base}${i.src}" width="${i.width}" height="${i.height}" decoding="async" alt="${esc(i.alt)}">`;
+  const imgCS = (i, sizes, lazy = true) => FILL.test(i.src) ? placeholder(i) : `<img src="${base}${i.src}"${srcset(i, base)}${srcset(i, base) ? ` sizes="${sizes}"` : ''} width="${i.width}" height="${i.height}"${lazy ? ' loading="lazy"' : ''} decoding="async" alt="${esc(i.alt)}">`;
   const linkItems = [
     isLink(p.links.live) ? `<li>${ext(p.links.live, 'Live site', 'btn btn-primary')}</li>` : '',
     isLink(p.links.repo) ? `<li>${ext(p.links.repo, 'Source code on GitHub', 'btn btn-ghost')}</li>` : '',
@@ -313,7 +319,7 @@ ${nav(base, false)}
     <p class="lead">${esc(p.tagline)}.</p>
     <div class="actions">${isLink(p.links.live) ? ext(p.links.live, 'Live site', 'btn btn-primary') : ''}${isLink(p.links.repo) ? ext(p.links.repo, 'Code', 'btn btn-ghost') : ''}</div>
     ${p.stats.length ? stats(p.stats) : ''}
-    <div class="cs-shot">${imgCS(p.images[0])}</div>
+    <div class="cs-shot">${imgCS(p.images[0], '(min-width: 1180px) 1120px, 100vw', false)}</div>
   </div>
   <div class="wrap cs-body">
     <aside class="toc"><nav aria-label="On this page"><ol>${sections.map(([id, t]) => `<li><a href="#${id}">${esc(t)}</a></li>`).join('')}</ol></nav></aside>
@@ -325,7 +331,7 @@ ${nav(base, false)}
       <section id="features" aria-labelledby="features-h"><h2 id="features-h">Key features</h2><ul>${p.highlights.map(x => `<li>${esc(x)}</li>`).join('')}</ul></section>
       <section id="decisions" aria-labelledby="decisions-h"><h2 id="decisions-h">Tech decisions</h2><ul>${cs.techDecisions.map(x => `<li>${esc(x)}</li>`).join('')}</ul></section>
       <section id="challenges" aria-labelledby="challenges-h"><h2 id="challenges-h">Challenges &amp; what I learned</h2><ul>${cs.challenges.map(x => `<li>${esc(x)}</li>`).join('')}</ul></section>
-      ${extraShots.length ? `<section id="screenshots" aria-labelledby="screenshots-h"><h2 id="screenshots-h">Screenshots</h2><div class="shots">${extraShots.map(i => `<figure>${imgCS(i)}<figcaption>${esc(i.alt)}</figcaption></figure>`).join('')}</div></section>` : ''}
+      ${extraShots.length ? `<section id="screenshots" aria-labelledby="screenshots-h"><h2 id="screenshots-h">Screenshots</h2><div class="shots">${extraShots.map(i => `<figure>${imgCS(i, '(min-width: 768px) 420px, 100vw')}<figcaption>${esc(i.alt)}</figcaption></figure>`).join('')}</div></section>` : ''}
       <section id="links" aria-labelledby="links-h"><h2 id="links-h">Links</h2><p>Stack: ${p.stack.map(esc).join(' · ')}</p><ul class="link-list">${linkItems}</ul>${others ? `<p class="more">More case studies:</p><ul>${others}</ul>` : ''}</section>
     </div>
   </div>

@@ -173,7 +173,7 @@ Every fact above comes from the brief's Section 1 or from your Phase 1 answers. 
 ## Open items (updated after Phase 3)
 
 Resolved: project roles, Gemini (left out), ANN wording, MediSync links/status/stack, case-study text.
-Still open: MediSync screenshots (dashboard, district map, doctor portal) and a new Ceylon Traveler screenshot without the Gemini AI section. Tracked as FILL markers in data/profile.json.
+All resolved. MediSync screenshots (public health page, landing page, doctor portal) and the Ceylon Traveler screenshot (rating badge cropped out) are in.
 
 ## Verification log
 
