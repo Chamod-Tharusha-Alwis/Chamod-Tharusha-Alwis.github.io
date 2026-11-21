@@ -11,9 +11,10 @@ for src, name, box in (('new.png', 'ayu-arana-care', None), ('ceylon-traveler2.p
         y = x.copy(); y.thumbnail((w, w)); y.save(f'{O}{name}-{w}.webp', quality=78, method=6)
         print(name, w, y.size)
 
-# MediSync screenshots (originals in assets/legacy/). Doctor portal: crop below y=862 removes the "commit fd71d33" line.
+# MediSync screenshots (originals in assets/legacy/). Landing: crop below y=680 removes the cut-off "Interactive Workflows" box.
+# Doctor portal: crop below y=862 removes the "commit fd71d33" line.
 for src, name, box in (('medisync-public-health.png', 'medisync-public-health', None),
-                       ('medisync-landing.png', 'medisync-landing', None),
+                       ('medisync-landing.png', 'medisync-landing', (0, 0, 1903, 680)),  # crop just below the two buttons
                        ('medisync-doctor-portal.png', 'medisync-doctor-portal', (0, 0, 1908, 862))):
     x = Image.open(L + src).convert('RGB')
     if box: x = x.crop(box)
