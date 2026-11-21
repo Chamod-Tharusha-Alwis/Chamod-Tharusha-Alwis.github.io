@@ -35,7 +35,7 @@ I like work that has to be correct and secure, not just look good: access contro
 
 ## Featured project — MediSync
 
-**AI-driven national healthcare platform for Sri Lanka** · BSc (Hons) Data Science capstone
+**AI-driven national healthcare platform for Sri Lanka** · BSc (Hons) Data Science capstone (ongoing) · Live
 
 | Stat | |
 |---|---|
@@ -55,14 +55,13 @@ I like work that has to be correct and secure, not just look good: access contro
 - Drug-interaction and allergy checks against 3,000 drugs, 191k+ interaction pairs and 71k+ ICD codes.
 - CI/CD with GitHub Actions, deployed on Vercel.
 
-**Tech.** React 19 · Node.js · Express 5 · Python · Flask · Prophet · ARIMA · Redis · HashiCorp Vault · Leaflet · GitHub Actions · Vercel
+**Tech.** React 19 · Node.js · Express 5 · Python · Flask · Prophet · ARIMA · scikit-learn · MongoDB Atlas · Redis · HashiCorp Vault · Cloudinary · Socket.IO · Leaflet · GitHub Actions · Vercel
 
 **Impact.** Cut the initial JavaScript bundle from 465 KB to 145 KB with code-splitting.
 
-**My role.** `[[FILL: built solo, or team size and your part]]`
-**Links.** Live: `[[FILL]]` · Repo: `[[FILL]]` · Case study: /projects/medisync.html
+**My role.** Solo project: I designed and built all three services.
+**Links.** [Live](https://medisync.chamodtharusha.com.lk/) (NOT VERIFIED — unreachable from build sandbox) · [Code](https://github.com/Chamod-Tharusha-Alwis/MediSync) (verified public) · Case study: /projects/medisync.html
 
-> ⚠ Which database does MediSync use? Your brief doesn't say, so no database is listed yet. Tell me and I'll add it.
 
 ---
 
@@ -100,9 +99,7 @@ I like work that has to be correct and secure, not just look good: access contro
 
 ## Other work — Heart-disease prediction (coursework)
 
-Trained and compared Random Forest, SVM and Logistic Regression models, plus an artificial neural network, on the Cleveland UCI heart-disease dataset. *Python · scikit-learn · pandas*
-
-> ⚠ Please confirm: (a) was it group coursework with the ANN as your individual part? (b) which library did you use for the ANN (scikit-learn MLP, Keras/TensorFlow, PyTorch)?
+As a group we trained and compared Random Forest, SVM and Logistic Regression models on the Cleveland UCI heart-disease dataset. My individual part was an artificial neural network for the same task. *Python · scikit-learn · pandas · `[[FILL: ANN library]]`* · No repo link.
 
 ---
 
@@ -147,8 +144,8 @@ Software engineering intern at Shield Technologies, building MERN features in an
 
 **Projects**
 
-*MediSync — AI-driven national healthcare platform (BSc capstone)*
-- Built a three-service healthcare platform (React 19, Node.js/Express 5, Python Flask) with role-based portals for patients, doctors, pharmacies, hospitals/labs and admins.
+*MediSync — AI-driven national healthcare platform (solo BSc capstone)*
+- Designed and built, solo, a three-service healthcare platform (React 19, Node.js/Express 5, Python Flask, MongoDB Atlas) with role-based portals for patients, doctors, pharmacies, hospitals/labs and admins.
 - Built an outbreak-forecasting engine in Flask using Prophet, ARIMA and z-score anomaly detection, feeding a public district-level risk map of Sri Lanka (Leaflet, GeoJSON).
 - Secured patient data with AES-256 field-level encryption and blind indexes, HashiCorp Vault, OTP-gated record access and audit logs; added drug-interaction checks covering 191k+ pairs.
 - Cut the initial JS bundle from 465 KB to 145 KB with code-splitting; set up CI/CD with GitHub Actions and Vercel.
@@ -175,10 +172,14 @@ Every fact above comes from the brief's Section 1 or from your Phase 1 answers. 
 
 ## Open `[[FILL]]` items
 
-1. MediSync live URL or "demo on request".
-2. MediSync repo URL or "private".
-3. MediSync status: live or in development.
-4. Your role on each project (solo / team + your part) — MediSync, Ayu Arana Care, Ceylon Traveler, heart-disease ML.
+1. Your role on Ayu Arana Care (solo / team + your part).
+2. Your role on Ceylon Traveler (solo / team + your part).
+3. Ceylon Traveler Gemini feature: keep or remove (left out for now).
+4. ANN library for the heart-disease coursework.
 5. MediSync screenshots: dashboard, district map, doctor portal.
-6. Ceylon Traveler Gemini feature: keep or remove.
-7. MediSync's database (not listed yet); ANN library for the coursework.
+
+## Verification log
+
+- github.com/Chamod-Tharusha-Alwis/MediSync — **VERIFIED** 2026-11-21: public, HTTP 200 without login.
+- medisync.chamodtharusha.com.lk — **NOT VERIFIED**: the build sandbox cannot resolve the host (network policy). Please open it yourself once.
+- Note: the MediSync README also mentions "symptom diagnosis" and a Vercel URL (medi-sync-sepia-eight.vercel.app). Neither is in your brief, so neither is used here.

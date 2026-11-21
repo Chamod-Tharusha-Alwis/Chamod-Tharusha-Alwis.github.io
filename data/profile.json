@@ -150,14 +150,14 @@
       "slug": "medisync",
       "name": "MediSync",
       "tagline": "AI-driven national healthcare platform for Sri Lanka",
-      "context": "BSc (Hons) Data Science capstone",
-      "status": "[[FILL: live / in development]]",
+      "context": "BSc (Hons) Data Science capstone (ongoing)",
+      "status": "live",
       "featured": true,
       "category": [
         "full-stack",
         "data-ml"
       ],
-      "role": "[[FILL: built solo, or team size and your part]]",
+      "role": "Solo project: I designed and built all three services.",
       "stack": [
         "React 19",
         "Node.js",
@@ -166,8 +166,12 @@
         "Flask",
         "Prophet",
         "ARIMA",
+        "scikit-learn",
+        "MongoDB Atlas",
         "Redis",
         "HashiCorp Vault",
+        "Cloudinary",
+        "Socket.IO",
         "Leaflet",
         "GitHub Actions",
         "Vercel"
@@ -206,8 +210,8 @@
         "Cut the initial JS bundle from 465 KB to 145 KB with code-splitting; set up CI/CD with GitHub Actions and Vercel."
       ],
       "links": {
-        "live": "[[FILL: MediSync live URL or \"demo on request\"]]",
-        "repo": "[[FILL: public repo URL or \"private\"]]",
+        "live": "https://medisync.chamodtharusha.com.lk/",
+        "repo": "https://github.com/Chamod-Tharusha-Alwis/MediSync",
         "caseStudy": "projects/medisync.html"
       },
       "images": [
@@ -224,9 +228,10 @@
           "alt": "MediSync doctor portal"
         }
       ],
-      "pendingClaims": [
-        "[[FILL: which database does MediSync use? (MongoDB?) — left out of the stack until confirmed]]"
-      ]
+      "verification": {
+        "repo": "VERIFIED 2026-11-21: public, loads without login (HTTP 200)",
+        "live": "NOT VERIFIED 2026-11-21: host unreachable from the build sandbox (DNS blocked by network policy)"
+      }
     },
     {
       "slug": "ayu-arana-care",
@@ -329,14 +334,15 @@
       "category": [
         "data-ml"
       ],
-      "role": "[[FILL: confirm — group coursework with the ANN as your individual part?]]",
+      "role": "Group coursework. The Random Forest, SVM and Logistic Regression comparison was the group part; I built the ANN as my individual part.",
       "stack": [
         "Python",
         "scikit-learn",
-        "pandas"
+        "pandas",
+        "[[FILL: ANN library — Keras/TensorFlow or scikit-learn MLPClassifier]]"
       ],
       "problem": "Predict the presence of heart disease from clinical measurements.",
-      "solution": "Trained and compared Random Forest, SVM and Logistic Regression models, plus an artificial neural network, on the Cleveland UCI heart-disease dataset.",
+      "solution": "As a group we trained and compared Random Forest, SVM and Logistic Regression models on the Cleveland UCI heart-disease dataset. My individual part was an artificial neural network for the same task.",
       "highlights": [],
       "stats": [],
       "impact": [],

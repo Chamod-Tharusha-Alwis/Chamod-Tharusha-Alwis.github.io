@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mock B — Product Dark</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ===== Tokens — Direction B ===== */
+:root {
+  --bg: #0B0D12; --surface: rgba(255,255,255,.04); --surface-solid: #13161D; --surface-2: rgba(255,255,255,.07);
+  --line: rgba(255,255,255,.09); --line-strong: rgba(255,255,255,.16);
+  --ink: #EEF1F6; --ink-2: #A3ABBA;
+  --accent: #6EE7C8; --accent-2: #7AA7FF; --accent-ink: #06110E;
+  --grad: linear-gradient(120deg, var(--accent), var(--accent-2));
+  --ok: #4ADE80;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --s1: 8px; --s2: 16px; --s3: 24px; --s4: 32px; --s5: 48px; --s6: 64px; --s7: 96px;
+  --r: 14px; --r-lg: 20px; --r-sm: 10px;
+  --glow: 0 0 0 1px rgba(110,231,200,.35), 0 12px 40px -8px rgba(110,231,200,.25);
+  --ease: cubic-bezier(.2,.7,.2,1);
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+body { background-color: var(--bg); color: var(--ink); font: 400 1rem/1.65 var(--font-body); }
+body::before { content: ''; position: fixed; inset: -20% -10% auto auto; width: 60vw; height: 60vw; background: radial-gradient(closest-side, rgba(122,167,255,.10), transparent); pointer-events: none; z-index: -1; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.wrap { width: min(1160px, 100% - 2 * var(--s2)); margin-inline: auto; }
+@media (min-width: 768px) { .wrap { width: min(1160px, 100% - 2 * var(--s5)); } }
+.skip { position: absolute; left: var(--s2); top: -100px; background: var(--accent); color: var(--accent-ink); padding: var(--s1) var(--s2); border-radius: var(--r-sm); z-index: 100; }
+.skip:focus { top: var(--s2); }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.mock-flag { background: #1B2030; color: var(--ink-2); text-align: center; font-size: .8125rem; padding: 6px var(--s2); }
+.glass { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); backdrop-filter: blur(12px); }
+
+/* Nav */
+.nav { position: sticky; top: 0; z-index: 50; padding: 12px 0; transition: padding .2s var(--ease); }
+.nav.scrolled { padding: 6px 0; }
+.nav-bar { display: flex; align-items: center; justify-content: space-between; padding: 8px 8px 8px 18px; background: rgba(15,18,25,.72); border: 1px solid var(--line); border-radius: 999px; backdrop-filter: blur(14px); }
+.brand { font: 700 1.0625rem/1 var(--font-display); text-decoration: none; display: flex; gap: 10px; align-items: center; }
+.logo { width: 26px; height: 26px; border-radius: 8px; background: var(--grad); color: var(--accent-ink); display: grid; place-items: center; font-size: .8125rem; }
+.nav-links { display: none; gap: 4px; list-style: none; padding: 0; align-items: center; }
+.nav-links a { text-decoration: none; font-size: .9375rem; color: var(--ink-2); padding: 8px 14px; border-radius: 999px; }
+.nav-links a:hover { color: var(--ink); background: var(--surface-2); }
+.nav-links a.btn-primary, .nav-links a.btn-primary:hover { color: var(--accent-ink); background: var(--grad); padding: 0 14px; }
+.icon-btn { width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid var(--line); background: var(--surface-2); color: var(--ink); border-radius: 999px; cursor: pointer; }
+.icon-btn svg { width: 18px; height: 18px; }
+@media (min-width: 960px) { .nav-links { display: flex; } .menu-btn { display: none; } }
+.mobile-menu { position: fixed; inset: 0; background: var(--bg); z-index: 60; padding: var(--s2); display: none; flex-direction: column; }
+.mobile-menu.open { display: flex; }
+.mobile-menu ul { list-style: none; padding: var(--s4) 0; display: grid; gap: 4px; }
+.mobile-menu a:not(.btn) { display: block; padding: 14px 4px; font: 700 1.75rem/1.2 var(--font-display); text-decoration: none; border-bottom: 1px solid var(--line); }
+.mobile-menu .head { display: flex; justify-content: space-between; align-items: center; height: 56px; }
+
+/* Buttons & chips */
+.btn { display: inline-flex; align-items: center; gap: var(--s1); min-height: 44px; padding: 0 20px; border-radius: 999px; font: 600 .9375rem/1 var(--font-body); text-decoration: none; border: 1px solid transparent; transition: transform .2s var(--ease), box-shadow .2s, background .2s; cursor: pointer; }
+.btn svg { width: 16px; height: 16px; }
+.btn-primary { background: var(--grad); color: var(--accent-ink); }
+.btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 30px -8px rgba(110,231,200,.5); }
+.btn-ghost { background: var(--surface-2); color: var(--ink); border-color: var(--line); }
+.btn-ghost:hover { border-color: var(--line-strong); }
+.btn-sm { min-height: 36px; padding: 0 14px; font-size: .875rem; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; }
+.chip { font-size: .8125rem; padding: 4px 10px; border-radius: 999px; background: var(--surface-2); border: 1px solid var(--line); color: var(--ink); }
+.tag { font: 500 .75rem/1 var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--accent); }
+
+/* Sections */
+section { padding-block: var(--s6); }
+@media (min-width: 768px) { section { padding-block: var(--s7); } }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; letter-spacing: -.025em; line-height: 1.08; }
+h2 { font-size: clamp(1.75rem, 1.2rem + 2vw, 2.75rem); margin: 12px 0 var(--s4); }
+h3 { font-size: 1.25rem; }
+.muted { color: var(--ink-2); }
+
+/* Hero */
+.hero { padding-block: var(--s5) var(--s6); }
+.hero-grid { display: grid; gap: var(--s3); }
+@media (min-width: 960px) { .hero-grid { grid-template-columns: 1.6fr 1fr; grid-template-rows: 1fr auto; } .hero { padding-block: var(--s6) var(--s7); } }
+.hero-main { padding: var(--s4) var(--s3); }
+@media (min-width: 768px) { .hero-main { padding: var(--s5); } }
+@media (min-width: 960px) { .hero-main { grid-row: span 2; } }
+.badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface-2); font-size: .875rem; }
+.badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 10px var(--ok); }
+.hero h1 { font-size: clamp(2.25rem, 1.3rem + 4.2vw, 4.25rem); margin: var(--s3) 0 var(--s2); }
+.grad-text { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.hero .lead { font-size: 1.125rem; color: var(--ink-2); max-width: 56ch; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: var(--s4); align-items: center; }
+.me { position: relative; overflow: hidden; min-height: 220px; display: flex; align-items: flex-end; }
+.me img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.me .cap { position: relative; width: 100%; padding: var(--s3); background: linear-gradient(transparent, rgba(8,10,14,.92) 45%); padding-top: var(--s6); }
+.me b { display: block; font-family: var(--font-display); font-size: 1.125rem; }
+@media (max-width: 959px) { .me { min-height: 0; aspect-ratio: 4/3; max-height: 360px; } }
+.now { padding: var(--s3); display: grid; gap: 10px; }
+.now dt { font-size: .75rem; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-2); }
+.now dd { font-weight: 500; }
+
+/* Bento work */
+.bento { display: grid; gap: var(--s2); }
+@media (min-width: 768px) { .bento { grid-template-columns: repeat(6, 1fr); } }
+.tile { padding: var(--s3); display: flex; flex-direction: column; gap: 12px; transition: transform .25s var(--ease), box-shadow .25s, border-color .25s; overflow: hidden; }
+.tile:hover { transform: translateY(-3px); box-shadow: var(--glow); }
+.feat { padding: 0; }
+@media (min-width: 768px) { .feat { grid-column: span 6; display: grid; grid-template-columns: 1.15fr 1fr; } }
+.shot-ph { aspect-ratio: 16/10; min-height: 220px; display: grid; place-items: center; text-align: center; padding: var(--s3); color: var(--ink-2); font-size: .875rem;
+  background: linear-gradient(var(--line) 1px, transparent 1px) 0 0/24px 24px, linear-gradient(90deg, var(--line) 1px, transparent 1px) 0 0/24px 24px, #0F131A; border-bottom: 1px solid var(--line); }
+.shot-ph b { display: block; color: var(--ink); }
+@media (min-width: 768px) { .feat .shot-ph { aspect-ratio: auto; border-bottom: 0; border-right: 1px solid var(--line); } }
+.feat-body { padding: var(--s4) var(--s3); display: flex; flex-direction: column; gap: 14px; }
+@media (min-width: 768px) { .feat-body { padding: var(--s5) var(--s4); } }
+.feat h3 { font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem); }
+.statrow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.stat { padding: 14px; border-radius: var(--r); background: var(--surface-2); border: 1px solid var(--line); }
+.stat b { display: block; font: 700 clamp(1rem, .85rem + .9vw, 1.5rem)/1.1 var(--font-display); }
+.stat span { font-size: .75rem; color: var(--ink-2); display: block; margin-top: 4px; line-height: 1.35; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: auto; padding-top: 6px; }
+.filters { display: flex; gap: 6px; flex-wrap: wrap; margin: var(--s5) 0 var(--s3); padding: 4px; border: 1px solid var(--line); border-radius: 999px; width: fit-content; background: var(--surface); }
+.filter { min-height: 38px; padding: 0 16px; border-radius: 999px; border: 0; background: transparent; color: var(--ink-2); font: 500 .875rem var(--font-body); cursor: pointer; }
+.filter[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+@media (min-width: 768px) { .half { grid-column: span 3; } .wide { grid-column: span 6; } }
+.tile img { border-radius: var(--r); border: 1px solid var(--line); aspect-ratio: 16/9; object-fit: cover; object-position: top; }
+.tile p { color: var(--ink-2); font-size: .9375rem; }
+.wide { flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: space-between; border-style: dashed; }
+
+/* Experience */
+.xp { display: grid; gap: var(--s2); }
+@media (min-width: 880px) { .xp { grid-template-columns: 1.3fr 1fr; } }
+.xp-job { padding: var(--s4) var(--s3); }
+@media (min-width: 768px) { .xp-job { padding: var(--s4); } }
+.when { font-size: .875rem; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.xp-job ul { margin-top: 14px; padding-left: 18px; color: var(--ink-2); display: grid; gap: 6px; }
+.edu { list-style: none; padding: 0; display: grid; gap: var(--s2); }
+.edu li { padding: var(--s3); }
+.edu h3 { font-size: 1.0625rem; margin: 4px 0 2px; }
+.edu p:last-child { color: var(--ink-2); font-size: .9375rem; }
+
+/* Skills */
+.skills { display: grid; gap: var(--s2); }
+@media (min-width: 768px) { .skills { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1100px) { .skills { grid-template-columns: repeat(3, 1fr); } }
+.skill { padding: var(--s3); }
+.skill h3 { font: 600 .8125rem/1 var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); margin-bottom: 14px; }
+
+/* About / contact */
+.about { display: grid; gap: var(--s4); }
+@media (min-width: 880px) { .about { grid-template-columns: 1fr 1.6fr; } }
+.about p { color: var(--ink-2); font-size: 1.0625rem; max-width: 62ch; }
+.about p + p { margin-top: var(--s2); }
+.contact { padding: var(--s5) var(--s3); text-align: center; position: relative; overflow: hidden; }
+@media (min-width: 768px) { .contact { padding: var(--s6); } }
+.contact::before { content: ''; position: absolute; inset: auto -20% -60% -20%; height: 120%; background: radial-gradient(closest-side, rgba(110,231,200,.12), transparent); pointer-events: none; }
+.contact > * { position: relative; }
+.contact h2 { margin-top: 0; }
+.contact p { color: var(--ink-2); max-width: 50ch; margin-inline: auto; }
+.email { font: 700 clamp(1.05rem, .8rem + 1.4vw, 1.75rem)/1.2 var(--font-display); text-underline-offset: 6px; overflow-wrap: anywhere; }
+.email-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; margin: var(--s4) 0 var(--s3); }
+.links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+footer { padding: var(--s4) 0 var(--s5); color: var(--ink-2); font-size: .875rem; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s2); border-top: 1px solid var(--line); padding-top: var(--s3); }
+
+/* Motion */
+.js .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.js .reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="mock-flag">Design mock B — "Product Dark" · static preview, not the final site</div>
+
+<header class="nav" id="top">
+  <div class="wrap nav-bar">
+    <a class="brand" href="#top"><span class="logo" aria-hidden="true">CA</span>Chamod Alwis</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a class="btn btn-primary btn-sm" href="../Chamod_Tharusha_Alwis.pdf" download>Download CV</a></li>
+      </ul>
+    </nav>
+    <button class="icon-btn menu-btn" id="menu-open" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
+  <div class="head">
+    <span class="brand"><span class="logo" aria-hidden="true">CA</span>Chamod Alwis</span>
+    <button class="icon-btn" id="menu-close" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <ul>
+    <li><a href="#work">Work</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#experience">Experience</a></li><li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="btn btn-primary" href="../Chamod_Tharusha_Alwis.pdf" download>Download CV</a>
+</div>
+
+<main id="main">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="glass hero-main">
+        <span class="badge"><span class="dot" aria-hidden="true"></span>Open to Junior SE, Full-Stack and Data roles</span>
+        <h1>Full-stack developer building <span class="grad-text">secure, data-driven</span> web platforms</h1>
+        <p class="lead">Software engineering intern at Shield Technologies and BSc Data Science student. I build MERN apps and the Python services behind them.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="#work">View my work</a>
+          <a class="btn btn-ghost" href="../Chamod_Tharusha_Alwis.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>Download CV</a>
+          <a class="icon-btn" href="https://github.com/Chamod-Tharusha-Alwis" aria-label="GitHub (opens in new tab)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.41-2.7 5.38-5.26 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg></a>
+          <a class="icon-btn" href="https://www.linkedin.com/in/chamod-alwis" aria-label="LinkedIn (opens in new tab)" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.75h4v11H3v-11Zm6.5 0h3.8v1.5h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1v5.46h-4v-4.84c0-1.16-.02-2.65-1.61-2.65-1.62 0-1.87 1.26-1.87 2.56v4.93h-4v-11Z"/></svg></a>
+        </div>
+      </div>
+      <div class="glass me">
+        <img src="assets/profile-portrait.webp" width="480" height="600" alt="Chamod Tharusha Alwis in a dark blazer, outdoors">
+        <div class="cap"><b>Chamod Tharusha Alwis</b><span class="muted">Kandy, Sri Lanka</span></div>
+      </div>
+      <dl class="glass now">
+        <div><dt>Now</dt><dd>SE Intern · Shield Technologies</dd></div>
+        <div><dt>Studying</dt><dd>BSc (Hons) Data Science</dd></div>
+        <div><dt>Stack</dt><dd>MERN · Python · Flask</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="work" aria-labelledby="work-h" style="padding-top:0">
+    <div class="wrap">
+      <p class="tag">Selected work</p>
+      <h2 id="work-h">Projects</h2>
+      <div class="bento">
+        <article class="glass tile feat reveal" aria-labelledby="ms-h">
+          <div class="shot-ph" role="img" aria-label="Placeholder for MediSync district map screenshot"><div><b>MediSync — district map screenshot</b>Placeholder · awaiting image from Chamod</div></div>
+          <div class="feat-body">
+            <p class="tag">Featured · Solo BSc capstone · Live</p>
+            <h3 id="ms-h">MediSync</h3>
+            <p class="muted">AI-driven national healthcare platform for Sri Lanka. Role-based portals, encrypted patient records and a public district map of outbreak risk, across React, Node.js and a Python ML service.</p>
+            <dl class="statrow">
+              <div class="stat"><dt class="sr-only">Services</dt><dd><b>3</b><span>services: React, Node.js, Flask ML</span></dd></div>
+              <div class="stat"><dt class="sr-only">Interaction pairs</dt><dd><b>191k+</b><span>drug-interaction pairs</span></dd></div>
+              <div class="stat"><dt class="sr-only">Bundle size</dt><dd><b>465→145 KB</b><span>initial JS bundle</span></dd></div>
+            </dl>
+            <ul class="chips" aria-label="Tech stack"><li class="chip">React 19</li><li class="chip">Express 5</li><li class="chip">Flask</li><li class="chip">Prophet</li><li class="chip">MongoDB Atlas</li><li class="chip">Redis</li><li class="chip">Vault</li><li class="chip">Leaflet</li></ul>
+            <div class="actions">
+              <a class="btn btn-primary" href="#">Read case study →</a>
+              <a class="btn btn-ghost" href="https://medisync.chamodtharusha.com.lk/" target="_blank" rel="noopener">Live site<span class="sr-only"> (opens in new tab)</span></a>
+              <a class="btn btn-ghost" href="https://github.com/Chamod-Tharusha-Alwis/MediSync" target="_blank" rel="noopener">Code<span class="sr-only"> (opens in new tab)</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="filters" role="group" aria-label="Filter projects">
+        <button class="filter" type="button" aria-pressed="true" data-f="all">All</button>
+        <button class="filter" type="button" aria-pressed="false" data-f="full-stack">Full-Stack</button>
+        <button class="filter" type="button" aria-pressed="false" data-f="data-ml">Data &amp; ML</button>
+      </div>
+      <div class="bento">
+        <article class="glass tile half reveal" data-cat="full-stack">
+          <img src="assets/ayu-arana-care.webp" width="960" height="438" loading="lazy" alt="Ayu Arana Care home page">
+          <h3>Ayu Arana Care</h3>
+          <p>Management system for an elders' care home: role-based access with bcrypt, resident medical records, membership tiers, payments and checkup requests.</p>
+          <ul class="chips" aria-label="Tech stack"><li class="chip">MERN</li><li class="chip">Tailwind CSS</li><li class="chip">bcrypt</li></ul>
+          <div class="actions">
+            <a class="btn btn-ghost btn-sm" href="https://ayu-arana-care.chamodtharusha.com.lk/" target="_blank" rel="noopener">Live site<span class="sr-only"> (opens in new tab)</span></a>
+            <a class="btn btn-ghost btn-sm" href="https://github.com/Chamod-Tharusha-Alwis/Ayu-Arana-Care" target="_blank" rel="noopener">Code<span class="sr-only"> (opens in new tab)</span></a>
+          </div>
+        </article>
+        <article class="glass tile half reveal" data-cat="full-stack">
+          <img src="assets/ceylon-traveler.webp" width="960" height="414" loading="lazy" alt="Ceylon Traveler home page">
+          <h3>Ceylon Traveler</h3>
+          <p>Travel and accommodation booking platform for Sri Lanka: hotel, taxi and guide booking with availability checks and JWT authentication.</p>
+          <ul class="chips" aria-label="Tech stack"><li class="chip">MERN</li><li class="chip">JWT</li></ul>
+          <div class="actions">
+            <a class="btn btn-ghost btn-sm" href="https://ceylon-traveler.chamodtharusha.com.lk/" target="_blank" rel="noopener">Live site<span class="sr-only"> (opens in new tab)</span></a>
+            <a class="btn btn-ghost btn-sm" href="https://github.com/Chamod-Tharusha-Alwis/Ceylon-Traveler" target="_blank" rel="noopener">Code<span class="sr-only"> (opens in new tab)</span></a>
+          </div>
+        </article>
+        <article class="glass tile wide reveal" data-cat="data-ml">
+          <div>
+            <p class="tag">Other work · Coursework</p>
+            <h3 style="margin-top:6px">Heart-disease prediction</h3>
+            <p style="margin-top:4px">Group comparison of Random Forest, SVM and Logistic Regression on the Cleveland UCI dataset; I built the ANN as my individual part.</p>
+          </div>
+          <ul class="chips"><li class="chip">Python</li><li class="chip">scikit-learn</li><li class="chip">pandas</li></ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" aria-labelledby="exp-h">
+    <div class="wrap">
+      <p class="tag">Experience &amp; education</p>
+      <h2 id="exp-h">Where I've worked and studied</h2>
+      <div class="xp">
+        <article class="glass xp-job reveal">
+          <p class="when">Jan 2026 – Present · Kandy</p>
+          <h3 style="font-size:1.375rem;margin-top:6px">Software Engineering Intern &amp; Full-Stack Developer</h3>
+          <p class="muted">Shield Technologies (Private) Limited</p>
+          <ul>
+            <li>Build full-stack features with MongoDB, Express, React and Node.js in an Agile R&amp;D team.</li>
+            <li>Design RESTful APIs with senior engineers and optimise database queries.</li>
+            <li>Turn research prototypes into maintainable, production-ready code.</li>
+          </ul>
+        </article>
+        <ol class="edu">
+          <li class="glass reveal"><p class="when">2026 – Present</p><h3>BSc (Hons) Data Science (Top-Up)</h3><p>ESOFT Metro Campus, Kandy — London Metropolitan University (UK)</p></li>
+          <li class="glass reveal"><p class="when">2025 – 2026</p><h3>Diploma in Full Stack Development</h3><p>Nextgen Campus</p></li>
+          <li class="glass reveal"><p class="when">2023 – 2025</p><h3>Higher Diploma in Computing &amp; Software Engineering</h3><p>ICBT Kandy Campus — Cardiff Metropolitan University (UK)</p></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" aria-labelledby="skills-h" style="padding-top:0">
+    <div class="wrap">
+      <p class="tag">Toolbox</p>
+      <h2 id="skills-h">Skills</h2>
+      <div class="skills">
+        <div class="glass skill"><h3>Languages</h3><ul class="chips"><li class="chip">JavaScript (ES6+)</li><li class="chip">TypeScript</li><li class="chip">Python</li><li class="chip">Java</li><li class="chip">C#</li><li class="chip">C++</li><li class="chip">PHP</li><li class="chip">Dart</li></ul></div>
+        <div class="glass skill"><h3>Frontend</h3><ul class="chips"><li class="chip">React 19</li><li class="chip">Vite</li><li class="chip">Tailwind CSS</li><li class="chip">HTML5</li><li class="chip">CSS3</li><li class="chip">Socket.IO client</li><li class="chip">Leaflet</li></ul></div>
+        <div class="glass skill"><h3>Backend</h3><ul class="chips"><li class="chip">Node.js</li><li class="chip">Express 5</li><li class="chip">Flask</li><li class="chip">FastAPI</li><li class="chip">REST APIs</li><li class="chip">JWT &amp; RBAC</li><li class="chip">Nodemailer</li></ul></div>
+        <div class="glass skill"><h3>Data &amp; ML</h3><ul class="chips"><li class="chip">pandas</li><li class="chip">scikit-learn</li><li class="chip">Prophet</li><li class="chip">ARIMA</li><li class="chip">Z-score anomaly detection</li><li class="chip">Random Forest</li><li class="chip">SVM</li><li class="chip">Logistic Regression</li><li class="chip">ANN</li></ul></div>
+        <div class="glass skill"><h3>Databases &amp; Cloud</h3><ul class="chips"><li class="chip">MongoDB / Atlas</li><li class="chip">MySQL</li><li class="chip">Oracle</li><li class="chip">SQL Server</li><li class="chip">Firebase</li><li class="chip">Redis</li><li class="chip">HashiCorp Vault</li><li class="chip">Cloudinary</li><li class="chip">GitHub Actions CI/CD</li><li class="chip">Vercel</li></ul></div>
+        <div class="glass skill"><h3>Practices</h3><ul class="chips"><li class="chip">OOP</li><li class="chip">SDLC</li><li class="chip">Agile</li><li class="chip">Git</li><li class="chip">QA test-case design</li><li class="chip">AES-256 field-level encryption</li><li class="chip">Secret rotation</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" aria-labelledby="about-h" style="padding-top:0">
+    <div class="wrap about">
+      <div><p class="tag">About</p><h2 id="about-h">A bit about me</h2></div>
+      <div>
+        <p>I'm a software developer from Kandy, Sri Lanka. Right now I'm a software engineering intern at Shield Technologies, where I build features for MERN applications and help turn prototypes into production code.</p>
+        <p>I'm also studying for a BSc (Hons) in Data Science with London Metropolitan University. My capstone, MediSync, is where the two meet: a healthcare platform with a Node.js API, a React front end and a Python service that forecasts disease outbreaks.</p>
+        <p>I like work that has to be correct and secure, not just look good: access control, encrypted records, clean APIs and data you can trust.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" aria-labelledby="contact-h" style="padding-top:0">
+    <div class="wrap">
+      <div class="glass contact">
+        <p class="tag">Contact</p>
+        <h2 id="contact-h">Let's talk</h2>
+        <p>Open to junior software engineer, full-stack and data roles. The quickest way to reach me is email.</p>
+        <div class="email-row">
+          <a class="email" href="mailto:chamodtharusha13@gmail.com">chamodtharusha13@gmail.com</a>
+          <button class="btn btn-ghost btn-sm" type="button" id="copy">Copy email</button>
+          <span role="status" aria-live="polite" id="copy-msg" class="muted"></span>
+        </div>
+        <div class="links">
+          <a class="btn btn-ghost btn-sm" href="https://www.linkedin.com/in/chamod-alwis" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+          <a class="btn btn-ghost btn-sm" href="https://github.com/Chamod-Tharusha-Alwis" target="_blank" rel="noopener">GitHub<span class="sr-only"> (opens in new tab)</span></a>
+          <span class="btn btn-ghost btn-sm" style="cursor:default">Kandy, Sri Lanka</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Chamod Tharusha Alwis · Last updated 21 Nov 2026</span>
+    <a href="#top">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+document.documentElement.classList.add('js');
+const nav = document.querySelector('.nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
+const menu = document.getElementById('mobile-menu'), openB = document.getElementById('menu-open'), closeB = document.getElementById('menu-close');
+function openMenu() { menu.classList.add('open'); openB.setAttribute('aria-expanded', 'true'); document.body.style.overflow = 'hidden'; closeB.focus(); }
+function closeMenu() { menu.classList.remove('open'); openB.setAttribute('aria-expanded', 'false'); document.body.style.overflow = ''; openB.focus(); }
+openB.addEventListener('click', openMenu); closeB.addEventListener('click', closeMenu);
+menu.addEventListener('click', e => { if (e.target.closest('a')) closeMenu(); });
+menu.addEventListener('keydown', e => {
+  if (e.key === 'Escape') return closeMenu();
+  if (e.key !== 'Tab') return;
+  const f = menu.querySelectorAll('a, button'), first = f[0], last = f[f.length - 1];
+  if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+});
+document.querySelectorAll('.filter').forEach(b => b.addEventListener('click', () => {
+  document.querySelectorAll('.filter').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  document.querySelectorAll('[data-cat]').forEach(el => { el.hidden = !(b.dataset.f === 'all' || el.dataset.cat.split(' ').includes(b.dataset.f)); });
+}));
+document.getElementById('copy').addEventListener('click', async () => {
+  const msg = document.getElementById('copy-msg');
+  try { await navigator.clipboard.writeText('chamodtharusha13@gmail.com'); msg.textContent = 'Copied'; } catch (e) { msg.textContent = 'Copy failed — select the address above'; }
+});
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .1 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
