@@ -1,0 +1,53 @@
+CHAMOD THARUSHA ALWIS
+Software Engineer | Full-Stack Developer | Data Science
+chamodtharusha13@gmail.com | 0772600303 | Kandy, Sri Lanka
+linkedin.com/in/chamod-alwis | github.com/Chamod-Tharusha-Alwis | chamod-tharusha-alwis.github.io
+
+SUMMARY
+Software engineering intern at Shield Technologies, building MERN features in an Agile R&D team, and BSc (Hons) Data Science student. I built MediSync, a three-service healthcare platform with Prophet and ARIMA outbreak forecasting and AES-256 field-level encryption. Looking for a junior software engineer, full-stack or data science role.
+
+EXPERIENCE
+Software Engineering Intern & Full-Stack Developer | Shield Technologies (Private) Limited, Kandy, Sri Lanka | Jan 2026 - Present
+- Build full-stack features with MongoDB, Express, React and Node.js in an Agile R&D team.
+- Design RESTful APIs with senior engineers and optimise database queries.
+- Turn research prototypes into maintainable, production-ready code.
+
+PROJECTS
+MediSync - AI-driven national healthcare platform for Sri Lanka
+Role: Solo project: I designed and built all three services.
+Technologies: React 19, Node.js, Express 5, Python, Flask, Prophet, ARIMA, scikit-learn, MongoDB Atlas, Redis, HashiCorp Vault, Cloudinary, Socket.IO, Leaflet, GitHub Actions, Vercel
+Live: https://medisync.chamodtharusha.com.lk/
+Code: https://github.com/Chamod-Tharusha-Alwis/MediSync
+- Designed and built, solo, a three-service healthcare platform (React 19, Node.js/Express 5, Python Flask, MongoDB Atlas) with role-based portals for patients, doctors, pharmacies, hospitals/labs and admins.
+- Built an outbreak-forecasting engine in Flask using Prophet, ARIMA and z-score anomaly detection, feeding a public district-level risk map of Sri Lanka (Leaflet, GeoJSON).
+- Secured patient data with AES-256 field-level encryption and blind indexes, HashiCorp Vault, OTP-gated record access and audit logs; added drug-interaction checks covering 191k+ pairs.
+- Cut the initial JS bundle from 465 KB to 145 KB with code-splitting; set up CI/CD with GitHub Actions and Vercel.
+
+Ayu Arana Care - Management system for an elders' care home
+Role: Team project: I was the backend developer and also supported overall development.
+Technologies: MongoDB, Express, React, Node.js, Tailwind CSS, bcrypt
+Live: https://ayu-arana-care.chamodtharusha.com.lk/
+Code: https://github.com/Chamod-Tharusha-Alwis/Ayu-Arana-Care
+- Built a secure REST API in Node.js and Express with role-based access control and bcrypt, managing resident medical records, membership tiers and payments.
+- Contributed to the responsive React and Tailwind CSS front end for medical tracking and resident checkup requests.
+
+Ceylon Traveler - Travel and accommodation booking platform for Sri Lanka
+Role: Solo project.
+Technologies: MongoDB, Express, React, Node.js, JWT
+Live: https://ceylon-traveler.chamodtharusha.com.lk/
+Code: https://github.com/Chamod-Tharusha-Alwis/Ceylon-Traveler
+- Built a REST API in Node.js and Express for booking logic, availability checks and JWT authentication.
+- Designed the MongoDB schema and a responsive React front end for hotel, taxi and guide booking.
+
+TECHNICAL SKILLS
+Languages: JavaScript (ES6+), TypeScript, Python, Java, C#, C++, PHP, Dart
+Frontend: React 19, Vite, Tailwind CSS, HTML5, CSS3, Socket.IO client, Leaflet
+Backend: Node.js, Express 5, Flask, FastAPI, REST APIs, JWT & RBAC, Nodemailer
+Data & ML: pandas, scikit-learn, Prophet, ARIMA, Z-score anomaly detection, Random Forest, SVM, Logistic Regression, ANN
+Databases & Cloud: MongoDB / Atlas, MySQL, Oracle, SQL Server, Firebase, Redis, HashiCorp Vault, Cloudinary, GitHub Actions CI/CD, Vercel
+Practices: OOP, SDLC, Agile, Git, QA test-case design, AES-256 field-level encryption, Secret rotation
+
+EDUCATION
+BSc (Hons) Data Science (Top-Up) | ESOFT Metro Campus, Kandy - London Metropolitan University (UK) | 2026 - Present
+Diploma in Full Stack Development | Nextgen Campus | 2025 - 2026
+Higher Diploma in Computing & Software Engineering | ICBT Kandy Campus - Cardiff Metropolitan University (UK) | 2023 - 2025

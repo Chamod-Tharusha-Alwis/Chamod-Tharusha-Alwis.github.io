@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /design/
+Disallow: /qa/
+
+Sitemap: https://chamod-tharusha-alwis.github.io/sitemap.xml
