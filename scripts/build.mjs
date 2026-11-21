@@ -1,6 +1,6 @@
 // Generates every page and the CV from data/profile.json. No dependencies.
 // Run: node scripts/build.mjs   (then: node scripts/render-assets.cjs  for the PDF, OG image, favicons)
-// The generated files are committed, so GitHub Pages serves them with no build step.
+// The generated files are committed. On Vercel, scripts/stage.mjs copies only the public files into dist/ (see vercel.json).
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
 
@@ -361,7 +361,7 @@ ${footer()}`;
 }
 
 // ---------- CV ----------
-const bare = u => u.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+const bare = u => u.replace(/^https?:\/\//, '').replace(/^www\.linkedin/, 'linkedin').replace(/\/$/, '');
 function cvHtml() {
   const cvProjects = projects.filter(p => p.cvBullets && p.cvBullets.length);
   const contact = [
@@ -434,4 +434,4 @@ out('cv/cv.html', cvHtml());
 out('cv/Chamod_Tharusha_Alwis_ATS.txt', cvAts());
 const urls = ['/', ...projects.filter(p => p.caseStudy && p.links.caseStudy).map(p => '/' + p.links.caseStudy)];
 out('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map(u => `  <url><loc>${SITE}${u}</loc><lastmod>${d.meta.lastUpdated}</lastmod></url>`).join('\n')}\n</urlset>\n`);
-out('robots.txt', `User-agent: *\nAllow: /\nDisallow: /design/\nDisallow: /qa/\n\nSitemap: ${SITE}/sitemap.xml\n`);
+out('robots.txt', `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);

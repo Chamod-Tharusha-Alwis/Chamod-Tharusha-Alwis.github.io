@@ -6,7 +6,7 @@
     "decisions": {
       "design": "A · Engineer's Notebook, light by default with dark toggle",
       "geminiFeature": "left out (disabled for now)",
-      "domain": "chamod-tharusha-alwis.github.io"
+      "domain": "https://www.chamodtharusha.com.lk/ (Vercel; production deploys from main, previews from branches)"
     }
   },
   "basics": {
@@ -27,7 +27,7 @@
     "links": {
       "github": "https://github.com/Chamod-Tharusha-Alwis",
       "linkedin": "https://www.linkedin.com/in/chamod-alwis",
-      "site": "https://chamod-tharusha-alwis.github.io/"
+      "site": "https://www.chamodtharusha.com.lk/"
     },
     "availability": "Open to Junior SE, Full-Stack and Data roles",
     "photo": {

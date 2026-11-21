@@ -1,7 +1,7 @@
 Chamod Tharusha Alwis
 Software Engineer · Full-Stack Developer · Data Science
 chamodtharusha13@gmail.com | 0772600303 | Kandy, Sri Lanka
-linkedin.com/in/chamod-alwis | github.com/Chamod-Tharusha-Alwis | chamod-tharusha-alwis.github.io
+linkedin.com/in/chamod-alwis | github.com/Chamod-Tharusha-Alwis | www.chamodtharusha.com.lk
 
 SUMMARY
 Software engineering intern (MERN, Agile R&D) and BSc (Hons) Data Science student. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting.

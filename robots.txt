@@ -1,6 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /design/
-Disallow: /qa/
 
-Sitemap: https://chamod-tharusha-alwis.github.io/sitemap.xml
+Sitemap: https://www.chamodtharusha.com.lk/sitemap.xml

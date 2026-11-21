@@ -7,7 +7,7 @@ Edit freely — mark changes inline or reply with numbered notes.
 - MediSync live URL / repo → since provided (see below).
 - Ceylon Traveler "Gemini AI itinerary engine" → **left out** until you confirm it's real.
 - Heart-disease ML → listed **without a link**.
-- Domain → stays **chamod-tharusha-alwis.github.io**.
+- Domain → stays **www.chamodtharusha.com.lk**.
 - Phone → CV only (`phonePublic: false`).
 
 ---
@@ -135,7 +135,7 @@ As a group we trained and compared Random Forest, SVM and Logistic Regression mo
 
 **Chamod Tharusha Alwis**
 Software Engineer · Full-Stack Developer · Data Science
-chamodtharusha13@gmail.com · 0772600303 · Kandy, Sri Lanka · linkedin.com/in/chamod-alwis · github.com/Chamod-Tharusha-Alwis · chamod-tharusha-alwis.github.io
+chamodtharusha13@gmail.com · 0772600303 · Kandy, Sri Lanka · linkedin.com/in/chamod-alwis · github.com/Chamod-Tharusha-Alwis · www.chamodtharusha.com.lk
 
 **Summary**
 Software engineering intern at Shield Technologies, building MERN features in an Agile R&D team, and BSc (Hons) Data Science student. I built MediSync, a three-service healthcare platform with Prophet and ARIMA outbreak forecasting and AES-256 field-level encryption. Looking for a junior software engineer, full-stack or data science role.
