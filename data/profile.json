@@ -1,0 +1,352 @@
+{
+  "meta": {
+    "lastUpdated": "2026-11-21",
+    "version": 1,
+    "notes": "Single source of truth for the website and the CV. Strings containing [[FILL: ...]] are waiting on Chamod and must not ship."
+  },
+  "basics": {
+    "name": "Chamod Tharusha Alwis",
+    "fullName": "N W K A Chamod Tharusha Alwis",
+    "headline": "Full-stack developer building secure, data-driven web platforms",
+    "heroSub": "Software engineering intern at Shield Technologies and BSc Data Science student. I build MERN apps and the Python services behind them.",
+    "cvTitle": "Software Engineer · Full-Stack Developer · Data Science",
+    "summary": "Software engineering intern at Shield Technologies, building MERN features in an Agile R&D team, and BSc (Hons) Data Science student. I built MediSync, a three-service healthcare platform with Prophet and ARIMA outbreak forecasting and AES-256 field-level encryption. Looking for a junior software engineer, full-stack or data science role.",
+    "about": [
+      "I'm a software developer from Kandy, Sri Lanka. Right now I'm a software engineering intern at Shield Technologies, where I build features for MERN applications and help turn prototypes into production code.",
+      "I'm also studying for a BSc (Hons) in Data Science with London Metropolitan University. My capstone, MediSync, is where the two meet: a healthcare platform with a Node.js API, a React front end and a Python service that forecasts disease outbreaks.",
+      "I like work that has to be correct and secure, not just look good: access control, encrypted records, clean APIs and data you can trust."
+    ],
+    "location": "Kandy, Sri Lanka",
+    "email": "chamodtharusha13@gmail.com",
+    "phone": "0772600303",
+    "phonePublic": false,
+    "links": {
+      "github": "https://github.com/Chamod-Tharusha-Alwis",
+      "linkedin": "https://www.linkedin.com/in/chamod-alwis",
+      "site": "https://chamod-tharusha-alwis.github.io/"
+    },
+    "availability": "Open to Junior SE, Full-Stack and Data roles",
+    "photo": "profile2.jpg"
+  },
+  "experience": [
+    {
+      "role": "Software Engineering Intern & Full-Stack Developer",
+      "org": "Shield Technologies (Private) Limited",
+      "location": "Kandy, Sri Lanka",
+      "start": "2026-01",
+      "end": null,
+      "bullets": [
+        "Build full-stack features with MongoDB, Express, React and Node.js in an Agile R&D team.",
+        "Design RESTful APIs with senior engineers and optimise database queries.",
+        "Turn research prototypes into maintainable, production-ready code."
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "BSc (Hons) Data Science (Top-Up)",
+      "org": "ESOFT Metro Campus, Kandy",
+      "awarding": "London Metropolitan University (UK)",
+      "start": "2026",
+      "end": null
+    },
+    {
+      "degree": "Diploma in Full Stack Development",
+      "org": "Nextgen Campus",
+      "awarding": null,
+      "start": "2025",
+      "end": "2026"
+    },
+    {
+      "degree": "Higher Diploma in Computing & Software Engineering",
+      "org": "ICBT Kandy Campus",
+      "awarding": "Cardiff Metropolitan University (UK)",
+      "start": "2023",
+      "end": "2025"
+    }
+  ],
+  "skills": [
+    {
+      "group": "Languages",
+      "items": [
+        "JavaScript (ES6+)",
+        "TypeScript",
+        "Python",
+        "Java",
+        "C#",
+        "C++",
+        "PHP",
+        "Dart"
+      ]
+    },
+    {
+      "group": "Frontend",
+      "items": [
+        "React 19",
+        "Vite",
+        "Tailwind CSS",
+        "HTML5",
+        "CSS3",
+        "Socket.IO client",
+        "Leaflet"
+      ]
+    },
+    {
+      "group": "Backend",
+      "items": [
+        "Node.js",
+        "Express 5",
+        "Flask",
+        "FastAPI",
+        "REST APIs",
+        "JWT & RBAC",
+        "Nodemailer"
+      ]
+    },
+    {
+      "group": "Data & ML",
+      "items": [
+        "pandas",
+        "scikit-learn",
+        "Prophet",
+        "ARIMA",
+        "Z-score anomaly detection",
+        "Random Forest",
+        "SVM",
+        "Logistic Regression",
+        "ANN"
+      ]
+    },
+    {
+      "group": "Databases & Cloud",
+      "items": [
+        "MongoDB / Atlas",
+        "MySQL",
+        "Oracle",
+        "SQL Server",
+        "Firebase",
+        "Redis",
+        "HashiCorp Vault",
+        "Cloudinary",
+        "GitHub Actions CI/CD",
+        "Vercel"
+      ]
+    },
+    {
+      "group": "Practices",
+      "items": [
+        "OOP",
+        "SDLC",
+        "Agile",
+        "Git",
+        "QA test-case design",
+        "AES-256 field-level encryption",
+        "Secret rotation"
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "slug": "medisync",
+      "name": "MediSync",
+      "tagline": "AI-driven national healthcare platform for Sri Lanka",
+      "context": "BSc (Hons) Data Science capstone",
+      "status": "[[FILL: live / in development]]",
+      "featured": true,
+      "category": [
+        "full-stack",
+        "data-ml"
+      ],
+      "role": "[[FILL: built solo, or team size and your part]]",
+      "stack": [
+        "React 19",
+        "Node.js",
+        "Express 5",
+        "Python",
+        "Flask",
+        "Prophet",
+        "ARIMA",
+        "Redis",
+        "HashiCorp Vault",
+        "Leaflet",
+        "GitHub Actions",
+        "Vercel"
+      ],
+      "problem": "Patients, doctors, pharmacies, hospitals and labs need to share medical records and prescriptions safely, and health officials need early warning when a disease starts to spread in a district.",
+      "solution": "A three-service platform: a React 19 front end, a Node.js / Express 5 API and a Python Flask ML engine. Each role has its own portal, patient records sit behind encryption and OTP-based consent, and a public map shows outbreak risk for every district in Sri Lanka.",
+      "highlights": [
+        "Outbreak forecasting with Prophet and ARIMA, plus z-score anomaly detection for unusual case spikes.",
+        "Public Sri Lanka district choropleth map built with Leaflet and GeoJSON.",
+        "AES-256 field-level encryption with blind indexes, keys in HashiCorp Vault, Redis, OTP-gated access to patient records and audit logs.",
+        "Separate portals for patients, doctors, pharmacies, hospitals/labs and admins.",
+        "Drug-interaction and allergy checks against 3,000 drugs, 191k+ interaction pairs and 71k+ ICD codes.",
+        "CI/CD with GitHub Actions, deployed on Vercel."
+      ],
+      "stats": [
+        {
+          "value": "3",
+          "label": "services: React, Node.js, Flask ML"
+        },
+        {
+          "value": "191k+",
+          "label": "drug-interaction pairs checked"
+        },
+        {
+          "value": "465 → 145 KB",
+          "label": "initial JS bundle after code-splitting"
+        }
+      ],
+      "impact": [
+        "Cut the initial JavaScript bundle from 465 KB to 145 KB with code-splitting."
+      ],
+      "cvBullets": [
+        "Built a three-service healthcare platform (React 19, Node.js/Express 5, Python Flask) with role-based portals for patients, doctors, pharmacies, hospitals/labs and admins.",
+        "Built an outbreak-forecasting engine in Flask using Prophet, ARIMA and z-score anomaly detection, feeding a public district-level risk map of Sri Lanka (Leaflet, GeoJSON).",
+        "Secured patient data with AES-256 field-level encryption and blind indexes, HashiCorp Vault, OTP-gated record access and audit logs; added drug-interaction checks covering 191k+ pairs.",
+        "Cut the initial JS bundle from 465 KB to 145 KB with code-splitting; set up CI/CD with GitHub Actions and Vercel."
+      ],
+      "links": {
+        "live": "[[FILL: MediSync live URL or \"demo on request\"]]",
+        "repo": "[[FILL: public repo URL or \"private\"]]",
+        "caseStudy": "projects/medisync.html"
+      },
+      "images": [
+        {
+          "src": "[[FILL: dashboard screenshot]]",
+          "alt": "MediSync dashboard"
+        },
+        {
+          "src": "[[FILL: district map screenshot]]",
+          "alt": "MediSync district outbreak risk map of Sri Lanka"
+        },
+        {
+          "src": "[[FILL: doctor portal screenshot]]",
+          "alt": "MediSync doctor portal"
+        }
+      ],
+      "pendingClaims": [
+        "[[FILL: which database does MediSync use? (MongoDB?) — left out of the stack until confirmed]]"
+      ]
+    },
+    {
+      "slug": "ayu-arana-care",
+      "name": "Ayu Arana Care",
+      "tagline": "Management system for an elders' care home",
+      "context": "Personal project",
+      "status": "live",
+      "featured": false,
+      "category": [
+        "full-stack"
+      ],
+      "role": "[[FILL: built solo, or team size and your part]]",
+      "stack": [
+        "MongoDB",
+        "Express",
+        "React",
+        "Node.js",
+        "Tailwind CSS",
+        "bcrypt"
+      ],
+      "problem": "A care home needs one place to manage residents, their medical records, memberships, payments and checkup requests, with staff only seeing what their role allows.",
+      "solution": "A MERN web app with role-based access control, resident medical records, membership tiers, payments and checkup requests, and a responsive React and Tailwind front end.",
+      "highlights": [
+        "Role-based access control with bcrypt-hashed passwords.",
+        "Resident medical records and checkup requests.",
+        "Membership tiers and payment records."
+      ],
+      "stats": [],
+      "impact": [],
+      "cvBullets": [
+        "Built a secure REST API in Node.js and Express with role-based access control and bcrypt, managing resident medical records, membership tiers and payments.",
+        "Built a responsive React and Tailwind CSS front end for medical tracking and resident checkup requests."
+      ],
+      "links": {
+        "live": "https://ayu-arana-care.chamodtharusha.com.lk/",
+        "repo": "https://github.com/Chamod-Tharusha-Alwis/Ayu-Arana-Care",
+        "caseStudy": null
+      },
+      "images": [
+        {
+          "src": "new.png",
+          "alt": "Ayu Arana Care home page"
+        }
+      ]
+    },
+    {
+      "slug": "ceylon-traveler",
+      "name": "Ceylon Traveler",
+      "tagline": "Travel and accommodation booking platform for Sri Lanka",
+      "context": "Personal project",
+      "status": "live",
+      "featured": false,
+      "category": [
+        "full-stack"
+      ],
+      "role": "[[FILL: built solo, or team size and your part]]",
+      "stack": [
+        "MongoDB",
+        "Express",
+        "React",
+        "Node.js",
+        "JWT"
+      ],
+      "problem": "Travellers in Sri Lanka usually book hotels, taxis and guides in different places. This brings them into one booking flow.",
+      "solution": "A MERN platform for booking hotels, taxis and guides, with availability checks and JWT authentication.",
+      "highlights": [
+        "Hotel, taxi and guide booking in one place.",
+        "Availability checks before a booking is confirmed.",
+        "JWT-based authentication."
+      ],
+      "pendingClaims": [
+        "[[FILL: confirm or remove — current site says a custom Google Gemini engine generates personalised trip itineraries. Left out until confirmed.]]"
+      ],
+      "stats": [],
+      "impact": [],
+      "cvBullets": [
+        "Built a REST API in Node.js and Express for booking logic, availability checks and JWT authentication.",
+        "Designed the MongoDB schema and a responsive React front end for hotel, taxi and guide booking."
+      ],
+      "links": {
+        "live": "https://ceylon-traveler.chamodtharusha.com.lk/",
+        "repo": "https://github.com/Chamod-Tharusha-Alwis/Ceylon-Traveler",
+        "caseStudy": null
+      },
+      "images": [
+        {
+          "src": "ceylon-traveler1.png",
+          "alt": "Ceylon Traveler home page"
+        }
+      ]
+    },
+    {
+      "slug": "heart-disease-ml",
+      "name": "Heart-disease prediction",
+      "tagline": "Comparing classic ML models and a neural network on the Cleveland UCI dataset",
+      "context": "Academic coursework",
+      "status": "coursework",
+      "featured": false,
+      "otherWork": true,
+      "category": [
+        "data-ml"
+      ],
+      "role": "[[FILL: confirm — group coursework with the ANN as your individual part?]]",
+      "stack": [
+        "Python",
+        "scikit-learn",
+        "pandas"
+      ],
+      "problem": "Predict the presence of heart disease from clinical measurements.",
+      "solution": "Trained and compared Random Forest, SVM and Logistic Regression models, plus an artificial neural network, on the Cleveland UCI heart-disease dataset.",
+      "highlights": [],
+      "stats": [],
+      "impact": [],
+      "cvBullets": [],
+      "links": {
+        "live": null,
+        "repo": null,
+        "caseStudy": null
+      },
+      "images": []
+    }
+  ]
+}
