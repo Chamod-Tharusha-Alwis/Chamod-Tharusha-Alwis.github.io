@@ -423,8 +423,11 @@
       },
       "images": [
         {
-          "src": "[[FILL: Ceylon Traveler screenshot with the rating badge cropped out]]",
-          "alt": "Ceylon Traveler booking page"
+          "src": "assets/img/ceylon-traveler-960.webp",
+          "small": "assets/img/ceylon-traveler-480.webp",
+          "width": 960,
+          "height": 367,
+          "alt": "Ceylon Traveler home page: Discover the Pearl of the Orient, with a photo of Sigiriya"
         }
       ],
       "cardMeta": "Solo project",
