@@ -62,9 +62,9 @@ function pngToIco(png) {
     const og = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
     await og.goto(`${base}/__og`, { waitUntil: 'networkidle' });
     await og.evaluate(() => document.fonts.ready);
-    await og.screenshot({ path: path.join(ROOT, 'assets/img/og-image.png') });
+    await og.screenshot({ path: path.join(ROOT, 'assets/img/og-image.jpg'), type: 'jpeg', quality: 85 });
     await og.close();
-    console.log('wrote assets/img/og-image.png');
+    console.log('wrote assets/img/og-image.jpg');
 
     // CV PDF (A4, from cv/cv.html)
     const cv = await browser.newPage();

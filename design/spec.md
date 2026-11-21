@@ -126,7 +126,7 @@ MediSync — AI-driven national healthcare platform for Sri Lanka
 meta: Solo BSc capstone · Live · [Live site] [Code]
 hero screenshot (dashboard)
 Overview | Problem | My role | Architecture (inline SVG: React ⇄ Express API ⇄ Flask ML; MongoDB Atlas, Redis, Vault, Cloudinary)
-Key features | Tech decisions | Challenges & what I learned [[FILL — needs your input]] | Screenshots (map, doctor portal) | Links
+Key features | Tech decisions | Challenges & what I learned (text supplied by Chamod) | Screenshots (map, doctor portal) | Links
 footer
 ```
 "Challenges & what I learned" and "Tech decisions" need a few sentences from you. I won't invent them; I'll ask in Phase 4.

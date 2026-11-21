@@ -17,7 +17,7 @@ const range = (a, z) => `${ym(a)} – ${ym(z)}`;
 const longDate = s => { const [y, m, dd] = s.split('-'); return `${+dd} ${MONTHS[+m - 1]} ${y}`; };
 const ext = (href, text, cls = '') => `<a${cls ? ` class="${cls}"` : ''} href="${esc(href)}" target="_blank" rel="noopener">${text}<span class="sr-only"> (opens in new tab)</span></a>`;
 const isLink = v => v && !FILL.test(v);
-const chips = (items, label = 'Tech stack') => `<ul class="chips" aria-label="${label}">${items.map(i => `<li class="chip">${esc(i)}</li>`).join('')}</ul>`;
+const chips = (items, labelledby = '') => `<ul class="chips"${labelledby ? ` aria-labelledby="${labelledby}"` : ''}>${items.map(i => `<li class="chip">${esc(i)}</li>`).join('')}</ul>`;
 const placeholder = (img, extraCls = '') => `<!-- ${img.src} --><div class="shot-ph ${extraCls}" role="img" aria-label="${esc(img.alt)} (screenshot coming soon)"><div><b>${esc(img.alt)}</b>Screenshot coming soon</div></div>`;
 const projects = d.projects;
 const featured = projects.find(p => p.featured);
@@ -37,9 +37,9 @@ const ICON = {
 
 const CV_FILE = 'Chamod_Tharusha_Alwis.pdf';
 
-function head({ title, description, path, base, extraHead = '' }) {
+function head({ title, description, path, base, extraHead = '', home = false }) {
   const url = SITE + path;
-  return `<!doctype html>
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -55,19 +55,20 @@ function head({ title, description, path, base, extraHead = '' }) {
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="${SITE}/assets/img/og-image.png">
+<meta property="og:image" content="${SITE}/assets/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="${esc(b.name)} — ${esc(b.headline)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(description)}">
-<meta name="twitter:image" content="${SITE}/assets/img/og-image.png">
+<meta name="twitter:image" content="${SITE}/assets/img/og-image.jpg">
 <link rel="icon" href="${base}favicon.ico" sizes="32x32">
 <link rel="icon" href="${base}assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="${base}assets/img/apple-touch-icon.png">
 <link rel="preload" href="${base}assets/fonts/inter-normal-400-600-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="${base}assets/fonts/fraunces-normal-600-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="${base}assets/fonts/fraunces-normal-600-latin.woff2" as="font" type="font/woff2" crossorigin>${home ? `
+<link rel="preload" href="${base}assets/fonts/fraunces-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>` : ''}
 <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add('js')</script>
 <link rel="stylesheet" href="${base}assets/css/site.css">
 <script src="${base}assets/js/main.js" type="module"></script>
@@ -76,7 +77,7 @@ ${extraHead}</head>`;
 
 function nav(base, home) {
   const h = home ? '' : `${base}index.html`;
-  const links = [['work', 'Work'], ['about', 'About'], ['skills', 'Skills'], ['experience', 'Experience'], ['contact', 'Contact']];
+  const links = [['work', 'Work'], ['experience', 'Experience'], ['skills', 'Skills'], ['about', 'About'], ['contact', 'Contact']];
   const li = links.map(([id, t]) => `<li><a href="${h}#${id}">${t}</a></li>`).join('');
   return `<a class="skip" href="#main">Skip to content</a>
 <header class="nav" id="top">
@@ -150,9 +151,9 @@ function home() {
           </div>
         </article>`;
   return head({
-    title: `${b.name} — Full-Stack Developer & Data Science Student`,
-    description: `${b.name}, full-stack developer in Kandy, Sri Lanka. MERN, Python and Flask; builder of MediSync, a secure, data-driven healthcare platform. ${b.availability}.`,
-    path: '/', base,
+    title: `${b.name} — Full-Stack Developer, Kandy`,
+    description: `Full-stack developer in Kandy, Sri Lanka building secure, data-driven web apps with MERN, Python and Flask. Open to junior SE and data roles.`,
+    path: '/', base, home: true,
     extraHead: `<link rel="preload" as="image" href="${b.photo.src}" type="image/webp">\n<script type="application/ld+json">${JSON.stringify(jsonld)}</script>\n`,
   }) + `
 <body>
@@ -238,7 +239,7 @@ ${nav(base, true)}
       <p class="eyebrow">Toolbox</p>
       <h2 id="skills-h">Skills</h2>
       <div class="skills">
-        ${d.skills.map(g => `<div class="skill-group"><h3>${esc(g.group)}</h3>${chips(g.items, g.group)}</div>`).join('\n        ')}
+        ${d.skills.map((g, i) => `<div class="skill-group"><h3 id="sk-${i}">${esc(g.group)}</h3>${chips(g.items, `sk-${i}`)}</div>`).join('\n        ')}
       </div>
     </div>
   </section>
@@ -250,7 +251,7 @@ ${nav(base, true)}
     </div>
   </section>
 
-  <section id="contact" aria-labelledby="contact-h" style="padding-top:0">
+  <section id="contact" class="flush-top" aria-labelledby="contact-h">
     <div class="wrap">
       <div class="contact-card">
         <h2 id="contact-h">Let's talk</h2>
@@ -297,7 +298,7 @@ function archSvg(a) {
     <text class="t" x="650" y="66" text-anchor="middle">ML engine</text><text class="s" x="650" y="88" text-anchor="middle">${esc(a.ml)}</text>
     ${stores.map((s, i) => `<rect class="box" x="${sx + i * (sw + gap)}" y="204" width="${sw}" height="56" rx="10"/><text class="s" x="${sx + i * (sw + gap) + sw / 2}" y="237" text-anchor="middle">${esc(s)}</text>`).join('')}
   </svg>
-  <figcaption>Three separately deployed services. The Flask ML engine can scale independently of the web API.</figcaption>
+  <figcaption>Three services. The Flask ML engine can scale and deploy independently of the web API.</figcaption>
 </figure>`;
 }
 
@@ -313,7 +314,7 @@ function caseStudy(p) {
   ].join('');
   return head({
     title: `${p.name} case study — ${b.name}`,
-    description: `${p.name}: ${p.tagline}. ${p.context}. React 19, Node.js/Express 5 and a Flask ML engine with Prophet outbreak forecasting and AES-256 field-level encryption.`,
+    description: `How I built ${p.name}: React 19, Express 5 and a Flask ML engine with outbreak forecasting and AES-256 encrypted patient records.`,
     path: `/${p.links.caseStudy}`, base,
   }) + `
 <body>
@@ -329,7 +330,7 @@ ${nav(base, false)}
     <div class="cs-shot">${imgCS(p.images[0])}</div>
   </div>
   <div class="wrap cs-body">
-    <aside class="toc" aria-label="On this page"><nav><ol>${sections.map(([id, t]) => `<li><a href="#${id}">${t}</a></li>`).join('')}</ol></nav></aside>
+    <aside class="toc"><nav aria-label="On this page"><ol>${sections.map(([id, t]) => `<li><a href="#${id}">${esc(t)}</a></li>`).join('')}</ol></nav></aside>
     <div class="prose">
       <section id="overview" aria-labelledby="overview-h"><h2 id="overview-h">Overview</h2><p>${esc(cs.overview)}</p></section>
       <section id="problem" aria-labelledby="problem-h"><h2 id="problem-h">Problem</h2><p>${esc(p.problem)}</p><p><strong>What I built.</strong> ${esc(p.solution)}</p></section>
@@ -367,7 +368,7 @@ function cvHtml() {
     `<a href="mailto:${b.email}">${esc(b.email)}</a>`, esc(b.phone), esc(b.location),
     `<a href="${b.links.linkedin}">${bare(b.links.linkedin)}</a>`, `<a href="${b.links.github}">${bare(b.links.github)}</a>`, `<a href="${b.links.site}">${bare(b.links.site)}</a>`,
   ];
-  return `<!doctype html>
+  return `<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -385,7 +386,7 @@ function cvHtml() {
     <div class="cv-name"><h1>${esc(b.name)}</h1><p class="cv-title">${esc(b.cvTitle)}</p></div>
     <p class="cv-contact">${contact.join(' <span class="sep" aria-hidden="true">|</span> ')}</p>
   </header>
-  <section><h2>Summary</h2><p>${esc(b.summary)}</p></section>
+  <section><h2>Summary</h2><p>${esc(b.cvSummary || b.summary)}</p></section>
   <section><h2>Experience</h2>
     ${d.experience.map(e => `<div class="item"><div class="row"><h3>${esc(e.role)}</h3><span class="when">${range(e.start, e.end)}</span></div>
     <p class="sub">${esc(e.org)}, ${esc(e.location)}</p><ul>${e.bullets.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>`).join('\n    ')}
@@ -395,7 +396,7 @@ function cvHtml() {
     <p class="sub">${esc(p.cvRole || p.role)} · ${esc(p.stack.slice(0, p.cvStackCount || 6).join(', '))}</p><ul>${p.cvBullets.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>`).join('\n    ')}
   </section>
   <section><h2>Technical Skills</h2>
-    <dl class="skills">${d.skills.map(g => `<div><dt>${esc(g.group)}:</dt> <dd>${esc(g.items.join(', '))}</dd></div>`).join('')}</dl>
+    <dl class="skills">${(d.cvSkills || d.skills).map(g => `<div><dt>${esc(g.group)}:</dt> <dd>${esc(g.items.join(', '))}</dd></div>`).join('')}</dl>
   </section>
   <section><h2>Education</h2>
     ${d.education.map(e => `<div class="item edu"><div class="row"><p><strong>${esc(e.degree)}</strong>, ${esc(e.org)}${e.awarding ? ` — ${esc(e.awarding)}` : ''}</p><span class="when">${range(e.start, e.end)}</span></div></div>`).join('\n    ')}
@@ -408,8 +409,8 @@ function cvHtml() {
 
 function cvAts() {
   const L = [];
-  L.push(b.name.toUpperCase(), b.cvTitle.replace(/ · /g, ' | '), [b.email, b.phone, b.location].join(' | '), [bare(b.links.linkedin), bare(b.links.github), bare(b.links.site)].join(' | '), '');
-  L.push('SUMMARY', b.summary, '');
+  L.push(b.name, b.cvTitle, [b.email, b.phone, b.location].join(' | '), [bare(b.links.linkedin), bare(b.links.github), bare(b.links.site)].join(' | '), '');
+  L.push('SUMMARY', b.cvSummary || b.summary, '');
   L.push('EXPERIENCE');
   d.experience.forEach(e => { L.push(`${e.role} | ${e.org}, ${e.location} | ${range(e.start, e.end)}`); e.bullets.forEach(x => L.push(`- ${x}`)); L.push(''); });
   L.push('PROJECTS');
@@ -420,7 +421,7 @@ function cvAts() {
     if (isLink(p.links.repo)) L.push(`Code: ${p.links.repo}`);
     p.cvBullets.forEach(x => L.push(`- ${x}`)); L.push('');
   });
-  L.push('TECHNICAL SKILLS'); d.skills.forEach(g => L.push(`${g.group}: ${g.items.join(', ')}`)); L.push('');
+  L.push('TECHNICAL SKILLS'); (d.cvSkills || d.skills).forEach(g => L.push(`${g.group}: ${g.items.join(', ')}`)); L.push('');
   L.push('EDUCATION'); d.education.forEach(e => L.push(`${e.degree} | ${e.org}${e.awarding ? ` - ${e.awarding}` : ''} | ${range(e.start, e.end).replace('–', '-')}`));
   return L.join('\n').replace(/[–—]/g, '-').replace(/→/g, '->') + '\n';
 }

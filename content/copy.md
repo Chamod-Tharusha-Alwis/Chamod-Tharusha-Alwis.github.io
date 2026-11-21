@@ -4,7 +4,7 @@ Everything here comes from `data/profile.json`. That file is what the site and t
 Edit freely — mark changes inline or reply with numbered notes.
 
 **Defaults I used because the answer was still a placeholder:**
-- MediSync live URL / repo → left as `[[FILL]]`.
+- MediSync live URL / repo → since provided (see below).
 - Ceylon Traveler "Gemini AI itinerary engine" → **left out** until you confirm it's real.
 - Heart-disease ML → listed **without a link**.
 - Domain → stays **chamod-tharusha-alwis.github.io**.
@@ -99,7 +99,7 @@ I like work that has to be correct and secure, not just look good: access contro
 
 ## Other work — Heart-disease prediction (coursework)
 
-As a group we trained and compared Random Forest, SVM and Logistic Regression models on the Cleveland UCI heart-disease dataset. My individual part was an artificial neural network for the same task. *Python · scikit-learn · pandas · `[[FILL: ANN library]]`* · No repo link.
+As a group we trained and compared Random Forest, SVM and Logistic Regression models on the Cleveland UCI heart-disease dataset. My individual part was an artificial neural network for the same task. *Python · scikit-learn · pandas · ANN (individual component)* · No repo link.
 
 ---
 
@@ -170,13 +170,10 @@ Every fact above comes from the brief's Section 1 or from your Phase 1 answers. 
 - "Scalable" (old CV) — no evidence given, so dropped.
 - Gemini AI engine (old site) — pending your confirmation.
 
-## Open `[[FILL]]` items
+## Open items (updated after Phase 3)
 
-1. Your role on Ayu Arana Care (solo / team + your part).
-2. Your role on Ceylon Traveler (solo / team + your part).
-3. Ceylon Traveler Gemini feature: keep or remove (left out for now).
-4. ANN library for the heart-disease coursework.
-5. MediSync screenshots: dashboard, district map, doctor portal.
+Resolved: project roles, Gemini (left out), ANN wording, MediSync links/status/stack, case-study text.
+Still open: MediSync screenshots (dashboard, district map, doctor portal) and a new Ceylon Traveler screenshot without the Gemini AI section. Tracked as FILL markers in data/profile.json.
 
 ## Verification log
 

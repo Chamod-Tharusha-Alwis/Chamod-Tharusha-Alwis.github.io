@@ -117,7 +117,7 @@ h3 { font-size: 1.375rem; }
 .featured h3 { font-size: clamp(1.75rem, 1.4rem + 1.4vw, 2.25rem); margin: var(--s1) 0; }
 .meta { font-size: .875rem; color: var(--ink-2); }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--s2); margin: var(--s4) 0; padding: var(--s3) 0; border-block: 1px solid var(--line); }
-.stat b { display: block; font: 600 clamp(1.125rem, .9rem + 1vw, 1.625rem)/1.1 var(--font-display); }
+.stat b { display: block; white-space: nowrap; font: 600 clamp(1.125rem, .9rem + 1vw, 1.625rem)/1.1 var(--font-display); }
 .stat span { font-size: .8125rem; color: var(--ink-2); line-height: 1.35; display: block; margin-top: 4px; }
 .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--s4); }
 .text-link { font-weight: 600; color: var(--accent); text-underline-offset: 4px; }
@@ -130,7 +130,8 @@ h3 { font-size: 1.375rem; }
 @media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } }
 .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; display: flex; flex-direction: column; transition: transform .25s var(--ease), box-shadow .25s; }
 .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-lift); }
-.card img { aspect-ratio: 16/9; object-fit: cover; object-position: top; border-bottom: 1px solid var(--line); }
+.card img { width: 100%; height: auto; border-bottom: 1px solid var(--line); }
+.card .shot-ph { aspect-ratio: 2.2/1; }
 .card-body { padding: var(--s3); display: flex; flex-direction: column; gap: 12px; flex: 1; }
 .card p { color: var(--ink-2); font-size: .9375rem; }
 .card .actions { margin-top: auto; padding-top: var(--s1); }
@@ -229,3 +230,10 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 .shots figcaption { padding: 10px 14px; font-size: .875rem; color: var(--ink-2); border-top: 1px solid var(--line); }
 .prose .link-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin-top: 16px; }
 .not-found { min-height: 60vh; display: grid; place-content: center; text-align: center; gap: var(--s2); }
+
+.flush-top { padding-top: 0; }
+/* Without JS: hide controls that need it and show the nav links as a wrapping row. */
+html:not(.js) .menu-btn, html:not(.js) #theme { display: none; }
+html:not(.js) .nav .wrap { height: auto; min-height: 68px; flex-wrap: wrap; gap: 8px; padding-block: 10px; }
+html:not(.js) .nav-links { display: flex; flex-wrap: wrap; gap: 4px 16px; }
+@media (max-width: 400px) { .stat b { font-size: 1rem; } .stat span { font-size: .75rem; } .stats { gap: 12px; } }

@@ -1,10 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MediSync case study — Chamod Tharusha Alwis</title>
-<meta name="description" content="MediSync: AI-driven national healthcare platform for Sri Lanka. BSc (Hons) Data Science capstone (ongoing). React 19, Node.js/Express 5 and a Flask ML engine with Prophet outbreak forecasting and AES-256 field-level encryption.">
+<meta name="description" content="How I built MediSync: React 19, Express 5 and a Flask ML engine with outbreak forecasting and AES-256 encrypted patient records.">
 <link rel="canonical" href="https://chamod-tharusha-alwis.github.io/projects/medisync.html">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#FAF8F3" media="(prefers-color-scheme: light)">
@@ -12,16 +12,16 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Chamod Tharusha Alwis">
 <meta property="og:title" content="MediSync case study — Chamod Tharusha Alwis">
-<meta property="og:description" content="MediSync: AI-driven national healthcare platform for Sri Lanka. BSc (Hons) Data Science capstone (ongoing). React 19, Node.js/Express 5 and a Flask ML engine with Prophet outbreak forecasting and AES-256 field-level encryption.">
+<meta property="og:description" content="How I built MediSync: React 19, Express 5 and a Flask ML engine with outbreak forecasting and AES-256 encrypted patient records.">
 <meta property="og:url" content="https://chamod-tharusha-alwis.github.io/projects/medisync.html">
-<meta property="og:image" content="https://chamod-tharusha-alwis.github.io/assets/img/og-image.png">
+<meta property="og:image" content="https://chamod-tharusha-alwis.github.io/assets/img/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Chamod Tharusha Alwis — Full-stack developer building secure, data-driven web platforms">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="MediSync case study — Chamod Tharusha Alwis">
-<meta name="twitter:description" content="MediSync: AI-driven national healthcare platform for Sri Lanka. BSc (Hons) Data Science capstone (ongoing). React 19, Node.js/Express 5 and a Flask ML engine with Prophet outbreak forecasting and AES-256 field-level encryption.">
-<meta name="twitter:image" content="https://chamod-tharusha-alwis.github.io/assets/img/og-image.png">
+<meta name="twitter:description" content="How I built MediSync: React 19, Express 5 and a Flask ML engine with outbreak forecasting and AES-256 encrypted patient records.">
+<meta name="twitter:image" content="https://chamod-tharusha-alwis.github.io/assets/img/og-image.jpg">
 <link rel="icon" href="../favicon.ico" sizes="32x32">
 <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="../assets/img/apple-touch-icon.png">
@@ -37,7 +37,7 @@
   <div class="wrap">
     <a class="brand" href="../index.html" aria-label="Chamod Tharusha Alwis — home">Chamod<span>.</span></a>
     <nav aria-label="Primary">
-      <ul class="nav-links"><li><a href="../index.html#work">Work</a></li><li><a href="../index.html#about">About</a></li><li><a href="../index.html#skills">Skills</a></li><li><a href="../index.html#experience">Experience</a></li><li><a href="../index.html#contact">Contact</a></li><li><a class="btn btn-primary btn-sm" href="../Chamod_Tharusha_Alwis.pdf" download>Download CV</a></li></ul>
+      <ul class="nav-links"><li><a href="../index.html#work">Work</a></li><li><a href="../index.html#experience">Experience</a></li><li><a href="../index.html#skills">Skills</a></li><li><a href="../index.html#about">About</a></li><li><a href="../index.html#contact">Contact</a></li><li><a class="btn btn-primary btn-sm" href="../Chamod_Tharusha_Alwis.pdf" download>Download CV</a></li></ul>
     </nav>
     <div class="nav-tools">
       <button class="icon-btn" id="theme" type="button" aria-label="Switch theme"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg></button>
@@ -50,7 +50,7 @@
     <span class="brand" aria-hidden="true">Chamod<span>.</span></span>
     <button class="icon-btn" id="menu-close" type="button" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
   </div>
-  <ul><li><a href="../index.html#work">Work</a></li><li><a href="../index.html#about">About</a></li><li><a href="../index.html#skills">Skills</a></li><li><a href="../index.html#experience">Experience</a></li><li><a href="../index.html#contact">Contact</a></li></ul>
+  <ul><li><a href="../index.html#work">Work</a></li><li><a href="../index.html#experience">Experience</a></li><li><a href="../index.html#skills">Skills</a></li><li><a href="../index.html#about">About</a></li><li><a href="../index.html#contact">Contact</a></li></ul>
   <a class="btn btn-primary" href="../Chamod_Tharusha_Alwis.pdf" download>Download CV</a>
 </div>
 <main id="main">
@@ -64,7 +64,7 @@
     <div class="cs-shot"><!-- [[FILL: dashboard screenshot]] --><div class="shot-ph " role="img" aria-label="MediSync dashboard (screenshot coming soon)"><div><b>MediSync dashboard</b>Screenshot coming soon</div></div></div>
   </div>
   <div class="wrap cs-body">
-    <aside class="toc" aria-label="On this page"><nav><ol><li><a href="#overview">Overview</a></li><li><a href="#problem">Problem</a></li><li><a href="#role">My role</a></li><li><a href="#architecture">Architecture</a></li><li><a href="#features">Key features</a></li><li><a href="#decisions">Tech decisions</a></li><li><a href="#challenges">Challenges & what I learned</a></li><li><a href="#screenshots">Screenshots</a></li><li><a href="#links">Links</a></li></ol></nav></aside>
+    <aside class="toc"><nav aria-label="On this page"><ol><li><a href="#overview">Overview</a></li><li><a href="#problem">Problem</a></li><li><a href="#role">My role</a></li><li><a href="#architecture">Architecture</a></li><li><a href="#features">Key features</a></li><li><a href="#decisions">Tech decisions</a></li><li><a href="#challenges">Challenges &amp; what I learned</a></li><li><a href="#screenshots">Screenshots</a></li><li><a href="#links">Links</a></li></ol></nav></aside>
     <div class="prose">
       <section id="overview" aria-labelledby="overview-h"><h2 id="overview-h">Overview</h2><p>MediSync is my BSc (Hons) Data Science capstone: a national healthcare platform for Sri Lanka that I designed and built on my own. It connects patients, doctors, pharmacies, hospitals/labs and administrators, keeps medical records encrypted, and forecasts disease outbreaks by district.</p></section>
       <section id="problem" aria-labelledby="problem-h"><h2 id="problem-h">Problem</h2><p>Patients, doctors, pharmacies, hospitals and labs need to share medical records and prescriptions safely, and health officials need early warning when a disease starts to spread in a district.</p><p><strong>What I built.</strong> A three-service platform: a React 19 front end, a Node.js / Express 5 API and a Python Flask ML engine. Each role has its own portal, patient records sit behind encryption and OTP-based consent, and a public map shows outbreak risk for every district in Sri Lanka.</p></section>
@@ -89,7 +89,7 @@
     <text class="t" x="650" y="66" text-anchor="middle">ML engine</text><text class="s" x="650" y="88" text-anchor="middle">Python / Flask</text>
     <rect class="box" x="59" y="204" width="150" height="56" rx="10"/><text class="s" x="134" y="237" text-anchor="middle">MongoDB Atlas</text><rect class="box" x="223" y="204" width="150" height="56" rx="10"/><text class="s" x="298" y="237" text-anchor="middle">Redis</text><rect class="box" x="387" y="204" width="150" height="56" rx="10"/><text class="s" x="462" y="237" text-anchor="middle">HashiCorp Vault</text><rect class="box" x="551" y="204" width="150" height="56" rx="10"/><text class="s" x="626" y="237" text-anchor="middle">Cloudinary</text>
   </svg>
-  <figcaption>Three separately deployed services. The Flask ML engine can scale independently of the web API.</figcaption>
+  <figcaption>Three services. The Flask ML engine can scale and deploy independently of the web API.</figcaption>
 </figure></section>
       <section id="features" aria-labelledby="features-h"><h2 id="features-h">Key features</h2><ul><li>Outbreak forecasting with Prophet and ARIMA, plus z-score anomaly detection for unusual case spikes.</li><li>Public Sri Lanka district choropleth map built with Leaflet and GeoJSON.</li><li>AES-256 field-level encryption with blind indexes, keys in HashiCorp Vault, Redis, OTP-gated access to patient records and audit logs.</li><li>Separate portals for patients, doctors, pharmacies, hospitals/labs and admins.</li><li>Drug-interaction and allergy checks against 3,000 drugs, 191k+ interaction pairs and 71k+ ICD codes.</li><li>CI/CD with GitHub Actions, deployed on Vercel.</li></ul></section>
       <section id="decisions" aria-labelledby="decisions-h"><h2 id="decisions-h">Tech decisions</h2><ul><li>Split into three services (React 19 front end, Node.js/Express 5 API, Flask ML engine) so the Python forecasting work can scale and deploy independently of the web API.</li><li>Patient data is protected with AES-256 field-level encryption using an envelope-encryption flow. Keys are managed in HashiCorp Vault, and blind indexes let encrypted fields such as NIC numbers still be searched without decrypting them.</li><li>Outbreak detection combines Prophet forecasting with z-score anomaly detection, and the results appear on a public Sri Lanka district map built with Leaflet and GeoJSON.</li><li>Session tokens are kept in memory instead of localStorage to reduce XSS exposure, and patient records open only after an OTP check.</li></ul></section>
