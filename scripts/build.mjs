@@ -3,6 +3,21 @@
 // The generated files are committed. On Vercel, scripts/stage.mjs copies only the public files into dist/ (see vercel.json).
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
+import { createHash } from 'node:crypto';
+
+// ---------- cache-busting ----------
+// Every asset URL the build emits carries ?v=<content hash>, so vercel.json can cache /assets/ for a year:
+// when a file changes, its URL changes. Fonts are referenced from site.css, so their hashes are
+// stamped into the CSS url()s first (idempotent), and the CSS hash is taken after that.
+const hashOf = p => createHash('sha256').update(readFileSync(p)).digest('hex').slice(0, 10);
+const ver = p => `${p}?v=${hashOf(p)}`;
+{
+  const cssPath = 'assets/css/site.css';
+  const css = readFileSync(cssPath, 'utf8');
+  const stamped = css.replace(/url\((\.\.\/fonts\/[^)?]+\.woff2)(\?v=[0-9a-f]+)?\)/g,
+    (_, u) => `url(${u}?v=${hashOf('assets/fonts/' + u.split('/').pop())})`);
+  if (stamped !== css) { writeFileSync(cssPath, stamped); console.log('stamped font hashes into', cssPath); }
+}
 
 const d = JSON.parse(readFileSync('data/profile.json', 'utf8'));
 const b = d.basics;
@@ -54,23 +69,23 @@ function head({ title, description, path, base, extraHead = '', home = false }) 
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="${SITE}/assets/img/og-image.jpg">
+<meta property="og:image" content="${SITE}/${ver('assets/img/og-image.jpg')}">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="${esc(b.name)} — ${esc(b.headline)}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${esc(title)}">
 <meta name="twitter:description" content="${esc(description)}">
-<meta name="twitter:image" content="${SITE}/assets/img/og-image.jpg">
+<meta name="twitter:image" content="${SITE}/${ver('assets/img/og-image.jpg')}">
 <link rel="icon" href="${base}favicon.ico" sizes="32x32">
-<link rel="icon" href="${base}assets/img/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="${base}assets/img/apple-touch-icon.png">
-<link rel="preload" href="${base}assets/fonts/inter-normal-400-600-latin.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="${base}assets/fonts/fraunces-normal-600-latin.woff2" as="font" type="font/woff2" crossorigin>${home ? `
-<link rel="preload" href="${base}assets/fonts/fraunces-italic-400-latin.woff2" as="font" type="font/woff2" crossorigin>` : ''}
+<link rel="icon" href="${base}${ver('assets/img/favicon.svg')}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="${base}${ver('assets/img/apple-touch-icon.png')}">
+<link rel="preload" href="${base}${ver('assets/fonts/inter-normal-400-600-latin.woff2')}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="${base}${ver('assets/fonts/fraunces-normal-600-latin.woff2')}" as="font" type="font/woff2" crossorigin>${home ? `
+<link rel="preload" href="${base}${ver('assets/fonts/fraunces-italic-400-latin.woff2')}" as="font" type="font/woff2" crossorigin>` : ''}
 <script>try{var t=localStorage.getItem('theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}document.documentElement.classList.add('js')</script>
-<link rel="stylesheet" href="${base}assets/css/site.css">
-<script src="${base}assets/js/main.js" type="module"></script>
+<link rel="stylesheet" href="${base}${ver('assets/css/site.css')}">
+<script src="${base}${ver('assets/js/main.js')}" type="module"></script>
 ${extraHead}</head>`;
 }
 
@@ -122,17 +137,17 @@ function projectLinks(p, base, small = false) {
 
 const stats = s => `<dl class="stats">${s.map(x => `<div class="stat"><dt class="sr-only">${esc(x.label)}</dt><dd><b>${esc(x.value.replace(/ → /, '→'))}</b><span>${esc(x.label)}</span></dd></div>`).join('')}</dl>`;
 
-const srcset = (i, base = '') => i.srcset ? ` srcset="${i.srcset.map(([u, w]) => `${base}${u} ${w}w`).join(', ')}"`
-  : i.small ? ` srcset="${base}${i.small} 480w, ${base}${i.src} ${i.width}w"` : '';
+const srcset = (i, base = '') => i.srcset ? ` srcset="${i.srcset.map(([u, w]) => `${base}${ver(u)} ${w}w`).join(', ')}"`
+  : i.small ? ` srcset="${base}${ver(i.small)} 480w, ${base}${ver(i.src)} ${i.width}w"` : '';
 const img = (i, cls = '', sizes = '(min-width: 768px) 540px, 100vw') => FILL.test(i.src) ? placeholder(i, cls)
-  : `<img src="${i.src}"${srcset(i)}${srcset(i) ? ` sizes="${sizes}"` : ''} width="${i.width}" height="${i.height}" loading="lazy" decoding="async" alt="${esc(i.alt)}">`;
+  : `<img src="${ver(i.src)}"${srcset(i)}${srcset(i) ? ` sizes="${sizes}"` : ''} width="${i.width}" height="${i.height}" loading="lazy" decoding="async" alt="${esc(i.alt)}">`;
 
 // ---------- Home ----------
 function home() {
   const base = '';
   const h1 = esc(b.headline).replace(esc(b.headlineEmphasis), `<em>${esc(b.headlineEmphasis)}</em>`);
   const jsonld = {
-    '@context': 'https://schema.org', '@type': 'Person', name: b.name, url: SITE + '/', image: `${SITE}/${b.photo.src}`,
+    '@context': 'https://schema.org', '@type': 'Person', name: b.name, url: SITE + '/', image: `${SITE}/${ver(b.photo.src)}`,
     jobTitle: d.experience[0].role, email: `mailto:${b.email}`,
     worksFor: { '@type': 'Organization', name: d.experience[0].org },
     address: { '@type': 'PostalAddress', addressLocality: 'Kandy', addressCountry: 'LK' },
@@ -155,7 +170,7 @@ function home() {
     title: `${b.name} — Full-Stack Developer, Kandy`,
     description: `Full-stack developer in Kandy, Sri Lanka building secure, data-driven web apps with MERN, Python and Flask. Open to junior SE and data roles.`,
     path: '/', base, home: true,
-    extraHead: `<link rel="preload" as="image" href="${b.photo.src}" type="image/webp">\n<script type="application/ld+json">${JSON.stringify(jsonld)}</script>\n`,
+    extraHead: `<link rel="preload" as="image" href="${ver(b.photo.src)}" imagesrcset="${ver(b.photo.src)} 480w, ${ver(b.photo.src2x)} 720w" imagesizes="(min-width: 880px) 340px, 220px" type="image/webp">\n<script type="application/ld+json">${JSON.stringify(jsonld)}</script>\n`,
   }) + `
 <body>
 ${nav(base, true)}
@@ -179,7 +194,7 @@ ${nav(base, true)}
         </div>
       </div>
       <figure class="portrait">
-        <img src="${b.photo.src}" srcset="${b.photo.src} 480w, ${b.photo.src2x} 720w" sizes="(min-width: 880px) 340px, 220px" width="${b.photo.width}" height="${b.photo.height}" fetchpriority="high" alt="${esc(b.photo.alt)}">
+        <img src="${ver(b.photo.src)}" srcset="${ver(b.photo.src)} 480w, ${ver(b.photo.src2x)} 720w" sizes="(min-width: 880px) 340px, 220px" width="${b.photo.width}" height="${b.photo.height}" fetchpriority="high" alt="${esc(b.photo.alt)}">
         <figcaption><b>Now</b>SE intern · BSc Data Science</figcaption>
       </figure>
     </div>
@@ -297,7 +312,7 @@ function caseStudy(p) {
   const cs = p.caseStudy;
   const extraShots = p.images.slice(1);
   const sections = [['overview', 'Overview'], ['problem', 'Problem'], ['role', 'My role'], ['architecture', 'Architecture'], ['features', 'Key features'], ['decisions', 'Tech decisions'], ['challenges', 'Challenges & what I learned'], ...(extraShots.length ? [['screenshots', 'Screenshots']] : []), ['links', 'Links']];
-  const imgCS = (i, sizes, lazy = true) => FILL.test(i.src) ? placeholder(i) : `<img src="${base}${i.src}"${srcset(i, base)}${srcset(i, base) ? ` sizes="${sizes}"` : ''} width="${i.width}" height="${i.height}"${lazy ? ' loading="lazy"' : ''} decoding="async" alt="${esc(i.alt)}">`;
+  const imgCS = (i, sizes, lazy = true) => FILL.test(i.src) ? placeholder(i) : `<img src="${base}${ver(i.src)}"${srcset(i, base)}${srcset(i, base) ? ` sizes="${sizes}"` : ''} width="${i.width}" height="${i.height}"${lazy ? ' loading="lazy"' : ''} decoding="async" alt="${esc(i.alt)}">`;
   const linkItems = [
     isLink(p.links.live) ? `<li>${ext(p.links.live, 'Live site', 'btn btn-primary')}</li>` : '',
     isLink(p.links.repo) ? `<li>${ext(p.links.repo, 'Source code on GitHub', 'btn btn-ghost')}</li>` : '',

@@ -1,6 +1,6 @@
-@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/fraunces-normal-600-latin.woff2) format('woff2'); }
-@font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 400; font-display: swap; src: url(../fonts/fraunces-italic-400-latin.woff2) format('woff2'); }
-@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400 600; font-display: swap; src: url(../fonts/inter-normal-400-600-latin.woff2) format('woff2'); }
+@font-face { font-family: 'Fraunces'; font-style: normal; font-weight: 600; font-display: swap; src: url(../fonts/fraunces-normal-600-latin.woff2?v=170a928c70) format('woff2'); }
+@font-face { font-family: 'Fraunces'; font-style: italic; font-weight: 400; font-display: swap; src: url(../fonts/fraunces-italic-400-latin.woff2?v=f51349995e) format('woff2'); }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 400 600; font-display: swap; src: url(../fonts/inter-normal-400-600-latin.woff2?v=3100e775e8) format('woff2'); }
 /* Portfolio — Direction A "Engineer's Notebook". Tokens first; dark theme via prefers-color-scheme or [data-theme]. */
 :root {
   --bg: #FAF8F3; --surface: #FFFFFF; --surface-2: #F2EFE7;
@@ -242,5 +242,6 @@ html:not(.js) .nav-links { display: flex; flex-wrap: wrap; gap: 4px 16px; }
 .featured-media img { width: 100%; height: auto; }
 .featured-body .fb-text .chips { margin-top: var(--s3); }
 .featured-body .fb-facts .stats { margin-top: 0; }
-@media (min-width: 960px) { .featured-body { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--s6); align-items: start; } .featured-body .fb-facts .stats { border-top: 0; padding-top: 0; } }
+@media (min-width: 1200px) { .featured-body { display: grid; grid-template-columns: 1.2fr 1fr; gap: var(--s6); align-items: start; } .featured-body .fb-facts .stats { border-top: 0; padding-top: 0; } }
 .shots img { width: 100%; height: auto; }
+@media (max-width: 1199px) { .featured-body .fb-facts { margin-top: var(--s3); } }
