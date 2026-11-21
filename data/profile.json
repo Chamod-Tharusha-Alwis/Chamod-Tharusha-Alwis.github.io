@@ -230,16 +230,64 @@
       },
       "images": [
         {
-          "src": "[[FILL: dashboard screenshot]]",
-          "alt": "MediSync dashboard"
+          "src": "assets/img/medisync-landing-960.webp",
+          "srcset": [
+            [
+              "assets/img/medisync-landing-480.webp",
+              480
+            ],
+            [
+              "assets/img/medisync-landing-960.webp",
+              960
+            ],
+            [
+              "assets/img/medisync-landing-1440.webp",
+              1440
+            ]
+          ],
+          "width": 1440,
+          "height": 685,
+          "alt": "MediSync landing page with the headline “Coordinating care. Connecting teams.” and buttons to access the login portals or register as a patient"
         },
         {
-          "src": "[[FILL: district map screenshot]]",
-          "alt": "MediSync district outbreak risk map of Sri Lanka"
+          "src": "assets/img/medisync-public-health-960.webp",
+          "srcset": [
+            [
+              "assets/img/medisync-public-health-480.webp",
+              480
+            ],
+            [
+              "assets/img/medisync-public-health-960.webp",
+              960
+            ],
+            [
+              "assets/img/medisync-public-health-1440.webp",
+              1440
+            ]
+          ],
+          "width": 1440,
+          "height": 684,
+          "alt": "Public health page: epidemiological surveillance with case and alert counts, a district risk map of Sri Lanka and a disease frequency ranking"
         },
         {
-          "src": "[[FILL: doctor portal screenshot]]",
-          "alt": "MediSync doctor portal"
+          "src": "assets/img/medisync-doctor-portal-960.webp",
+          "srcset": [
+            [
+              "assets/img/medisync-doctor-portal-480.webp",
+              480
+            ],
+            [
+              "assets/img/medisync-doctor-portal-960.webp",
+              960
+            ],
+            [
+              "assets/img/medisync-doctor-portal-1440.webp",
+              1440
+            ]
+          ],
+          "width": 1440,
+          "height": 651,
+          "alt": "Doctor portal: dashboard with consultation, prescription, patient and follow-up counts and a Start New Consultation panel"
         }
       ],
       "verification": {

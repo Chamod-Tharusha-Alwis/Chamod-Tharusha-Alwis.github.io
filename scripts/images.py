@@ -8,5 +8,16 @@ for src, name, box in (('new.png', 'ayu-arana-care', None), ('ceylon-traveler2.p
     x = Image.open(L + src).convert('RGB')
     if box: x = x.crop(box)
     for w in (480, 960):
-        y = x.copy(); y.thumbnail((w, w)); y.save(f'{O}{name}-{w}.webp', quality=78)
+        y = x.copy(); y.thumbnail((w, w)); y.save(f'{O}{name}-{w}.webp', quality=78, method=6)
+        print(name, w, y.size)
+
+# MediSync screenshots (originals in assets/legacy/). Doctor portal: crop below y=862 removes the "commit fd71d33" line.
+for src, name, box in (('medisync-public-health.png', 'medisync-public-health', None),
+                       ('medisync-landing.png', 'medisync-landing', None),
+                       ('medisync-doctor-portal.png', 'medisync-doctor-portal', (0, 0, 1908, 862))):
+    x = Image.open(L + src).convert('RGB')
+    if box: x = x.crop(box)
+    for w in (480, 960, 1440):
+        y = x.resize((w, round(w * x.size[1] / x.size[0])), Image.LANCZOS)
+        y.save(f'{O}{name}-{w}.webp', quality=80, method=6)
         print(name, w, y.size)
