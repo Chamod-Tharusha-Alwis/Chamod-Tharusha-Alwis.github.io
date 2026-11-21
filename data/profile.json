@@ -230,26 +230,6 @@
       },
       "images": [
         {
-          "src": "assets/img/medisync-public-health-960.webp",
-          "srcset": [
-            [
-              "assets/img/medisync-public-health-480.webp",
-              480
-            ],
-            [
-              "assets/img/medisync-public-health-960.webp",
-              960
-            ],
-            [
-              "assets/img/medisync-public-health-1440.webp",
-              1440
-            ]
-          ],
-          "width": 1440,
-          "height": 684,
-          "alt": "MediSync public health page: epidemiological surveillance dashboard with case and alert counts, a Sri Lanka district risk map and a disease frequency ranking"
-        },
-        {
           "src": "assets/img/medisync-landing-960.webp",
           "srcset": [
             [
@@ -267,7 +247,27 @@
           ],
           "width": 1440,
           "height": 685,
-          "alt": "MediSync landing page with the headline “Coordinating care. Connecting teams.” and buttons to log in or register as a patient"
+          "alt": "MediSync landing page with the headline “Coordinating care. Connecting teams.” and buttons to access the login portals or register as a patient"
+        },
+        {
+          "src": "assets/img/medisync-public-health-960.webp",
+          "srcset": [
+            [
+              "assets/img/medisync-public-health-480.webp",
+              480
+            ],
+            [
+              "assets/img/medisync-public-health-960.webp",
+              960
+            ],
+            [
+              "assets/img/medisync-public-health-1440.webp",
+              1440
+            ]
+          ],
+          "width": 1440,
+          "height": 684,
+          "alt": "Public health page: epidemiological surveillance with case and alert counts, a district risk map of Sri Lanka and a disease frequency ranking"
         },
         {
           "src": "assets/img/medisync-doctor-portal-960.webp",
@@ -287,7 +287,7 @@
           ],
           "width": 1440,
           "height": 651,
-          "alt": "MediSync doctor portal dashboard showing consultation, prescription, patient and follow-up counts and a Start New Consultation panel"
+          "alt": "Doctor portal: dashboard with consultation, prescription, patient and follow-up counts and a Start New Consultation panel"
         }
       ],
       "verification": {

@@ -12,3 +12,18 @@ medisync desktop 100 | 100 | 100 | 100 | LCP 0.4 s | CLS 0
 axe-core 4.10.2: 0 violations on / and /projects/medisync.html in light and dark.
 html-validate: exit 0 on all pages. No horizontal scroll at 390 / 1440. All MediSync images load (checked `complete && naturalWidth > 0`).
 No `[[FILL` markers remain in the site, data or content files.
+
+## Update: landing page is the main image (PR #4 review change)
+
+Order is now: landing page → home featured card + case-study hero; public health page → first in the case-study Screenshots section; doctor portal → second. Alt text rewritten for each position (the Screenshots captions use the same text). Sizes, width/height and srcset unchanged.
+
+```
+html-validate (all pages): exit 0
+home mobile      99 | 100 | 100 | 100 | LCP 2.3 s | CLS 0
+home desktop    100 | 100 | 100 | 100 | LCP 0.5 s | CLS 0
+medisync mobile 100 | 100 | 100 | 100 | LCP 1.8 s | CLS 0
+medisync desktop 100 | 100 | 100 | 100 | LCP 0.4 s | CLS 0
+axe: 0 violations on / and /projects/medisync.html, light and dark
+scrollWidth = viewport at 390 and 1440 on both pages; all images load
+```
+Screenshots: `qa/screenshots/v4/home-featured-card-1440.png`, `home-featured-card-390.png`, `medisync-screenshots-section-1440.png`.
