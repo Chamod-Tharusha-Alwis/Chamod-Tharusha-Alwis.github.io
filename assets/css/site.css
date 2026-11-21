@@ -225,7 +225,7 @@ footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; g
 .arch .ln { stroke: var(--ink-2); stroke-width: 1.5; fill: none; }
 .arch figcaption { font-size: .875rem; color: var(--ink-2); margin-top: 10px; }
 .shots { display: grid; gap: var(--s3); }
-@media (min-width: 768px) { .shots { grid-template-columns: 1fr 1fr; } }
+/* One screenshot per row at the text-column width: dense UI shots need the room. */
 .shots figure { border: 1px solid var(--line); border-radius: var(--r); overflow: hidden; background: var(--surface); }
 .shots figcaption { padding: 10px 14px; font-size: .875rem; color: var(--ink-2); border-top: 1px solid var(--line); }
 .prose .link-list { display: flex; flex-wrap: wrap; gap: 10px; list-style: none; padding: 0; margin-top: 16px; }

@@ -331,7 +331,7 @@ ${nav(base, false)}
       <section id="features" aria-labelledby="features-h"><h2 id="features-h">Key features</h2><ul>${p.highlights.map(x => `<li>${esc(x)}</li>`).join('')}</ul></section>
       <section id="decisions" aria-labelledby="decisions-h"><h2 id="decisions-h">Tech decisions</h2><ul>${cs.techDecisions.map(x => `<li>${esc(x)}</li>`).join('')}</ul></section>
       <section id="challenges" aria-labelledby="challenges-h"><h2 id="challenges-h">Challenges &amp; what I learned</h2><ul>${cs.challenges.map(x => `<li>${esc(x)}</li>`).join('')}</ul></section>
-      ${extraShots.length ? `<section id="screenshots" aria-labelledby="screenshots-h"><h2 id="screenshots-h">Screenshots</h2><div class="shots">${extraShots.map(i => `<figure>${imgCS(i, '(min-width: 768px) 420px, 100vw')}<figcaption>${esc(i.alt)}</figcaption></figure>`).join('')}</div></section>` : ''}
+      ${extraShots.length ? `<section id="screenshots" aria-labelledby="screenshots-h"><h2 id="screenshots-h">Screenshots</h2><div class="shots">${extraShots.map(i => `<figure>${imgCS(i, '(min-width: 1024px) 710px, (min-width: 768px) 680px, calc(100vw - 32px)')}<figcaption>${esc(i.alt)}</figcaption></figure>`).join('')}</div></section>` : ''}
       <section id="links" aria-labelledby="links-h"><h2 id="links-h">Links</h2><p>Stack: ${p.stack.map(esc).join(' · ')}</p><ul class="link-list">${linkItems}</ul>${others ? `<p class="more">More case studies:</p><ul>${others}</ul>` : ''}</section>
     </div>
   </div>
