@@ -49,7 +49,7 @@ const ICON = {
   download: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3v12m0 0 5-5m-5 5-5-5M4 21h16"/></svg>',
 };
 
-const CV_FILE = 'Chamod_Tharusha_Alwis.pdf';
+const CV_FILE = 'Chamod_Tharusha_Alwis_CV_Nov2026.pdf'; // the old Chamod_Tharusha_Alwis.pdf stays in the repo, unlinked
 
 function head({ title, description, path, base, extraHead = '', home = false }) {
   const url = SITE + path;
@@ -91,7 +91,7 @@ ${extraHead}</head>`;
 
 function nav(base, home) {
   const h = home ? '' : `${base}index.html`;
-  const links = [['work', 'Work'], ['experience', 'Experience'], ['skills', 'Skills'], ['about', 'About'], ['contact', 'Contact']];
+  const links = [['work', 'Work'], ['experience', 'Experience'], ['skills', 'Skills'], ['certifications', 'Certifications'], ['about', 'About'], ['contact', 'Contact']];
   const li = links.map(([id, t]) => `<li><a href="${h}#${id}">${t}</a></li>`).join('');
   return `<a class="skip" href="#main">Skip to content</a>
 <header class="nav" id="top">
@@ -135,7 +135,7 @@ function projectLinks(p, base, small = false) {
   return parts.length ? `<div class="actions">${parts.join('\n')}</div>` : '';
 }
 
-const stats = s => `<dl class="stats">${s.map(x => `<div class="stat"><dt class="sr-only">${esc(x.label)}</dt><dd><b>${esc(x.value.replace(/ → /, '→'))}</b><span>${esc(x.label)}</span></dd></div>`).join('')}</dl>`;
+const stats = s => `<dl class="stats">${s.map(x => `<div class="stat"><dt>${esc(x.label)}</dt><dd>${esc(x.value.replace(/ → /, '→'))}</dd></div>`).join('')}</dl>`;
 
 const srcset = (i, base = '') => i.srcset ? ` srcset="${i.srcset.map(([u, w]) => `${base}${ver(u)} ${w}w`).join(', ')}"`
   : i.small ? ` srcset="${base}${ver(i.small)} 480w, ${base}${ver(i.src)} ${i.width}w"` : '';
@@ -148,8 +148,7 @@ function home() {
   const h1 = esc(b.headline).replace(esc(b.headlineEmphasis), `<em>${esc(b.headlineEmphasis)}</em>`);
   const jsonld = {
     '@context': 'https://schema.org', '@type': 'Person', name: b.name, url: SITE + '/', image: `${SITE}/${ver(b.photo.src)}`,
-    jobTitle: d.experience[0].role, email: `mailto:${b.email}`,
-    worksFor: { '@type': 'Organization', name: d.experience[0].org },
+    jobTitle: 'Full-Stack Developer', email: `mailto:${b.email}`,
     address: { '@type': 'PostalAddress', addressLocality: 'Kandy', addressCountry: 'LK' },
     alumniOf: d.education.map(e => ({ '@type': 'EducationalOrganization', name: e.org })),
     sameAs: [b.links.github, b.links.linkedin],
@@ -195,7 +194,7 @@ ${nav(base, true)}
       </div>
       <figure class="portrait">
         <img src="${ver(b.photo.src)}" srcset="${ver(b.photo.src)} 480w, ${ver(b.photo.src2x)} 720w" sizes="(min-width: 880px) 340px, 220px" width="${b.photo.width}" height="${b.photo.height}" fetchpriority="high" alt="${esc(b.photo.alt)}">
-        <figcaption><b>Now</b>SE intern · BSc Data Science</figcaption>
+        <figcaption><b>${esc(b.heroBadge.label)}</b>${esc(b.heroBadge.text)}</figcaption>
       </figure>
     </div>
   </section>
@@ -249,6 +248,21 @@ ${nav(base, true)}
       <div class="skills">
         ${d.skills.map((g, i) => `<div class="skill-group"><h3 id="sk-${i}">${esc(g.group)}</h3>${chips(g.items, `sk-${i}`)}</div>`).join('\n        ')}
       </div>
+    </div>
+  </section>
+
+  <section id="certifications" aria-labelledby="certs-h">
+    <div class="wrap">
+      <p class="eyebrow">Certifications</p>
+      <h2 id="certs-h">Recent certifications</h2>
+      <ul class="certs">
+        ${d.certifications.map((c, i) => `<li class="cert reveal">
+          <h3 id="cert-${i}">${esc(c.title)}</h3>
+          <p class="meta">${esc(c.issuer)} · ${ym(c.date.slice(0, 7))}</p>
+          <p class="cert-skills"><span class="sr-only">Skills covered: </span>${c.skills.map(esc).join(' · ')}</p>
+          <a class="text-link" href="${esc(c.url)}" target="_blank" rel="noopener">View credential<span class="sr-only"> for ${esc(c.title)} (opens in new tab)</span> <span aria-hidden="true">↗</span></a>
+        </li>`).join('\n        ')}
+      </ul>
     </div>
   </section>
 
@@ -402,6 +416,9 @@ function cvHtml() {
     ${cvProjects.map(p => `<div class="item"><div class="row"><h3>${esc(p.name)} <span class="tag">— ${esc(p.tagline)}</span></h3><span class="when">${[isLink(p.links.live) ? `<a href="${p.links.live}">Live</a>` : '', isLink(p.links.repo) ? `<a href="${p.links.repo}">Code</a>` : ''].filter(Boolean).join(' · ')}</span></div>
     <p class="sub">${esc(p.cvRole || p.role)} · ${esc(p.stack.slice(0, p.cvStackCount || 6).join(', '))}</p><ul>${p.cvBullets.map(x => `<li>${esc(x)}</li>`).join('')}</ul></div>`).join('\n    ')}
   </section>
+  <section><h2>Certifications</h2>
+    <ul class="certs">${d.certifications.map(c => `<li><a href="${esc(c.url)}">${esc(c.title)}</a> <span class="sub">— ${esc(c.issuer)}, ${ym(c.date.slice(0, 7))}</span></li>`).join('')}</ul>
+  </section>
   <section><h2>Technical Skills</h2>
     <dl class="skills">${(d.cvSkills || d.skills).map(g => `<div><dt>${esc(g.group)}:</dt> <dd>${esc(g.items.join(', '))}</dd></div>`).join('')}</dl>
   </section>
@@ -428,6 +445,7 @@ function cvAts() {
     if (isLink(p.links.repo)) L.push(`Code: ${p.links.repo}`);
     p.cvBullets.forEach(x => L.push(`- ${x}`)); L.push('');
   });
+  L.push('CERTIFICATIONS'); d.certifications.forEach(c => L.push(`${c.title} - ${c.issuer}, ${ym(c.date.slice(0, 7))} - ${c.url}`)); L.push('');
   L.push('TECHNICAL SKILLS'); (d.cvSkills || d.skills).forEach(g => L.push(`${g.group}: ${g.items.join(', ')}`)); L.push('');
   L.push('EDUCATION'); d.education.forEach(e => L.push(`${e.degree} | ${e.org}${e.awarding ? ` - ${e.awarding}` : ''} | ${range(e.start, e.end).replace('–', '-')}`));
   return L.join('\n').replace(/[–—]/g, '-').replace(/→/g, '->') + '\n';

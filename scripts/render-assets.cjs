@@ -71,8 +71,8 @@ function pngToIco(png) {
     await cv.goto(`${base}/cv/cv.html`, { waitUntil: 'networkidle' });
     await cv.evaluate(() => document.fonts.ready);
     await cv.emulateMedia({ media: 'print' });
-    await cv.pdf({ path: path.join(ROOT, 'Chamod_Tharusha_Alwis.pdf'), format: 'A4', printBackground: true, preferCSSPageSize: true, tagged: true, outline: false });
-    console.log('wrote Chamod_Tharusha_Alwis.pdf');
+    await cv.pdf({ path: path.join(ROOT, 'Chamod_Tharusha_Alwis_CV_Nov2026.pdf'), format: 'A4', printBackground: true, preferCSSPageSize: true, tagged: true, outline: false });
+    console.log('wrote Chamod_Tharusha_Alwis_CV_Nov2026.pdf');
   } finally {
     await browser.close();
     server.close();

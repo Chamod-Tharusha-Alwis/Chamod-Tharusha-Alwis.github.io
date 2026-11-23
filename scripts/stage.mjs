@@ -16,7 +16,7 @@ const PUBLIC = [
   'assets/fonts',
   'assets/img',
   'favicon.ico',
-  'Chamod_Tharusha_Alwis.pdf',
+  'Chamod_Tharusha_Alwis_CV_Nov2026.pdf', // current CV; the old Chamod_Tharusha_Alwis.pdf is not deployed (vercel.json redirects its URL here)
   'sitemap.xml',
   'robots.txt',
 ];
