@@ -17,7 +17,7 @@ Edit freely — mark changes inline or reply with numbered notes.
 > **Chamod Tharusha Alwis**
 > Full-stack developer building secure, data-driven web platforms
 >
-> Software engineering intern at Shield Technologies and BSc Data Science student. I build MERN apps and the Python services behind them.
+> Full-stack developer and BSc Data Science student who builds MERN apps and the Python services behind them.
 >
 > Kandy, Sri Lanka · ● Open to Junior SE, Full-Stack and Data roles
 >
@@ -25,9 +25,9 @@ Edit freely — mark changes inline or reply with numbered notes.
 
 ## About
 
-I'm a software developer from Kandy, Sri Lanka. Right now I'm a software engineering intern at Shield Technologies, where I build features for MERN applications and help turn prototypes into production code.
+I'm a software developer from Kandy, Sri Lanka. From January to June 2026 I was a software engineering intern at Shield Technologies, where I built features for MERN applications and helped turn prototypes into production code.
 
-I'm also studying for a BSc (Hons) in Data Science with London Metropolitan University. My capstone, MediSync, is where the two meet: a healthcare platform with a Node.js API, a React front end and a Python service that forecasts disease outbreaks.
+I'm studying for a BSc (Hons) in Data Science with London Metropolitan University. My capstone, MediSync, is where the two meet: a healthcare platform with a Node.js API, a React front end and a Python service that forecasts disease outbreaks.
 
 I like work that has to be correct and secure, not just look good: access control, encrypted records, clean APIs and data you can trust.
 
@@ -105,10 +105,10 @@ As a group we trained and compared Random Forest, SVM and Logistic Regression mo
 
 ## Experience & education (site timeline + CV)
 
-**Software Engineering Intern & Full-Stack Developer** — Shield Technologies (Private) Limited, Kandy · Jan 2026 – Present
-- Build full-stack features with MongoDB, Express, React and Node.js in an Agile R&D team.
-- Design RESTful APIs with senior engineers and optimise database queries.
-- Turn research prototypes into maintainable, production-ready code.
+**Software Engineering Intern & Full-Stack Developer** — Shield Technologies (Private) Limited, Kandy · Jan 2026 – Jun 2026
+- Built full-stack features with MongoDB, Express, React and Node.js in an Agile R&D team.
+- Designed RESTful APIs with senior engineers and optimised database queries.
+- Turned research prototypes into maintainable, production-ready code.
 
 **BSc (Hons) Data Science (Top-Up)** — ESOFT Metro Campus, Kandy — London Metropolitan University (UK) · 2026 – Present
 **Diploma in Full Stack Development** — Nextgen Campus · 2025 – 2026
@@ -138,7 +138,7 @@ Software Engineer · Full-Stack Developer · Data Science
 chamodtharusha13@gmail.com · 0772600303 · Kandy, Sri Lanka · linkedin.com/in/chamod-alwis · github.com/Chamod-Tharusha-Alwis · www.chamodtharusha.com.lk
 
 **Summary**
-Software engineering intern at Shield Technologies, building MERN features in an Agile R&D team, and BSc (Hons) Data Science student. I built MediSync, a three-service healthcare platform with Prophet and ARIMA outbreak forecasting and AES-256 field-level encryption. Looking for a junior software engineer, full-stack or data science role.
+Full-stack developer and BSc (Hons) Data Science student with six months of industry internship experience building MERN applications in an Agile R&D team. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting. Seeking Junior Software Engineer and Full-Stack Developer roles.
 
 **Experience** — as above.
 
@@ -218,3 +218,16 @@ Sources used: Ayu Arana Care — team project, you were backend developer + supp
 **Challenges & what I learned**
 - Fitting three different kinds of booking into one MongoDB schema without making the data hard to query.
 - Building it solo meant owning every layer, from the database schema to the React front end.
+
+---
+
+## November 2026 update
+
+- Internship at Shield Technologies completed: **Jan 2026 – Jun 2026**; all wording now past tense.
+- Hero sub-line, hero badge ("Now · BSc Data Science · Open to Junior SE roles"), CV summary updated as supplied by Chamod.
+- New Certifications (LinkedIn Learning, 23 Nov 2026), details copied from the certificate PDFs:
+  - Building RESTful APIs with Node.js and Express — skills: Express.js, REST APIs, Node.js — https://www.linkedin.com/learning/certificates/b72a1767ef509ae549c46f05bcd51171a294952add5c0a7bcd4e98e0f71b4921
+  - Docker: Your First Project — skills: Docker Products — https://www.linkedin.com/learning/certificates/2f731a976695c8ffdbee71a850075732c18b57ee166fb5352caf7b1ff56b1d68
+  - Software Architecture: Patterns for Developers — skills: Software Design Patterns, Software Architectural Design — https://www.linkedin.com/learning/certificates/5a0742b0b20b35e55429399c47d0307da731f5509f21e0bc2f121c383d9af637
+- Docker added to Databases & Cloud.
+- New CV file: `Chamod_Tharusha_Alwis_CV_Nov2026.pdf` (old `Chamod_Tharusha_Alwis.pdf` kept in the repo, unlinked; its URL redirects to the new file on Vercel).

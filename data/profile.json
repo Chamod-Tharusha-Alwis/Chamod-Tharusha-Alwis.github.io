@@ -1,8 +1,8 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-21",
+    "lastUpdated": "2026-11-23",
     "version": 1,
-    "notes": "Single source of truth for the website and the CV. Strings containing FILL markers are waiting on Chamod and must not ship. phoneOnWebsite=false: the phone number appears on the CV only, never on the website (owner decision).",
+    "notes": "Single source of truth for the website and the CV. Strings containing FILL markers are waiting on Chamod and must not ship. phoneOnWebsite=false: the phone number appears on the CV only, never on the website (owner decision). certifications: titles, dates, IDs and skills copied from the LinkedIn Learning certificate PDFs (23 Nov 2026).",
     "decisions": {
       "design": "A · Engineer's Notebook, light by default with dark toggle",
       "geminiFeature": "left out (disabled for now)",
@@ -13,12 +13,12 @@
     "name": "Chamod Tharusha Alwis",
     "fullName": "N W K A Chamod Tharusha Alwis",
     "headline": "Full-stack developer building secure, data-driven web platforms",
-    "heroSub": "Software engineering intern at Shield Technologies and BSc Data Science student. I build MERN apps and the Python services behind them.",
+    "heroSub": "Full-stack developer and BSc Data Science student who builds MERN apps and the Python services behind them.",
     "cvTitle": "Software Engineer · Full-Stack Developer · Data Science",
-    "summary": "Software engineering intern at Shield Technologies, building MERN features in an Agile R&D team, and BSc (Hons) Data Science student. I built MediSync, a three-service healthcare platform with Prophet and ARIMA outbreak forecasting and AES-256 field-level encryption. Looking for a junior software engineer, full-stack or data science role.",
+    "summary": "Full-stack developer and BSc (Hons) Data Science student with six months of industry internship experience building MERN applications in an Agile R&D team. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting. Seeking Junior Software Engineer and Full-Stack Developer roles.",
     "about": [
-      "I'm a software developer from Kandy, Sri Lanka. Right now I'm a software engineering intern at Shield Technologies, where I build features for MERN applications and help turn prototypes into production code.",
-      "I'm also studying for a BSc (Hons) in Data Science with London Metropolitan University. My capstone, MediSync, is where the two meet: a healthcare platform with a Node.js API, a React front end and a Python service that forecasts disease outbreaks.",
+      "I'm a software developer from Kandy, Sri Lanka. From January to June 2026 I was a software engineering intern at Shield Technologies, where I built features for MERN applications and helped turn prototypes into production code.",
+      "I'm studying for a BSc (Hons) in Data Science with London Metropolitan University. My capstone, MediSync, is where the two meet: a healthcare platform with a Node.js API, a React front end and a Python service that forecasts disease outbreaks.",
       "I like work that has to be correct and secure, not just look good: access control, encrypted records, clean APIs and data you can trust."
     ],
     "location": "Kandy, Sri Lanka",
@@ -40,7 +40,11 @@
     "headlineEmphasis": "secure, data-driven",
     "contactBlurb": "Open to junior software engineer, full-stack and data roles. The quickest way to reach me is email.",
     "phoneOnWebsite": false,
-    "cvSummary": "Software engineering intern (MERN, Agile R&D) and BSc (Hons) Data Science student. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting."
+    "cvSummary": "Full-stack developer and BSc (Hons) Data Science student with six months of industry internship experience building MERN applications in an Agile R&D team. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting. Seeking Junior Software Engineer and Full-Stack Developer roles.",
+    "heroBadge": {
+      "label": "Now",
+      "text": "BSc Data Science · Open to Junior SE roles"
+    }
   },
   "experience": [
     {
@@ -48,11 +52,11 @@
       "org": "Shield Technologies (Private) Limited",
       "location": "Kandy, Sri Lanka",
       "start": "2026-01",
-      "end": null,
+      "end": "2026-06",
       "bullets": [
-        "Build full-stack features with MongoDB, Express, React and Node.js in an Agile R&D team.",
-        "Design RESTful APIs with senior engineers and optimise database queries.",
-        "Turn research prototypes into maintainable, production-ready code."
+        "Built full-stack features with MongoDB, Express, React and Node.js in an Agile R&D team.",
+        "Designed RESTful APIs with senior engineers and optimised database queries.",
+        "Turned research prototypes into maintainable, production-ready code."
       ]
     }
   ],
@@ -142,6 +146,7 @@
         "Redis",
         "HashiCorp Vault",
         "Cloudinary",
+        "Docker",
         "GitHub Actions CI/CD",
         "Vercel"
       ]
@@ -575,6 +580,7 @@
         "Redis",
         "HashiCorp Vault",
         "Cloudinary",
+        "Docker",
         "GitHub Actions CI/CD",
         "Vercel",
         "OOP",
@@ -585,6 +591,41 @@
         "AES-256 field-level encryption",
         "Secret rotation"
       ]
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Building RESTful APIs with Node.js and Express",
+      "issuer": "LinkedIn Learning",
+      "date": "2026-11-23",
+      "credentialId": "b72a1767ef509ae549c46f05bcd51171a294952add5c0a7bcd4e98e0f71b4921",
+      "skills": [
+        "Express.js",
+        "REST APIs",
+        "Node.js"
+      ],
+      "url": "https://www.linkedin.com/learning/certificates/b72a1767ef509ae549c46f05bcd51171a294952add5c0a7bcd4e98e0f71b4921"
+    },
+    {
+      "title": "Docker: Your First Project",
+      "issuer": "LinkedIn Learning",
+      "date": "2026-11-23",
+      "credentialId": "2f731a976695c8ffdbee71a850075732c18b57ee166fb5352caf7b1ff56b1d68",
+      "skills": [
+        "Docker Products"
+      ],
+      "url": "https://www.linkedin.com/learning/certificates/2f731a976695c8ffdbee71a850075732c18b57ee166fb5352caf7b1ff56b1d68"
+    },
+    {
+      "title": "Software Architecture: Patterns for Developers",
+      "issuer": "LinkedIn Learning",
+      "date": "2026-11-23",
+      "credentialId": "5a0742b0b20b35e55429399c47d0307da731f5509f21e0bc2f121c383d9af637",
+      "skills": [
+        "Software Design Patterns",
+        "Software Architectural Design"
+      ],
+      "url": "https://www.linkedin.com/learning/certificates/5a0742b0b20b35e55429399c47d0307da731f5509f21e0bc2f121c383d9af637"
     }
   ]
 }

@@ -4,13 +4,13 @@ chamodtharusha13@gmail.com | 0772600303 | Kandy, Sri Lanka
 linkedin.com/in/chamod-alwis | github.com/Chamod-Tharusha-Alwis | www.chamodtharusha.com.lk
 
 SUMMARY
-Software engineering intern (MERN, Agile R&D) and BSc (Hons) Data Science student. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting.
+Full-stack developer and BSc (Hons) Data Science student with six months of industry internship experience building MERN applications in an Agile R&D team. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting. Seeking Junior Software Engineer and Full-Stack Developer roles.
 
 EXPERIENCE
-Software Engineering Intern & Full-Stack Developer | Shield Technologies (Private) Limited, Kandy, Sri Lanka | Jan 2026 - Present
-- Build full-stack features with MongoDB, Express, React and Node.js in an Agile R&D team.
-- Design RESTful APIs with senior engineers and optimise database queries.
-- Turn research prototypes into maintainable, production-ready code.
+Software Engineering Intern & Full-Stack Developer | Shield Technologies (Private) Limited, Kandy, Sri Lanka | Jan 2026 - Jun 2026
+- Built full-stack features with MongoDB, Express, React and Node.js in an Agile R&D team.
+- Designed RESTful APIs with senior engineers and optimised database queries.
+- Turned research prototypes into maintainable, production-ready code.
 
 PROJECTS
 MediSync - AI-driven national healthcare platform for Sri Lanka
@@ -37,11 +37,16 @@ Live: https://ceylon-traveler.chamodtharusha.com.lk/
 Code: https://github.com/Chamod-Tharusha-Alwis/Ceylon-Traveler
 - Built a REST API in Node.js and Express for booking logic, availability checks and JWT authentication.
 
+CERTIFICATIONS
+Building RESTful APIs with Node.js and Express - LinkedIn Learning, Nov 2026 - https://www.linkedin.com/learning/certificates/b72a1767ef509ae549c46f05bcd51171a294952add5c0a7bcd4e98e0f71b4921
+Docker: Your First Project - LinkedIn Learning, Nov 2026 - https://www.linkedin.com/learning/certificates/2f731a976695c8ffdbee71a850075732c18b57ee166fb5352caf7b1ff56b1d68
+Software Architecture: Patterns for Developers - LinkedIn Learning, Nov 2026 - https://www.linkedin.com/learning/certificates/5a0742b0b20b35e55429399c47d0307da731f5509f21e0bc2f121c383d9af637
+
 TECHNICAL SKILLS
 Languages: JavaScript (ES6+), TypeScript, Python, Java, C#, C++, PHP, Dart
 Web: React 19, Vite, Tailwind CSS, HTML5, CSS3, Socket.IO client, Leaflet, Node.js, Express 5, Flask, FastAPI, REST APIs, JWT & RBAC, Nodemailer
 Data & ML: pandas, scikit-learn, Prophet, ARIMA, Z-score anomaly detection, Random Forest, SVM, Logistic Regression, ANN
-Databases, Cloud & Practices: MongoDB / Atlas, MySQL, Oracle, SQL Server, Firebase, Redis, HashiCorp Vault, Cloudinary, GitHub Actions CI/CD, Vercel, OOP, SDLC, Agile, Git, QA test-case design, AES-256 field-level encryption, Secret rotation
+Databases, Cloud & Practices: MongoDB / Atlas, MySQL, Oracle, SQL Server, Firebase, Redis, HashiCorp Vault, Cloudinary, Docker, GitHub Actions CI/CD, Vercel, OOP, SDLC, Agile, Git, QA test-case design, AES-256 field-level encryption, Secret rotation
 
 EDUCATION
 BSc (Hons) Data Science (Top-Up) | ESOFT Metro Campus, Kandy - London Metropolitan University (UK) | 2026 - Present
