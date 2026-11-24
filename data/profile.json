@@ -1,6 +1,6 @@
 {
   "meta": {
-    "lastUpdated": "2026-11-23",
+    "lastUpdated": "2026-11-24",
     "version": 1,
     "notes": "Single source of truth for the website and the CV. Strings containing FILL markers are waiting on Chamod and must not ship. phoneOnWebsite=false: the phone number appears on the CV only, never on the website (owner decision). certifications: titles, dates, IDs and skills copied from the LinkedIn Learning certificate PDFs (23 Nov 2026).",
     "decisions": {
@@ -15,7 +15,7 @@
     "headline": "Full-stack developer building secure, data-driven web platforms",
     "heroSub": "Full-stack developer and BSc Data Science student who builds MERN apps and the Python services behind them.",
     "cvTitle": "Software Engineer · Full-Stack Developer · Data Science",
-    "summary": "Full-stack developer and BSc (Hons) Data Science student with six months of industry internship experience building MERN applications in an Agile R&D team. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting. Seeking Junior Software Engineer and Full-Stack Developer roles.",
+    "summary": "Full-stack developer and BSc (Hons) Data Science student with six months of industry internship experience building MERN applications in an Agile R&D team. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting. Seeking Associate Software Engineer and Full-Stack Developer roles.",
     "about": [
       "I'm a software developer from Kandy, Sri Lanka. From January to June 2026 I was a software engineering intern at Shield Technologies, where I built features for MERN applications and helped turn prototypes into production code.",
       "I'm studying for a BSc (Hons) in Data Science with London Metropolitan University. My capstone, MediSync, is where the two meet: a healthcare platform with a Node.js API, a React front end and a Python service that forecasts disease outbreaks.",
@@ -29,7 +29,7 @@
       "linkedin": "https://www.linkedin.com/in/chamod-alwis",
       "site": "https://www.chamodtharusha.com.lk/"
     },
-    "availability": "Open to Junior SE, Full-Stack and Data roles",
+    "availability": "Open to Associate SE, Full-Stack and Data roles",
     "photo": {
       "src": "assets/img/profile-full-480.webp",
       "src2x": "assets/img/profile-full-720.webp",
@@ -38,19 +38,19 @@
       "alt": "Chamod Tharusha Alwis standing outdoors in a dark blazer"
     },
     "headlineEmphasis": "secure, data-driven",
-    "contactBlurb": "Open to junior software engineer, full-stack and data roles. The quickest way to reach me is email.",
+    "contactBlurb": "Open to Associate Software Engineer, Full-Stack Developer and Data roles. The quickest way to reach me is email.",
     "phoneOnWebsite": false,
-    "cvSummary": "Full-stack developer and BSc (Hons) Data Science student with six months of industry internship experience building MERN applications in an Agile R&D team. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting. Seeking Junior Software Engineer and Full-Stack Developer roles.",
+    "cvSummary": "Full-stack developer and BSc (Hons) Data Science student with six months of industry internship experience building MERN applications in an Agile R&D team. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting. Seeking Associate Software Engineer and Full-Stack Developer roles.",
     "heroBadge": {
       "label": "Now",
-      "text": "BSc Data Science · Open to Junior SE roles"
+      "text": "BSc Data Science · Open to Associate SE roles"
     }
   },
   "experience": [
     {
       "role": "Software Engineering Intern & Full-Stack Developer",
       "org": "Shield Technologies (Private) Limited",
-      "location": "Kandy, Sri Lanka",
+      "location": "Kandy, Sri Lanka (Hybrid)",
       "start": "2026-01",
       "end": "2026-06",
       "bullets": [
