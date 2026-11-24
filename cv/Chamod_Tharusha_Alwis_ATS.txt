@@ -4,10 +4,10 @@ chamodtharusha13@gmail.com | 0772600303 | Kandy, Sri Lanka
 linkedin.com/in/chamod-alwis | github.com/Chamod-Tharusha-Alwis | www.chamodtharusha.com.lk
 
 SUMMARY
-Full-stack developer and BSc (Hons) Data Science student with six months of industry internship experience building MERN applications in an Agile R&D team. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting. Seeking Junior Software Engineer and Full-Stack Developer roles.
+Full-stack developer and BSc (Hons) Data Science student with six months of industry internship experience building MERN applications in an Agile R&D team. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting. Seeking Associate Software Engineer and Full-Stack Developer roles.
 
 EXPERIENCE
-Software Engineering Intern & Full-Stack Developer | Shield Technologies (Private) Limited, Kandy, Sri Lanka | Jan 2026 - Jun 2026
+Software Engineering Intern & Full-Stack Developer | Shield Technologies (Private) Limited, Kandy, Sri Lanka (Hybrid) | Jan 2026 - Jun 2026
 - Built full-stack features with MongoDB, Express, React and Node.js in an Agile R&D team.
 - Designed RESTful APIs with senior engineers and optimised database queries.
 - Turned research prototypes into maintainable, production-ready code.

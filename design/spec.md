@@ -69,7 +69,7 @@ Both mocks use the approved copy from `data/profile.json` word for word. MediSyn
 | Sticky nav | Work · About · Skills · Experience · Contact · **Download CV** button. Shrinks after 8 px scroll |
 | Mobile menu (< 960 px) | Full-screen dialog, `aria-modal`, focus moves to Close, Tab is trapped, **Esc closes and returns focus** to the menu button |
 | Theme toggle (A only) | Defaults to system; choice saved to `localStorage` in try/catch; label says what it will switch to |
-| Status pill | Green dot + "Open to Junior SE, Full-Stack and Data roles" |
+| Status pill | Green dot + "Open to Associate SE, Full-Stack and Data roles" |
 | Button | Primary / ghost / small; min 44 px touch target (36 px for small in-card buttons) |
 | Chip | Skill/stack tags; plain text, no percentage bars |
 | Featured project card | Screenshot, meta line, title, summary, 3 stats (`<dl>`), stack chips, Case study / Live / Code |

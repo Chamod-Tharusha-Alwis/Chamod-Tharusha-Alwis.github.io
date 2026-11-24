@@ -19,7 +19,7 @@ Edit freely — mark changes inline or reply with numbered notes.
 >
 > Full-stack developer and BSc Data Science student who builds MERN apps and the Python services behind them.
 >
-> Kandy, Sri Lanka · ● Open to Junior SE, Full-Stack and Data roles
+> Kandy, Sri Lanka · ● Open to Associate SE, Full-Stack and Data roles
 >
 > [View my work] [Download CV] · GitHub · LinkedIn
 
@@ -125,7 +125,7 @@ As a group we trained and compared Random Forest, SVM and Logistic Regression mo
 
 ## Contact
 
-> Open to junior software engineer, full-stack and data roles. The quickest way to reach me is email.
+> Open to Associate Software Engineer, Full-Stack Developer and Data roles. The quickest way to reach me is email.
 >
 > chamodtharusha13@gmail.com [Copy] · LinkedIn · GitHub · Kandy, Sri Lanka
 
@@ -138,7 +138,7 @@ Software Engineer · Full-Stack Developer · Data Science
 chamodtharusha13@gmail.com · 0772600303 · Kandy, Sri Lanka · linkedin.com/in/chamod-alwis · github.com/Chamod-Tharusha-Alwis · www.chamodtharusha.com.lk
 
 **Summary**
-Full-stack developer and BSc (Hons) Data Science student with six months of industry internship experience building MERN applications in an Agile R&D team. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting. Seeking Junior Software Engineer and Full-Stack Developer roles.
+Full-stack developer and BSc (Hons) Data Science student with six months of industry internship experience building MERN applications in an Agile R&D team. Built MediSync, a secure three-service healthcare platform with ML outbreak forecasting. Seeking Associate Software Engineer and Full-Stack Developer roles.
 
 **Experience** — as above.
 
@@ -224,7 +224,7 @@ Sources used: Ayu Arana Care — team project, you were backend developer + supp
 ## November 2026 update
 
 - Internship at Shield Technologies completed: **Jan 2026 – Jun 2026**; all wording now past tense.
-- Hero sub-line, hero badge ("Now · BSc Data Science · Open to Junior SE roles"), CV summary updated as supplied by Chamod.
+- Hero sub-line, hero badge ("Now · BSc Data Science · Open to Associate SE roles"), CV summary updated as supplied by Chamod.
 - New Certifications (LinkedIn Learning, 23 Nov 2026), details copied from the certificate PDFs:
   - Building RESTful APIs with Node.js and Express — skills: Express.js, REST APIs, Node.js — https://www.linkedin.com/learning/certificates/b72a1767ef509ae549c46f05bcd51171a294952add5c0a7bcd4e98e0f71b4921
   - Docker: Your First Project — skills: Docker Products — https://www.linkedin.com/learning/certificates/2f731a976695c8ffdbee71a850075732c18b57ee166fb5352caf7b1ff56b1d68

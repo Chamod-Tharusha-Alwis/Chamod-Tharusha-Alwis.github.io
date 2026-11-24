@@ -167,7 +167,7 @@ function home() {
         </article>`;
   return head({
     title: `${b.name} — Full-Stack Developer, Kandy`,
-    description: `Full-stack developer in Kandy, Sri Lanka building secure, data-driven web apps with MERN, Python and Flask. Open to junior SE and data roles.`,
+    description: `Full-stack developer in Kandy, Sri Lanka building secure, data-driven web apps with MERN, Python and Flask. Open to Associate SE, Full-Stack and Data roles.`,
     path: '/', base, home: true,
     extraHead: `<link rel="preload" as="image" href="${ver(b.photo.src)}" imagesrcset="${ver(b.photo.src)} 480w, ${ver(b.photo.src2x)} 720w" imagesizes="(min-width: 880px) 340px, 220px" type="image/webp">\n<script type="application/ld+json">${JSON.stringify(jsonld)}</script>\n`,
   }) + `
@@ -233,7 +233,7 @@ ${nav(base, true)}
         ${d.experience.map(e => `<li class="reveal">
           <p class="when">${range(e.start, e.end)}</p>
           <h3>${esc(e.role)}</h3>
-          <p class="org">${esc(e.org)} · ${esc(e.location.split(',')[0])}</p>
+          <p class="org">${esc(e.org)} · ${esc(e.location)}</p>
           <ul>${e.bullets.map(x => `<li>${esc(x)}</li>`).join('')}</ul>
         </li>`).join('\n        ')}
         ${d.education.map(e => `<li class="edu reveal"><p class="when">${range(e.start, e.end)}</p><h3>${esc(e.degree)}</h3><p class="org">${esc(e.org)}${e.awarding ? ` — ${esc(e.awarding)}` : ''}</p></li>`).join('\n        ')}
